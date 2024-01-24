@@ -1,6 +1,6 @@
 ---
-title: Example Category
-description: A description of this category
+title: 歐洲旅遊
+description: 
 image:
 
 # Badge style
