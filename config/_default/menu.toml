@@ -1,0 +1,48 @@
+# Configure main menu and social menu
+# [[main]]
+# identifier = "home"
+# name = "Home"
+# url = "/"
+# [main.params]
+# icon = "home"
+# newtab = false
+
+[[social]]
+identifier = "github"
+name = "GitHub"
+url = "https://github.com/Miyaya"
+
+[social.params]
+icon = "brand-github"
+
+[[social]]
+identifier = "linkedin"
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/yi-hsuan-lee-9bb570132/"
+
+[social.params]
+icon = "brand-linkedin"
+
+[[social]]
+identifier = "instagram"
+name = "Instagram"
+url = "https://www.instagram.com/miyaya.journal/"
+
+[social.params]
+icon = "brand-instagram"
+
+[[social]]
+identifier = "youtube"
+name = "YouTube"
+url = "https://www.youtube.com/channel/UCjCgzu6YRe8LJiPBkbRkVAg"
+
+[social.params]
+icon = "brand-youtube"
+
+[[social]]
+identifier = "medium"
+name = "Medium"
+url = "https://miya850604.medium.com/"
+
+[social.params]
+icon = "brand-medium"
