@@ -1,0 +1,3676 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Miya's Blog</title><link>https://miyaya.github.io/</link><description>Recent content on Miya's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 09 May 2024 21:30:36 +0200</lastBuildDate><atom:link href="https://miyaya.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>我是如何拿到 Ubisoft 的實習</title><link>https://miyaya.github.io/p/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E6%8B%BF%E5%88%B0-ubisoft-%E7%9A%84%E5%AF%A6%E7%BF%92/</link><pubDate>Thu, 09 May 2024 21:30:36 +0200</pubDate><guid>https://miyaya.github.io/p/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E6%8B%BF%E5%88%B0-ubisoft-%E7%9A%84%E5%AF%A6%E7%BF%92/</guid><description>&lt;p>在 IP Paris 的研究所生活，有很重要的一環是實習，學分數佔了碩二的整整一半 (30ETC)。當初申請的時候，我看準了不需要寫論文加上會有六個月的實習，算是對學術研究不在行的我非常友善，也希望可以因此讓未來找正職工作時可以更順利。&lt;/p>
+&lt;p>我最後拿到的職位叫作 Rendering Programmer Assistant (算圖助理工程師?)，就是跟我本科完全符合，所以真的是非常開心能夠申請上！！因為過程跟準備的時候經歷了很多煎熬的 moment，因此希望寫下這篇文章可以幫助到需要的人 🥹🥹 未來可能也會寫一些申請 IPP 的過程以及在 IPP 的生活。&lt;/p>
+&lt;h2 id="如何申請">如何申請
+&lt;/h2>&lt;p>回歸正題，第一步是怎麼開始呢?
+我們其中一所學校 (Télécom Paris) 剛好 Ubisoft 有派 HR 跟校友來進行宣傳、介紹，說明在遊戲公司的生活、生涯，以及今年有開招的職缺是什麼。
+跟台灣的公司蠻類似的，雖然說會特別去一些不錯的學校招生，但工程師畢竟還是個講求公平實力的工作，投遞的連結是公開的，所以有興趣的話直接搜尋 #programmingday 加幾個關鍵字，應該都會有結果。&lt;/p>
+&lt;h3 id="開放職缺">開放職缺
+&lt;/h3>&lt;p>我猜他們是固定介紹五個職位，分別是&lt;/p>
+&lt;ul>
+&lt;li>寫 all generic functionalities 的 (core) programmer&lt;/li>
+&lt;li>寫 facilities 的 tools programmer&lt;/li>
+&lt;li>寫 graphics 的 3D programmer&lt;/li>
+&lt;li>寫遊戲邏輯的 gameplayer programmer&lt;/li>
+&lt;li>還有寫網路 features 的 online programmer&lt;/li>
+&lt;/ul>
+&lt;p>Ubisoft 來學校的時間是 9 月 13，programming day 定在 11 月底，當時的連結我記得已經可以投遞履歷了，最後申請時間好像是 10 月底，因此準備的時間也還算充足。在填寫申請表單的時候，會需要排序三個希望的順位。&lt;/p>
+&lt;p>為什麼我說是固定介紹呢？因為後來公司聯繫上我的時候，說我申請的 3D programmer 今年沒有開缺，他們也沒有因此跟我說我可以選我的第二順位 XD 不知道是已經招滿，還是我的程式跟履歷沒有很吸引他們。總之，我當時閃過好多個想法，其中一個是——該不會填順位也有心機吧！！只能說找工作真的有時候也是需要點運氣。&lt;/p>
+&lt;blockquote>
+&lt;p>註: 我後來跟來自同校的實習生聊天，發現他是有進 programming day，然後錄取之後才被告知沒有 3D 的缺。所以我的情況應該就是比較幸運，原本被丟掉的履歷被撿了回來 XD&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="programming-day">Programming Day
+&lt;/h3>&lt;p>在投遞履歷之後，會有一個考技術的線上測驗連結，依據申請的職缺會有不同的語言測試，如 C++, C# 等，我這兩個都做了。
+C++ 的內容蠻經典的，我自己準備的方向是把 &lt;a class="link" href="https://leetcode.com/studyplan/leetcode-75/" target="_blank" rel="noopener"
+>LeetCode 75&lt;/a> 做完，我覺得他有幾個優點:&lt;/p>
+&lt;ol>
+&lt;li>不會太多題，花一個多月就可以練完&lt;/li>
+&lt;li>覆蓋的內容比經典 DSA 更廣，包含一些冷門的類別&lt;/li>
+&lt;/ol>
+&lt;p>但如果想加強難度中～高的題目，比如說複雜的 DP、一些圖論的演算法，可能就要自己再去加強。我當初還有同時在面試其他公司，75 我覺得是一邊讀書、一邊準備、一邊慢慢開始面試的高 CP 選擇。接下來我有繼續練習 &lt;a class="link" href="https://leetcode.com/studyplan/top-interview-150/" target="_blank" rel="noopener"
+>Top Interview 150&lt;/a>，不過沒練幾題就拿到 offer 了。&lt;/p>
+&lt;p>根據我個人的經驗來說，DP、貪婪、基本的 graph (traversal 之類的) 演算法依然是經典，所以想找工作的人也可以往這個方向努力。&lt;/p>
+&lt;h2 id="面試流程">面試流程
+&lt;/h2>&lt;h3 id="hr">HR
+&lt;/h3>&lt;p>這一關蠻普通的 XD 全部都是很基本的問題，除了人資聽到我是台灣人之後說自己去過九份、很漂亮之外，其他都是照流程走的感覺: 一些行政問題、為什麼選這家公司、有沒有在玩遊戲、最喜歡什麼遊戲等。&lt;/p>
+&lt;p>我在網路上也是查到類似的問題，看來確實一般準備就夠了。&lt;/p>
+&lt;blockquote>
+&lt;p>註: 進了公司之後，發現全部的同事真的都超級、非常、無敵熱愛遊戲，無論是開發遊戲或是玩遊戲、甚至關心遊戲界的各種大小新聞。我在這方面常常跟不上大家的話題，因為我連一台 PC 都沒有，我頂多就是偶爾朋友來家裡玩的時候會打馬力歐派對 (當然我面試的時候不是這樣回答的囉，哈)
+總之，因此午餐時間的 chitchat 常常有點壓力 T_T&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="tech-interview">Tech Interview
+&lt;/h3>&lt;p>這關其實是我最抖的一關，面完的當下甚至我已經覺得生無可戀、未來黯淡無光，後來接到人資的電話，她問我面試的過程怎麼樣，我還得勉強塞起一個笑容然後說，「我覺得主管們人都很好，因為我知道我回答的很差，但他們都沒有失去耐心，還給我很多引導」，然後我不禁乾笑了幾聲，因為我回憶起那天的慘況，真的是欲哭無淚，我甚至面試完當天就都已經跟先生、我媽、我朋友說沒救了，然後放寬心的接受失敗，準備要去其他公司。
+然後人資居然就說「我們覺得妳的面試很不錯、很有潛力」(?????)，「希望妳可以加入我們」，我聽到的時候在房間裡無聲的跳來跳去，實在是做夢也想不到。&lt;/p>
+&lt;p>回到正題，當時面試的有兩個資深算圖工程師，其中一個是把我履歷撿回來的 aka 我開工後的直屬主管。他根據我的履歷問了很多相關的問題:&lt;/p>
+&lt;p>第一個問題是我&lt;strong>有什麼 rendering 相關的專案&lt;/strong>、&lt;strong>使用的語言&lt;/strong>是什麼、清不清楚 &lt;strong>rendering pipeline 是什麼&lt;/strong>。
+學校主要用 c++ 與 opengl，但我修的課沒有很深，因此都是一些很基本的作業型專案，有一個是要畫影子的，就問了一些如何算影子的演算法，就此我已經回答的很含糊。&lt;/p>
+&lt;p>第二個問題是假設現在要畫一面鏡子/湖的倒影，&lt;strong>如何畫出反射的效果&lt;/strong>。如果不使用光追 (ray-tracing)，可以怎麼做？這邊我腦袋一片空白，內心已經在哭泣。&lt;/p>
+&lt;p>第三個問題回到我的履歷，其中一個專案是用 marching cube 做 SPH 的模擬，就叫我&lt;strong>解釋 marching cube&lt;/strong>。&lt;/p>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;p>最後到了提問的環節。我看著自己準備的草稿，寫了一些針對團隊人數的分配、每天工作內容之類的問題，但我內心知道問這些都沒有用，因為我太好高騖遠了，我根本就不會上。灰心喪志到了極點的 me，畏畏縮縮的問了一句「我覺得我剛剛回答的很糟，請問你們有什麼建議我繼續進修的資源呢」，這句話可能有打動主管，他回了一句 good question，然後真的開始翻找有什麼好的學習資源。&lt;/p>
+&lt;h2 id="結論-心態">結論: 心態
+&lt;/h2>&lt;p>其實很難說到底是什麼部分讓我有辦法做這份實習，若真要分析，應該就是一些運氣、一些刷題、一些過去積累的經驗、還有不放棄跟不畏懼的心態。面試的過程大概可以感覺得出來順不順利、內容有沒有可能引起自己的興趣。就算沒有成功，也只是一時的，未來仍然有機會，如果繼續往前進，最終是會走到最適合的地方。&lt;/p>
+&lt;p>當時申請前很害怕法文不好、程式又不強的我會找不到心儀的實習，還問了很多同學說該怎麼做，但大家都是佛系的說跟著學校的資源找就好 XD 當時心想，學校哪有提供什麼資源！！沒想到參加了一場說明會就開啟了一扇門，因此想推薦給大家，手法依然可以積極：多修相關的課、架一個放作品集的網站、累積一些相關的專案經驗，但心態可以佛系一點。&lt;/p>
+&lt;p>如果這篇文章真的有些幫助的話，麻煩留個言讓我知道！謝謝 XD
+因為我偶爾才寫比較有用的文章，大部分都是自己的生活，真的有幫到人的話我會努力多寫一些 😂&lt;/p>
+&lt;h3 id="一些資源">一些資源
+&lt;/h3>&lt;p>我在實習開始前，回台灣耍廢了一個月，開工之後滿是後悔，因為能力有點跟不上，因此把當初主管貼給我的資源分享給大家，若對 rendering 有興趣，可以看看。我也一併把我當時的履歷放上來給大家見笑一下。&lt;/p>
+&lt;p>&lt;a class="link" href="https://catlikecoding.com/unity/tutorials/custom-srp/" target="_blank" rel="noopener"
+>Catlike coding: Unity Custom SRP&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://simonschreibt.de/gat/renderhell/" target="_blank" rel="noopener"
+>Render Hell by Simon&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="./CV-Miya-LEE-2023-EN.pdf" >CV-2023&lt;/a>&lt;/p></description></item><item><title>基本初級法文動詞變化一覽表</title><link>https://miyaya.github.io/p/%E5%9F%BA%E6%9C%AC%E5%88%9D%E7%B4%9A%E6%B3%95%E6%96%87%E5%8B%95%E8%A9%9E%E8%AE%8A%E5%8C%96%E4%B8%80%E8%A6%BD%E8%A1%A8/</link><pubDate>Wed, 31 Jan 2024 01:12:54 +0100</pubDate><guid>https://miyaya.github.io/p/%E5%9F%BA%E6%9C%AC%E5%88%9D%E7%B4%9A%E6%B3%95%E6%96%87%E5%8B%95%E8%A9%9E%E8%AE%8A%E5%8C%96%E4%B8%80%E8%A6%BD%E8%A1%A8/</guid><description>&lt;p>本文章收錄基本+初級的法文動詞變化，包含現在式 (présent)、複合過去式 (passé composé)、未完成式 (imparfait)、未來式 (futur)，以及比較進階的虛擬式 (subjonctif présent) 跟條件式 (conditionnel présent)。&lt;/p>
+&lt;h2 id="大致上動詞變化的規則">大致上動詞變化的規則
+&lt;/h2>&lt;p>大部分來說結尾有 r 發音的，要不是 futur、要不就是 conditionnel，因為 conditionnel 也是從 futur 的字首來的。而 imparfait 字首通常都不會是 r 結尾，然後 subjonctif 的字首結尾通常聽起來都很奇怪 😂 比如說很多 ss。&lt;/p>
+&lt;p>一些動詞在使用 passé composé 時需要使用助動詞 être 而非 avoir。這些動詞通常是表示移動、轉變和一些反身動詞。&lt;/p>
+&lt;details>
+&lt;summary>因為例子也不多，一共 17 個，啊有些還長很像，點三角形展開，可以全部記起來: &lt;/summary>
+&lt;ul>
+&lt;li>arriver&lt;/li>
+&lt;li>partir&lt;/li>
+&lt;li>rester&lt;/li>
+&lt;li>entrer&lt;/li>
+&lt;li>rentrer&lt;/li>
+&lt;li>sortir&lt;/li>
+&lt;li>aller&lt;/li>
+&lt;li>venir&lt;/li>
+&lt;li>devenir&lt;/li>
+&lt;li>revenir&lt;/li>
+&lt;li>monter&lt;/li>
+&lt;li>descendre&lt;/li>
+&lt;li>naître&lt;/li>
+&lt;li>mourir&lt;/li>
+&lt;li>tomber&lt;/li>
+&lt;li>retourner&lt;/li>
+&lt;li>passer&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;h2 id="規則變化動詞">規則變化動詞
+&lt;/h2>&lt;p>規則變化的動詞可以分成三類: -er/ -ir / -re。規則本身這邊就不多做討論了。&lt;/p>
+&lt;h3 id="動詞變化規則">動詞變化規則
+&lt;/h3>&lt;p>第一類以 &lt;code>aimer&lt;/code> 來當作例子，則變化如下。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>AIMER 喜歡&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>j&amp;rsquo;aime&lt;/td>
+&lt;td>j&amp;rsquo;ai aimé&lt;/td>
+&lt;td>j&amp;rsquo;aimais&lt;/td>
+&lt;td>j&amp;rsquo;aimerai&lt;/td>
+&lt;td>que j&amp;rsquo;aime&lt;/td>
+&lt;td>j&amp;rsquo;aimerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>tu aimes&lt;/td>
+&lt;td>tu as aimé&lt;/td>
+&lt;td>tu aimais&lt;/td>
+&lt;td>tu aimeras&lt;/td>
+&lt;td>que tu aimes&lt;/td>
+&lt;td>tu aimerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>il/elle/on aime&lt;/td>
+&lt;td>il/elle/on a aimé&lt;/td>
+&lt;td>il/elle/on aimait&lt;/td>
+&lt;td>il/elle/on aimera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on aime&lt;/td>
+&lt;td>il/elle/on aimerait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>nous aimons&lt;/td>
+&lt;td>nous avons aimé&lt;/td>
+&lt;td>nous aimions&lt;/td>
+&lt;td>nous aimerons&lt;/td>
+&lt;td>que nous aimions&lt;/td>
+&lt;td>nous aimerions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>vous aimez&lt;/td>
+&lt;td>vous avez aimé&lt;/td>
+&lt;td>vous aimiez&lt;/td>
+&lt;td>vous aimerez&lt;/td>
+&lt;td>que vous aimiez&lt;/td>
+&lt;td>vous aimeriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>ils/elles aiment&lt;/td>
+&lt;td>ils/elles ont aimé&lt;/td>
+&lt;td>ils/elles aimaient&lt;/td>
+&lt;td>ils/elles aimeront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles aiment&lt;/td>
+&lt;td>ils/elles aimeraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>第二類，舉例來說有 &lt;code>choisir&lt;/code>。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CHOISIR 選擇&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>je choisis&lt;/td>
+&lt;td>j&amp;rsquo;ai choisi&lt;/td>
+&lt;td>je choisissais&lt;/td>
+&lt;td>je choisirai&lt;/td>
+&lt;td>que je choisisse&lt;/td>
+&lt;td>je choisirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>tu choisis&lt;/td>
+&lt;td>tu as choisi&lt;/td>
+&lt;td>tu choisissais&lt;/td>
+&lt;td>tu choisiras&lt;/td>
+&lt;td>que tu choisisses&lt;/td>
+&lt;td>tu choisirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>il/elle/on choisit&lt;/td>
+&lt;td>il/elle/on a choisi&lt;/td>
+&lt;td>il/elle/on choisissait&lt;/td>
+&lt;td>il/elle/on choisira&lt;/td>
+&lt;td>que il/elle/on choisisse&lt;/td>
+&lt;td>il/elle/on choisirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>nous choisissons&lt;/td>
+&lt;td>nous avons choisi&lt;/td>
+&lt;td>nous choisissions&lt;/td>
+&lt;td>nous choisirons&lt;/td>
+&lt;td>que nous choisissions&lt;/td>
+&lt;td>nous choisirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>vous choisissez&lt;/td>
+&lt;td>vous avez choisi&lt;/td>
+&lt;td>vous choisissiez&lt;/td>
+&lt;td>vous choisirez&lt;/td>
+&lt;td>que vous choisissiez&lt;/td>
+&lt;td>vous choisiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>ils/elles choisissent&lt;/td>
+&lt;td>ils/elles ont choisi&lt;/td>
+&lt;td>ils/elles choisissaient&lt;/td>
+&lt;td>ils/elles choisiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles choisissent&lt;/td>
+&lt;td>ils/elles choisiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>第三類比較少見一點點，但也是很重要，如 &lt;code>descendre&lt;/code>。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>DESCENDRE 下降&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>je descends&lt;/td>
+&lt;td>j&amp;rsquo;ai descendu&lt;/td>
+&lt;td>je descendais&lt;/td>
+&lt;td>je descendrai&lt;/td>
+&lt;td>que je descende&lt;/td>
+&lt;td>je descendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>tu descends&lt;/td>
+&lt;td>tu as descendu&lt;/td>
+&lt;td>tu descendais&lt;/td>
+&lt;td>tu descendras&lt;/td>
+&lt;td>que tu descendes&lt;/td>
+&lt;td>tu descendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>il/elle/on descend&lt;/td>
+&lt;td>il/elle/on a descendu&lt;/td>
+&lt;td>il/elle/on descendait&lt;/td>
+&lt;td>il/elle/on descendra&lt;/td>
+&lt;td>que il/elle/on descende&lt;/td>
+&lt;td>il/elle/on descendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>nous descendons&lt;/td>
+&lt;td>nous avons descendu&lt;/td>
+&lt;td>nous descendions&lt;/td>
+&lt;td>nous descendrons&lt;/td>
+&lt;td>que nous descendions&lt;/td>
+&lt;td>nous descendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>vous descendez&lt;/td>
+&lt;td>vous avez descendu&lt;/td>
+&lt;td>vous descendiez&lt;/td>
+&lt;td>vous descendrez&lt;/td>
+&lt;td>que vous descendiez&lt;/td>
+&lt;td>vous descendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>ils/elles descendent&lt;/td>
+&lt;td>ils/elles ont descendu&lt;/td>
+&lt;td>ils/elles descendaient&lt;/td>
+&lt;td>ils/elles descendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles descendent&lt;/td>
+&lt;td>ils/elles descendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="包含的單字">包含的單字
+&lt;/h3>&lt;p>&lt;strong>基本&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>aimer, écouter, manger, nager(!), regarder&lt;/li>
+&lt;li>choisir, finir, réussir&lt;/li>
+&lt;li>descendre, entendre, perdre, vendre&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>初級&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>aider, ajouter, arriver, changer, demander, donner, enseigner, essaye(!), étudier, fermer, fumer, gagner, goûter, jouer, laver, monter, occuper, oublier, parler, payer, penser, pleurer, porter, raconter, remercier, rester, retourner, réveiller, tomber, travailler, visiter&lt;/li>
+&lt;li>obéir&lt;/li>
+&lt;li>沒有&lt;/li>
+&lt;/ol>
+&lt;p>這邊給兩個動詞打上了驚嘆號，因為他們在規則中還是帶一點發音上造成的拼寫變化。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>nager&lt;/code> 因為 g 碰上 a 會發嘎的音，所以再加上字尾前，要先卡一個 e。比如說 imparfait 第一人稱會是 je nag&lt;em>&lt;strong>e&lt;/strong>&lt;/em>ais。&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>同理 &lt;code>placer&lt;/code> 也是在 imparfait 的時候把 c 改成 ç 以維持跟 ce 相同的發音。&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;code>essayer&lt;/code> 則是有時候是 y 結尾、有時候是 ie 結尾，查了一下發現原來都可以，一個動詞原來還可以享有兩種拼法！！（坐下 s&amp;rsquo;assoir 也是）只能說：法文，I 服ㄌ U⋯⋯&lt;/p>
+&lt;/blockquote>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>essaie/ essaye&lt;/td>
+&lt;td>ai essayé&lt;/td>
+&lt;td>essayais&lt;/td>
+&lt;td>essaierai/ essayerai&lt;/td>
+&lt;td>que j&amp;rsquo;essaie/ essaye&lt;/td>
+&lt;td>essaierais/ essayerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>essaies/ essayes&lt;/td>
+&lt;td>as essayé&lt;/td>
+&lt;td>essayais&lt;/td>
+&lt;td>essaieras/ essayeras&lt;/td>
+&lt;td>que tu essaies/ essayes&lt;/td>
+&lt;td>essaierais/ essayerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>essaie/ essaye&lt;/td>
+&lt;td>a essayé&lt;/td>
+&lt;td>essayait&lt;/td>
+&lt;td>essaiera/ essayera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on essaie/ essaye&lt;/td>
+&lt;td>essaierait/ essayerait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>essayons/ essayons&lt;/td>
+&lt;td>avons essayé&lt;/td>
+&lt;td>essayions&lt;/td>
+&lt;td>essaierons/ essayerons&lt;/td>
+&lt;td>que nous essayions&lt;/td>
+&lt;td>essaierions/ essayerions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>essayez/ essayez&lt;/td>
+&lt;td>avez essayé&lt;/td>
+&lt;td>essayiez&lt;/td>
+&lt;td>essaierez/ essayerez&lt;/td>
+&lt;td>que vous essayiez&lt;/td>
+&lt;td>essaieriez/ essayeriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>essaient/ essayent&lt;/td>
+&lt;td>ont essayé&lt;/td>
+&lt;td>essayaient&lt;/td>
+&lt;td>essaieront/ essayeront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles essaient/ essayent&lt;/td>
+&lt;td>essaieraient/ essayeraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>再補充，雖說也有其他 -yer 結尾的單字，但就沒有這種兩種拼法的特權了。如 &lt;code>envoyer&lt;/code>, &lt;code>nottoyer&lt;/code>，然後他們也屬於不規則變化，跟上面的命運可說是完全不同！&lt;/p>
+&lt;h2 id="不規則變化動詞">不規則變化動詞
+&lt;/h2>&lt;h3 id="一定要會的-être-avoir">一定要會的 être, avoir
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ÊTRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>suis&lt;/td>
+&lt;td>ai été&lt;/td>
+&lt;td>étais&lt;/td>
+&lt;td>serai&lt;/td>
+&lt;td>que je sois&lt;/td>
+&lt;td>serais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>es&lt;/td>
+&lt;td>as été&lt;/td>
+&lt;td>étais&lt;/td>
+&lt;td>seras&lt;/td>
+&lt;td>que tu sois&lt;/td>
+&lt;td>serais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>est&lt;/td>
+&lt;td>a été&lt;/td>
+&lt;td>était&lt;/td>
+&lt;td>sera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on soit&lt;/td>
+&lt;td>serait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>sommes&lt;/td>
+&lt;td>avons été&lt;/td>
+&lt;td>étions&lt;/td>
+&lt;td>serons&lt;/td>
+&lt;td>que nous soyons&lt;/td>
+&lt;td>serions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>êtes&lt;/td>
+&lt;td>avez été&lt;/td>
+&lt;td>étiez&lt;/td>
+&lt;td>serez&lt;/td>
+&lt;td>que vous soyez&lt;/td>
+&lt;td>seriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>sont&lt;/td>
+&lt;td>ont été&lt;/td>
+&lt;td>étaient&lt;/td>
+&lt;td>seront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles soient&lt;/td>
+&lt;td>seraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>AVOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>ai&lt;/td>
+&lt;td>ai eu&lt;/td>
+&lt;td>avais&lt;/td>
+&lt;td>aurai&lt;/td>
+&lt;td>que j&amp;rsquo;aie&lt;/td>
+&lt;td>aurais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>as&lt;/td>
+&lt;td>as eu&lt;/td>
+&lt;td>avais&lt;/td>
+&lt;td>auras&lt;/td>
+&lt;td>que tu aies&lt;/td>
+&lt;td>aurais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>a&lt;/td>
+&lt;td>a eu&lt;/td>
+&lt;td>avait&lt;/td>
+&lt;td>aura&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on ait&lt;/td>
+&lt;td>aurait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>avons&lt;/td>
+&lt;td>avons eu&lt;/td>
+&lt;td>avions&lt;/td>
+&lt;td>aurons&lt;/td>
+&lt;td>que nous ayons&lt;/td>
+&lt;td>aurions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>avez&lt;/td>
+&lt;td>avez eu&lt;/td>
+&lt;td>aviez&lt;/td>
+&lt;td>aurez&lt;/td>
+&lt;td>que vous ayez&lt;/td>
+&lt;td>auriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>ont&lt;/td>
+&lt;td>ont eu&lt;/td>
+&lt;td>avaient&lt;/td>
+&lt;td>auront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles aient&lt;/td>
+&lt;td>auraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>這兩個動詞會最常用到，加上 plus-que-parfait 跟 futur antèrieur 也是從這兩個助動詞去變化，所以要好好記！&lt;/p>
+&lt;h3 id="原型動詞長相騙人的-aller-faire-venir-prendre-同場加映跟他們有點像的-dire-devenir-apprendre-se-souvenir">原型動詞長相騙人的 aller, faire, venir, prendre (同場加映跟他們有點像的 dire, devenir, apprendre, se souvenir)
+&lt;/h3>&lt;p>這邊收錄一些以為是 -er/ -ir/ -re 結尾的，但法文直接給你一個出奇不意，怎麼會這麼簡單呢。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ALLER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>vais&lt;/td>
+&lt;td>suis allé(e)&lt;/td>
+&lt;td>allais&lt;/td>
+&lt;td>irai&lt;/td>
+&lt;td>que j&amp;rsquo;aille&lt;/td>
+&lt;td>irais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>vas&lt;/td>
+&lt;td>es allé(e)&lt;/td>
+&lt;td>allais&lt;/td>
+&lt;td>iras&lt;/td>
+&lt;td>que tu ailles&lt;/td>
+&lt;td>irais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>va&lt;/td>
+&lt;td>est allé(e)&lt;/td>
+&lt;td>allait&lt;/td>
+&lt;td>ira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on aille&lt;/td>
+&lt;td>irait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>allons&lt;/td>
+&lt;td>sommes allé(e)s&lt;/td>
+&lt;td>allions&lt;/td>
+&lt;td>irons&lt;/td>
+&lt;td>que nous allions&lt;/td>
+&lt;td>irions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>allez&lt;/td>
+&lt;td>êtes allé(e)(s)&lt;/td>
+&lt;td>alliez&lt;/td>
+&lt;td>irez&lt;/td>
+&lt;td>que vous alliez&lt;/td>
+&lt;td>iriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>vont&lt;/td>
+&lt;td>sont allé(e)s&lt;/td>
+&lt;td>allaient&lt;/td>
+&lt;td>iront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles aillent&lt;/td>
+&lt;td>iraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>這個字的 subjonctif 我總會不小心跟 avoir 的搞混。後來我發現有個常用的句子，我常在影集裡面看到: &amp;ldquo;Il faut que j&amp;rsquo;y aille.&amp;quot;，意指「我要走了」、「我得走了」，有一個實際句子就比較不會弄錯。&lt;/p>
+&lt;hr>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>FAIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>fais&lt;/td>
+&lt;td>ai fait&lt;/td>
+&lt;td>faisais&lt;/td>
+&lt;td>ferai&lt;/td>
+&lt;td>que je fasse&lt;/td>
+&lt;td>ferais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>fais&lt;/td>
+&lt;td>as fait&lt;/td>
+&lt;td>faisais&lt;/td>
+&lt;td>feras&lt;/td>
+&lt;td>que tu fasses&lt;/td>
+&lt;td>ferais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>fait&lt;/td>
+&lt;td>a fait&lt;/td>
+&lt;td>faisait&lt;/td>
+&lt;td>fera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on fasse&lt;/td>
+&lt;td>ferait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>faisons&lt;/td>
+&lt;td>avons fait&lt;/td>
+&lt;td>faisions&lt;/td>
+&lt;td>ferons&lt;/td>
+&lt;td>que nous fassions&lt;/td>
+&lt;td>ferions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>&lt;em>&lt;strong>faites&lt;/strong>&lt;/em>&lt;/td>
+&lt;td>avez fait&lt;/td>
+&lt;td>faisiez&lt;/td>
+&lt;td>ferez&lt;/td>
+&lt;td>que vous fassiez&lt;/td>
+&lt;td>feriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>font&lt;/td>
+&lt;td>ont fait&lt;/td>
+&lt;td>faisaient&lt;/td>
+&lt;td>feront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles fassent&lt;/td>
+&lt;td>feraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;code>faire&lt;/code> 我覺得也是很常用的字，他就掌握了最一開始提到的大原則: futur 跟 conditionnel 字首是 r 結尾，subjonctif 是 ss。
+啊這個字有個地方很怪，就是 vous 的現在式突然來一個 -tes，跟 &lt;code>dire&lt;/code> 一樣。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>DIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>dis&lt;/td>
+&lt;td>ai dit&lt;/td>
+&lt;td>disais&lt;/td>
+&lt;td>dirai&lt;/td>
+&lt;td>que je dise&lt;/td>
+&lt;td>dirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>dis&lt;/td>
+&lt;td>as dit&lt;/td>
+&lt;td>disais&lt;/td>
+&lt;td>diras&lt;/td>
+&lt;td>que tu dises&lt;/td>
+&lt;td>dirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>dit&lt;/td>
+&lt;td>a dit&lt;/td>
+&lt;td>disait&lt;/td>
+&lt;td>dira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on dise&lt;/td>
+&lt;td>dirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>disons&lt;/td>
+&lt;td>avons dit&lt;/td>
+&lt;td>disions&lt;/td>
+&lt;td>dirons&lt;/td>
+&lt;td>que nous disions&lt;/td>
+&lt;td>dirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>&lt;strong>dites&lt;/strong>&lt;/td>
+&lt;td>avez dit&lt;/td>
+&lt;td>disiez&lt;/td>
+&lt;td>direz&lt;/td>
+&lt;td>que vous disiez&lt;/td>
+&lt;td>diriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>disent&lt;/td>
+&lt;td>ont dit&lt;/td>
+&lt;td>disaient&lt;/td>
+&lt;td>diront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles disent&lt;/td>
+&lt;td>diraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>VENIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>viens&lt;/td>
+&lt;td>suis venu(e)&lt;/td>
+&lt;td>venais&lt;/td>
+&lt;td>viendrai&lt;/td>
+&lt;td>que je vienne&lt;/td>
+&lt;td>viendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>viens&lt;/td>
+&lt;td>es venu(e)&lt;/td>
+&lt;td>venais&lt;/td>
+&lt;td>viendras&lt;/td>
+&lt;td>que tu viennes&lt;/td>
+&lt;td>viendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>vient&lt;/td>
+&lt;td>est venu(e)&lt;/td>
+&lt;td>venait&lt;/td>
+&lt;td>viendra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on vienne&lt;/td>
+&lt;td>viendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>venons&lt;/td>
+&lt;td>sommes venu(e)s&lt;/td>
+&lt;td>venions&lt;/td>
+&lt;td>viendrons&lt;/td>
+&lt;td>que nous venions&lt;/td>
+&lt;td>viendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>venez&lt;/td>
+&lt;td>êtes venu(e)(s)&lt;/td>
+&lt;td>veniez&lt;/td>
+&lt;td>viendrez&lt;/td>
+&lt;td>que vous veniez&lt;/td>
+&lt;td>viendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>viennent&lt;/td>
+&lt;td>sont venu(e)s&lt;/td>
+&lt;td>venaient&lt;/td>
+&lt;td>viendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles viennent&lt;/td>
+&lt;td>viendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>DEVENIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>deviens&lt;/td>
+&lt;td>suis devenu(e)&lt;/td>
+&lt;td>devenais&lt;/td>
+&lt;td>deviendrai&lt;/td>
+&lt;td>que je devienne&lt;/td>
+&lt;td>deviendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>deviens&lt;/td>
+&lt;td>es devenu(e)&lt;/td>
+&lt;td>devenais&lt;/td>
+&lt;td>deviendras&lt;/td>
+&lt;td>que tu deviennes&lt;/td>
+&lt;td>deviendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>devient&lt;/td>
+&lt;td>est devenu(e)&lt;/td>
+&lt;td>devenait&lt;/td>
+&lt;td>deviendra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on devienne&lt;/td>
+&lt;td>deviendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>devenons&lt;/td>
+&lt;td>sommes devenu(e)(s)&lt;/td>
+&lt;td>devenions&lt;/td>
+&lt;td>deviendrons&lt;/td>
+&lt;td>que nous devenions&lt;/td>
+&lt;td>deviendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>devenez&lt;/td>
+&lt;td>êtes devenu(e)(s)&lt;/td>
+&lt;td>deveniez&lt;/td>
+&lt;td>deviendrez&lt;/td>
+&lt;td>que vous deveniez&lt;/td>
+&lt;td>deviendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>deviennent&lt;/td>
+&lt;td>sont devenu(e)(s)&lt;/td>
+&lt;td>devenaient&lt;/td>
+&lt;td>deviendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles deviennent&lt;/td>
+&lt;td>deviendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>雖然這是 -ir 結尾的字，但其實是不規則變化。法文真的是很多規則，然後再有很多例外 🙃
+我自己在記的時候，覺得這個字跟 &lt;code>prendre&lt;/code>、&lt;code>apprendre&lt;/code>有異曲同工之妙，ils/ elles 的動詞變化會多加一個 n 因此念法也不一樣，然後也會影響到 subjontif，因為字首是取 ils/ elles 的現在式。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>PRENDRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>prends&lt;/td>
+&lt;td>ai pris&lt;/td>
+&lt;td>prenais&lt;/td>
+&lt;td>prendrai&lt;/td>
+&lt;td>que je prenne&lt;/td>
+&lt;td>prendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>prends&lt;/td>
+&lt;td>as pris&lt;/td>
+&lt;td>prenais&lt;/td>
+&lt;td>prendras&lt;/td>
+&lt;td>que tu prennes&lt;/td>
+&lt;td>prendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>prend&lt;/td>
+&lt;td>a pris&lt;/td>
+&lt;td>prenait&lt;/td>
+&lt;td>prendra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on prenne&lt;/td>
+&lt;td>prendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>prenons&lt;/td>
+&lt;td>avons pris&lt;/td>
+&lt;td>prenions&lt;/td>
+&lt;td>prendrons&lt;/td>
+&lt;td>que nous prenions&lt;/td>
+&lt;td>prendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>prenez&lt;/td>
+&lt;td>avez pris&lt;/td>
+&lt;td>preniez&lt;/td>
+&lt;td>prendrez&lt;/td>
+&lt;td>que vous preniez&lt;/td>
+&lt;td>prendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>prennent&lt;/td>
+&lt;td>ont pris&lt;/td>
+&lt;td>prenaient&lt;/td>
+&lt;td>prendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles prennent&lt;/td>
+&lt;td>prendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>APPRENDRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>apprends&lt;/td>
+&lt;td>ai appris&lt;/td>
+&lt;td>apprenais&lt;/td>
+&lt;td>apprendrai&lt;/td>
+&lt;td>que j&amp;rsquo;apprenne&lt;/td>
+&lt;td>apprendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>apprends&lt;/td>
+&lt;td>as appris&lt;/td>
+&lt;td>apprenais&lt;/td>
+&lt;td>apprendras&lt;/td>
+&lt;td>que tu apprennes&lt;/td>
+&lt;td>apprendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>apprend&lt;/td>
+&lt;td>a appris&lt;/td>
+&lt;td>apprenait&lt;/td>
+&lt;td>apprendra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on apprenne&lt;/td>
+&lt;td>apprendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>apprenons&lt;/td>
+&lt;td>avons appris&lt;/td>
+&lt;td>apprenions&lt;/td>
+&lt;td>apprendrons&lt;/td>
+&lt;td>que nous apprenions&lt;/td>
+&lt;td>apprendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>apprenez&lt;/td>
+&lt;td>avez appris&lt;/td>
+&lt;td>appreniez&lt;/td>
+&lt;td>apprendrez&lt;/td>
+&lt;td>que vous appreniez&lt;/td>
+&lt;td>apprendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>apprennent&lt;/td>
+&lt;td>ont appris&lt;/td>
+&lt;td>apprenaient&lt;/td>
+&lt;td>apprendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles apprennent&lt;/td>
+&lt;td>apprendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>同場加映，&lt;code>venir&lt;/code> 家族的字配上反身。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>SE SOUVENIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>me souviens&lt;/td>
+&lt;td>me suis souvenu(e)&lt;/td>
+&lt;td>me souvenais&lt;/td>
+&lt;td>me souviendrai&lt;/td>
+&lt;td>que je me souvienne&lt;/td>
+&lt;td>me souviendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>te souviens&lt;/td>
+&lt;td>te es souvenu(e)&lt;/td>
+&lt;td>te souvenais&lt;/td>
+&lt;td>te souviendras&lt;/td>
+&lt;td>que tu te souviennes&lt;/td>
+&lt;td>te souviendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>se souvient&lt;/td>
+&lt;td>se est souvenu(e)&lt;/td>
+&lt;td>se souvenait&lt;/td>
+&lt;td>se souviendra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on se souvienne&lt;/td>
+&lt;td>se souviendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>nous souvenons&lt;/td>
+&lt;td>nous sommes souvenu(e)s&lt;/td>
+&lt;td>nous souvenions&lt;/td>
+&lt;td>nous souviendrons&lt;/td>
+&lt;td>que nous nous souvenions&lt;/td>
+&lt;td>nous souviendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>vous souvenez&lt;/td>
+&lt;td>vous êtes souvenu(e)(s)&lt;/td>
+&lt;td>vous souveniez&lt;/td>
+&lt;td>vous souviendrez&lt;/td>
+&lt;td>que vous vous souveniez&lt;/td>
+&lt;td>vous souviendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>se souviennent&lt;/td>
+&lt;td>se sont souvenu(e)s&lt;/td>
+&lt;td>se souvenaient&lt;/td>
+&lt;td>se souviendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles se souviennent&lt;/td>
+&lt;td>se souviendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="其他也是假裝--ir-變化的-partir-sortir-dormir-courir-ouvrir-offrir-mourir">其他也是假裝 -ir 變化的 partir, sortir, dormir, courir, ouvrir, offrir, mourir
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>PARTIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>pars&lt;/td>
+&lt;td>suis parti(e)&lt;/td>
+&lt;td>partais&lt;/td>
+&lt;td>partirai&lt;/td>
+&lt;td>que je parte&lt;/td>
+&lt;td>partirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>pars&lt;/td>
+&lt;td>es parti(e)&lt;/td>
+&lt;td>partais&lt;/td>
+&lt;td>partiras&lt;/td>
+&lt;td>que tu partes&lt;/td>
+&lt;td>partirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>part&lt;/td>
+&lt;td>est parti(e)&lt;/td>
+&lt;td>partait&lt;/td>
+&lt;td>partira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on parte&lt;/td>
+&lt;td>partirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>partons&lt;/td>
+&lt;td>sommes parti(e)s&lt;/td>
+&lt;td>partions&lt;/td>
+&lt;td>partirons&lt;/td>
+&lt;td>que nous partions&lt;/td>
+&lt;td>partirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>partez&lt;/td>
+&lt;td>êtes parti(e)(s)&lt;/td>
+&lt;td>partiez&lt;/td>
+&lt;td>partirez&lt;/td>
+&lt;td>que vous partiez&lt;/td>
+&lt;td>partiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>partent&lt;/td>
+&lt;td>sont parti(e)s&lt;/td>
+&lt;td>partaient&lt;/td>
+&lt;td>partiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles partent&lt;/td>
+&lt;td>partiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>SORTIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>sors&lt;/td>
+&lt;td>suis sorti(e)&lt;/td>
+&lt;td>sortais&lt;/td>
+&lt;td>sortirai&lt;/td>
+&lt;td>que je sorte&lt;/td>
+&lt;td>sortirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>sors&lt;/td>
+&lt;td>es sorti(e)&lt;/td>
+&lt;td>sortais&lt;/td>
+&lt;td>sortiras&lt;/td>
+&lt;td>que tu sortes&lt;/td>
+&lt;td>sortirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>sort&lt;/td>
+&lt;td>est sorti(e)&lt;/td>
+&lt;td>sortait&lt;/td>
+&lt;td>sortira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on sorte&lt;/td>
+&lt;td>sortirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>sortons&lt;/td>
+&lt;td>sommes sorti(e)s&lt;/td>
+&lt;td>sortions&lt;/td>
+&lt;td>sortirons&lt;/td>
+&lt;td>que nous sortions&lt;/td>
+&lt;td>sortirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>sortez&lt;/td>
+&lt;td>êtes sorti(e)(s)&lt;/td>
+&lt;td>sortiez&lt;/td>
+&lt;td>sortirez&lt;/td>
+&lt;td>que vous sortiez&lt;/td>
+&lt;td>sortiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>sortent&lt;/td>
+&lt;td>sont sorti(e)s&lt;/td>
+&lt;td>sortaient&lt;/td>
+&lt;td>sortiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles sortent&lt;/td>
+&lt;td>sortiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>DORMIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>dors&lt;/td>
+&lt;td>ai dormi&lt;/td>
+&lt;td>dormais&lt;/td>
+&lt;td>dormirai&lt;/td>
+&lt;td>que je dorme&lt;/td>
+&lt;td>dormirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>dors&lt;/td>
+&lt;td>as dormi&lt;/td>
+&lt;td>dormais&lt;/td>
+&lt;td>dormiras&lt;/td>
+&lt;td>que tu dormes&lt;/td>
+&lt;td>dormirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>dort&lt;/td>
+&lt;td>a dormi&lt;/td>
+&lt;td>dormait&lt;/td>
+&lt;td>dormira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on dorme&lt;/td>
+&lt;td>dormirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>dormons&lt;/td>
+&lt;td>avons dormi&lt;/td>
+&lt;td>dormions&lt;/td>
+&lt;td>dormirons&lt;/td>
+&lt;td>que nous dormions&lt;/td>
+&lt;td>dormirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>dormez&lt;/td>
+&lt;td>avez dormi&lt;/td>
+&lt;td>dormiez&lt;/td>
+&lt;td>dormirez&lt;/td>
+&lt;td>que vous dormiez&lt;/td>
+&lt;td>dormiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>dorment&lt;/td>
+&lt;td>ont dormi&lt;/td>
+&lt;td>dormaient&lt;/td>
+&lt;td>dormiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles dorment&lt;/td>
+&lt;td>dormiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;code>courir&lt;/code> 要注意的部分是因為 -ir 前還是 r，所以 futur 就有兩個 r，接著影響到 conditionnel 也有兩個 r。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>COURIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>cours&lt;/td>
+&lt;td>ai couru&lt;/td>
+&lt;td>courais&lt;/td>
+&lt;td>&lt;strong>courrai&lt;/strong>&lt;/td>
+&lt;td>que je coure&lt;/td>
+&lt;td>&lt;strong>courrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>cours&lt;/td>
+&lt;td>as couru&lt;/td>
+&lt;td>courais&lt;/td>
+&lt;td>&lt;strong>courras&lt;/strong>&lt;/td>
+&lt;td>que tu coures&lt;/td>
+&lt;td>&lt;strong>courrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>court&lt;/td>
+&lt;td>a couru&lt;/td>
+&lt;td>courait&lt;/td>
+&lt;td>&lt;strong>courra&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on coure&lt;/td>
+&lt;td>&lt;strong>courrait&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>courons&lt;/td>
+&lt;td>avons couru&lt;/td>
+&lt;td>courions&lt;/td>
+&lt;td>&lt;strong>courrons&lt;/strong>&lt;/td>
+&lt;td>que nous courions&lt;/td>
+&lt;td>&lt;strong>courrions&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>courez&lt;/td>
+&lt;td>avez couru&lt;/td>
+&lt;td>couriez&lt;/td>
+&lt;td>&lt;strong>courrez&lt;/strong>&lt;/td>
+&lt;td>que vous couriez&lt;/td>
+&lt;td>&lt;strong>courriez&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>courent&lt;/td>
+&lt;td>ont couru&lt;/td>
+&lt;td>couraient&lt;/td>
+&lt;td>&lt;strong>courront&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles courent&lt;/td>
+&lt;td>&lt;strong>courraient&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>這兩個字的 participe passé (p.p.) 是在這個不規則 -ir 系列中唯一相同結尾的，然後現在式變成 -re 結尾，我覺得很容易全部都混在一起 XD
+雖然說沒有特別難記，但因為不算很常用到，練習的次數比較少就還是不太熟～&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>OUVRIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>ouvre&lt;/td>
+&lt;td>ai ouvert&lt;/td>
+&lt;td>ouvrais&lt;/td>
+&lt;td>ouvrirai&lt;/td>
+&lt;td>que j&amp;rsquo;ouvre&lt;/td>
+&lt;td>ouvrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>ouvres&lt;/td>
+&lt;td>as ouvert&lt;/td>
+&lt;td>ouvrais&lt;/td>
+&lt;td>ouvriras&lt;/td>
+&lt;td>que tu ouvres&lt;/td>
+&lt;td>ouvrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>ouvre&lt;/td>
+&lt;td>a ouvert&lt;/td>
+&lt;td>ouvrait&lt;/td>
+&lt;td>ouvrira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on ouvre&lt;/td>
+&lt;td>ouvrirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>ouvrons&lt;/td>
+&lt;td>avons ouvert&lt;/td>
+&lt;td>ouvrions&lt;/td>
+&lt;td>ouvrirons&lt;/td>
+&lt;td>que nous ouvrions&lt;/td>
+&lt;td>ouvririons&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>ouvrez&lt;/td>
+&lt;td>avez ouvert&lt;/td>
+&lt;td>ouvriez&lt;/td>
+&lt;td>ouvrirez&lt;/td>
+&lt;td>que vous ouvriez&lt;/td>
+&lt;td>ouvririez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>ouvrent&lt;/td>
+&lt;td>ont ouvert&lt;/td>
+&lt;td>ouvraient&lt;/td>
+&lt;td>ouvriront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles ouvrent&lt;/td>
+&lt;td>ouvriraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>OFFRIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>offre&lt;/td>
+&lt;td>ai offert&lt;/td>
+&lt;td>offrais&lt;/td>
+&lt;td>offrirai&lt;/td>
+&lt;td>que j&amp;rsquo;offre&lt;/td>
+&lt;td>offrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>offres&lt;/td>
+&lt;td>as offert&lt;/td>
+&lt;td>offrais&lt;/td>
+&lt;td>offriras&lt;/td>
+&lt;td>que tu offres&lt;/td>
+&lt;td>offrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>offre&lt;/td>
+&lt;td>a offert&lt;/td>
+&lt;td>offrait&lt;/td>
+&lt;td>offrira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on offre&lt;/td>
+&lt;td>offrirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>offrons&lt;/td>
+&lt;td>avons offert&lt;/td>
+&lt;td>offrions&lt;/td>
+&lt;td>offrirons&lt;/td>
+&lt;td>que nous offrions&lt;/td>
+&lt;td>offririons&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>offrez&lt;/td>
+&lt;td>avez offert&lt;/td>
+&lt;td>offriez&lt;/td>
+&lt;td>offrirez&lt;/td>
+&lt;td>que vous offriez&lt;/td>
+&lt;td>offririez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>offrent&lt;/td>
+&lt;td>ont offert&lt;/td>
+&lt;td>offraient&lt;/td>
+&lt;td>offriront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles offrent&lt;/td>
+&lt;td>offriraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>最後一個我覺得變化也是怪且難背。他的 futur 也有兩個 r。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>MOURIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>meurs&lt;/td>
+&lt;td>suis mort(e)&lt;/td>
+&lt;td>mourais&lt;/td>
+&lt;td>&lt;strong>mourrai&lt;/strong>&lt;/td>
+&lt;td>que je meure&lt;/td>
+&lt;td>&lt;strong>mourrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>meurs&lt;/td>
+&lt;td>es mort(e)&lt;/td>
+&lt;td>mourais&lt;/td>
+&lt;td>&lt;strong>mourras&lt;/strong>&lt;/td>
+&lt;td>que tu meures&lt;/td>
+&lt;td>&lt;strong>mourrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>meurt&lt;/td>
+&lt;td>est mort(e)&lt;/td>
+&lt;td>mourait&lt;/td>
+&lt;td>&lt;strong>mourra&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on meure&lt;/td>
+&lt;td>&lt;strong>mourrait&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>mourons&lt;/td>
+&lt;td>sommes mort(e)s&lt;/td>
+&lt;td>mourions&lt;/td>
+&lt;td>&lt;strong>mourrons&lt;/strong>&lt;/td>
+&lt;td>que nous mourions&lt;/td>
+&lt;td>&lt;strong>mourrions&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>mourez&lt;/td>
+&lt;td>êtes mort(e)(s)&lt;/td>
+&lt;td>mouriez&lt;/td>
+&lt;td>&lt;strong>mourrez&lt;/strong>&lt;/td>
+&lt;td>que vous mouriez&lt;/td>
+&lt;td>&lt;strong>mourriez&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>meurent&lt;/td>
+&lt;td>sont mort(e)s&lt;/td>
+&lt;td>mouraient&lt;/td>
+&lt;td>&lt;strong>mourront&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles meurent&lt;/td>
+&lt;td>&lt;strong>mourraient&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="假裝是--re-的-sourire-écrire-boire-croire-lire">假裝是 -re 的 sourire, écrire, boire, croire, lire
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>SOURIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>souris&lt;/td>
+&lt;td>ai souri&lt;/td>
+&lt;td>souriais&lt;/td>
+&lt;td>sourirai&lt;/td>
+&lt;td>que je sourie&lt;/td>
+&lt;td>sourirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>souris&lt;/td>
+&lt;td>as souri&lt;/td>
+&lt;td>souriais&lt;/td>
+&lt;td>souriras&lt;/td>
+&lt;td>que tu souries&lt;/td>
+&lt;td>sourirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>sourit&lt;/td>
+&lt;td>a souri&lt;/td>
+&lt;td>souriait&lt;/td>
+&lt;td>sourira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on sourie&lt;/td>
+&lt;td>sourirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>sourions&lt;/td>
+&lt;td>avons souri&lt;/td>
+&lt;td>sourions&lt;/td>
+&lt;td>sourirons&lt;/td>
+&lt;td>que nous sourions&lt;/td>
+&lt;td>souririons&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>souriez&lt;/td>
+&lt;td>avez souri&lt;/td>
+&lt;td>souriez&lt;/td>
+&lt;td>sourirez&lt;/td>
+&lt;td>que vous souriez&lt;/td>
+&lt;td>souririez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>sourient&lt;/td>
+&lt;td>ont souri&lt;/td>
+&lt;td>souriaient&lt;/td>
+&lt;td>souriront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles sourient&lt;/td>
+&lt;td>souriraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ÉCRIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>écris&lt;/td>
+&lt;td>ai écrit&lt;/td>
+&lt;td>écrivais&lt;/td>
+&lt;td>écrirai&lt;/td>
+&lt;td>que j&amp;rsquo;écrive&lt;/td>
+&lt;td>écrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>écris&lt;/td>
+&lt;td>as écrit&lt;/td>
+&lt;td>écrivais&lt;/td>
+&lt;td>écriras&lt;/td>
+&lt;td>que tu écrives&lt;/td>
+&lt;td>écrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>écrit&lt;/td>
+&lt;td>a écrit&lt;/td>
+&lt;td>écrivait&lt;/td>
+&lt;td>écrira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on écrive&lt;/td>
+&lt;td>écrirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>écrivons&lt;/td>
+&lt;td>avons écrit&lt;/td>
+&lt;td>écrivions&lt;/td>
+&lt;td>écrirons&lt;/td>
+&lt;td>que nous écrivions&lt;/td>
+&lt;td>écririons&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>écrivez&lt;/td>
+&lt;td>avez écrit&lt;/td>
+&lt;td>écriviez&lt;/td>
+&lt;td>écrirez&lt;/td>
+&lt;td>que vous écriviez&lt;/td>
+&lt;td>écririez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>écrivent&lt;/td>
+&lt;td>ont écrit&lt;/td>
+&lt;td>écrivaient&lt;/td>
+&lt;td>écriront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles écrivent&lt;/td>
+&lt;td>écriraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>BOIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>bois&lt;/td>
+&lt;td>ai bu&lt;/td>
+&lt;td>buvais&lt;/td>
+&lt;td>boirai&lt;/td>
+&lt;td>que je boive&lt;/td>
+&lt;td>boirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>bois&lt;/td>
+&lt;td>as bu&lt;/td>
+&lt;td>buvais&lt;/td>
+&lt;td>boiras&lt;/td>
+&lt;td>que tu boives&lt;/td>
+&lt;td>boirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>boit&lt;/td>
+&lt;td>a bu&lt;/td>
+&lt;td>buvait&lt;/td>
+&lt;td>boira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on boive&lt;/td>
+&lt;td>boirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>buvons&lt;/td>
+&lt;td>avons bu&lt;/td>
+&lt;td>buvions&lt;/td>
+&lt;td>boirons&lt;/td>
+&lt;td>que nous buvions&lt;/td>
+&lt;td>boirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>buvez&lt;/td>
+&lt;td>avez bu&lt;/td>
+&lt;td>buviez&lt;/td>
+&lt;td>boirez&lt;/td>
+&lt;td>que vous buviez&lt;/td>
+&lt;td>boiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>boivent&lt;/td>
+&lt;td>ont bu&lt;/td>
+&lt;td>buvaient&lt;/td>
+&lt;td>boiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles boivent&lt;/td>
+&lt;td>boiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CROIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>crois&lt;/td>
+&lt;td>ai cru&lt;/td>
+&lt;td>croyais&lt;/td>
+&lt;td>croirai&lt;/td>
+&lt;td>que je croie&lt;/td>
+&lt;td>croirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>crois&lt;/td>
+&lt;td>as cru&lt;/td>
+&lt;td>croyais&lt;/td>
+&lt;td>croiras&lt;/td>
+&lt;td>que tu croies&lt;/td>
+&lt;td>croirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>croit&lt;/td>
+&lt;td>a cru&lt;/td>
+&lt;td>croyait&lt;/td>
+&lt;td>croira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on croie&lt;/td>
+&lt;td>croirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>croyons&lt;/td>
+&lt;td>avons cru&lt;/td>
+&lt;td>croyions&lt;/td>
+&lt;td>croirons&lt;/td>
+&lt;td>que nous croyions&lt;/td>
+&lt;td>croirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>croyez&lt;/td>
+&lt;td>avez cru&lt;/td>
+&lt;td>croyiez&lt;/td>
+&lt;td>croirez&lt;/td>
+&lt;td>que vous croyiez&lt;/td>
+&lt;td>croiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>croient&lt;/td>
+&lt;td>ont cru&lt;/td>
+&lt;td>croyaient&lt;/td>
+&lt;td>croiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles croient&lt;/td>
+&lt;td>croiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>LIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>lis&lt;/td>
+&lt;td>ai lu&lt;/td>
+&lt;td>lisais&lt;/td>
+&lt;td>lirai&lt;/td>
+&lt;td>que je lise&lt;/td>
+&lt;td>lirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>lis&lt;/td>
+&lt;td>as lu&lt;/td>
+&lt;td>lisais&lt;/td>
+&lt;td>liras&lt;/td>
+&lt;td>que tu lises&lt;/td>
+&lt;td>lirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>lit&lt;/td>
+&lt;td>a lu&lt;/td>
+&lt;td>lisait&lt;/td>
+&lt;td>lira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on lise&lt;/td>
+&lt;td>lirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>lisons&lt;/td>
+&lt;td>avons lu&lt;/td>
+&lt;td>lisions&lt;/td>
+&lt;td>lirons&lt;/td>
+&lt;td>que nous lisions&lt;/td>
+&lt;td>lirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>lisez&lt;/td>
+&lt;td>avez lu&lt;/td>
+&lt;td>lisiez&lt;/td>
+&lt;td>lirez&lt;/td>
+&lt;td>que vous lisiez&lt;/td>
+&lt;td>liriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>lisent&lt;/td>
+&lt;td>ont lu&lt;/td>
+&lt;td>lisaient&lt;/td>
+&lt;td>liront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles lisent&lt;/td>
+&lt;td>liraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="因為發音不規則變化的-acheter-lever-élever-espérer-appeler-envoyer-nettoyer">因為發音不規則變化的 acheter, lever, élever, espérer, appeler, envoyer, nettoyer
+&lt;/h3>&lt;p>接下來是看似正常的單字，實際上因為發音的關係，在那邊換 accent、加字母，法文真是酷斃了 😭&lt;/p>
+&lt;p>&lt;em>只有過去式是一個 l&lt;/em>: appeler&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>APPELER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>appelle&lt;/td>
+&lt;td>ai appelé&lt;/td>
+&lt;td>appelais&lt;/td>
+&lt;td>appellerai&lt;/td>
+&lt;td>que j&amp;rsquo;appelle&lt;/td>
+&lt;td>appellerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>appelles&lt;/td>
+&lt;td>as appelé&lt;/td>
+&lt;td>appelais&lt;/td>
+&lt;td>appelleras&lt;/td>
+&lt;td>que tu appelles&lt;/td>
+&lt;td>appellerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>appelle&lt;/td>
+&lt;td>a appelé&lt;/td>
+&lt;td>appelait&lt;/td>
+&lt;td>appellera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on appelle&lt;/td>
+&lt;td>appellerait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>appelons&lt;/td>
+&lt;td>avons appelé&lt;/td>
+&lt;td>appelions&lt;/td>
+&lt;td>appellerons&lt;/td>
+&lt;td>que nous appelions&lt;/td>
+&lt;td>appellerions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>appelez&lt;/td>
+&lt;td>avez appelé&lt;/td>
+&lt;td>appeliez&lt;/td>
+&lt;td>appellerez&lt;/td>
+&lt;td>que vous appeliez&lt;/td>
+&lt;td>appelleriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>appellent&lt;/td>
+&lt;td>ont appelé&lt;/td>
+&lt;td>appelaient&lt;/td>
+&lt;td>appelleront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles appellent&lt;/td>
+&lt;td>appelleraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;em>只有兩個過去式沒有加 accent grâve&lt;/em>: acheter, lever, élever, espérer, promener&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ACHETER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>achète&lt;/td>
+&lt;td>ai acheté&lt;/td>
+&lt;td>achetais&lt;/td>
+&lt;td>achèterai&lt;/td>
+&lt;td>que j&amp;rsquo;achète&lt;/td>
+&lt;td>achèterais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>achètes&lt;/td>
+&lt;td>as acheté&lt;/td>
+&lt;td>achetais&lt;/td>
+&lt;td>achèteras&lt;/td>
+&lt;td>que tu achètes&lt;/td>
+&lt;td>achèterais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>achète&lt;/td>
+&lt;td>a acheté&lt;/td>
+&lt;td>achetait&lt;/td>
+&lt;td>achètera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on achète&lt;/td>
+&lt;td>achèterait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>achetons&lt;/td>
+&lt;td>avons acheté&lt;/td>
+&lt;td>achetions&lt;/td>
+&lt;td>achèterons&lt;/td>
+&lt;td>que nous achetions&lt;/td>
+&lt;td>achèterions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>achetez&lt;/td>
+&lt;td>avez acheté&lt;/td>
+&lt;td>achetiez&lt;/td>
+&lt;td>achèterez&lt;/td>
+&lt;td>que vous achetiez&lt;/td>
+&lt;td>achèteriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>achètent&lt;/td>
+&lt;td>ont acheté&lt;/td>
+&lt;td>achetaient&lt;/td>
+&lt;td>achèteront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles achètent&lt;/td>
+&lt;td>achèteraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>LEVER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>lève&lt;/td>
+&lt;td>ai levé&lt;/td>
+&lt;td>levais&lt;/td>
+&lt;td>lèverai&lt;/td>
+&lt;td>que je lève&lt;/td>
+&lt;td>lèverais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>lèves&lt;/td>
+&lt;td>as levé&lt;/td>
+&lt;td>levais&lt;/td>
+&lt;td>lèveras&lt;/td>
+&lt;td>que tu lèves&lt;/td>
+&lt;td>lèverais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>lève&lt;/td>
+&lt;td>a levé&lt;/td>
+&lt;td>levait&lt;/td>
+&lt;td>lèvera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on lève&lt;/td>
+&lt;td>lèverait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>levons&lt;/td>
+&lt;td>avons levé&lt;/td>
+&lt;td>levions&lt;/td>
+&lt;td>lèverons&lt;/td>
+&lt;td>que nous levions&lt;/td>
+&lt;td>lèverions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>levez&lt;/td>
+&lt;td>avez levé&lt;/td>
+&lt;td>leviez&lt;/td>
+&lt;td>lèverez&lt;/td>
+&lt;td>que vous leviez&lt;/td>
+&lt;td>lèveriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>lèvent&lt;/td>
+&lt;td>ont levé&lt;/td>
+&lt;td>levaient&lt;/td>
+&lt;td>lèveront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles lèvent&lt;/td>
+&lt;td>lèveraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ÉLEVER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>élève&lt;/td>
+&lt;td>ai élevé&lt;/td>
+&lt;td>élevais&lt;/td>
+&lt;td>élèverai&lt;/td>
+&lt;td>que j&amp;rsquo;élève&lt;/td>
+&lt;td>élèverais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>élèves&lt;/td>
+&lt;td>as élevé&lt;/td>
+&lt;td>élevais&lt;/td>
+&lt;td>élèveras&lt;/td>
+&lt;td>que tu élèves&lt;/td>
+&lt;td>élèverais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>élève&lt;/td>
+&lt;td>a élevé&lt;/td>
+&lt;td>élevait&lt;/td>
+&lt;td>élèvera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on élève&lt;/td>
+&lt;td>élèverait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>élevons&lt;/td>
+&lt;td>avons élevé&lt;/td>
+&lt;td>élevions&lt;/td>
+&lt;td>élèverons&lt;/td>
+&lt;td>que nous élevions&lt;/td>
+&lt;td>élèverions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>élevez&lt;/td>
+&lt;td>avez élevé&lt;/td>
+&lt;td>éleviez&lt;/td>
+&lt;td>élèverez&lt;/td>
+&lt;td>que vous éleviez&lt;/td>
+&lt;td>élèveriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>élèvent&lt;/td>
+&lt;td>ont élevé&lt;/td>
+&lt;td>élevaient&lt;/td>
+&lt;td>élèveront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles élèvent&lt;/td>
+&lt;td>élèveraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ESPÉRER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>espère&lt;/td>
+&lt;td>ai espéré&lt;/td>
+&lt;td>espérais&lt;/td>
+&lt;td>espérerai&lt;/td>
+&lt;td>que j&amp;rsquo;espère&lt;/td>
+&lt;td>espérerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>espères&lt;/td>
+&lt;td>as espéré&lt;/td>
+&lt;td>espérais&lt;/td>
+&lt;td>espéreras&lt;/td>
+&lt;td>que tu espères&lt;/td>
+&lt;td>espérerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>espère&lt;/td>
+&lt;td>a espéré&lt;/td>
+&lt;td>espérait&lt;/td>
+&lt;td>espérera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on espère&lt;/td>
+&lt;td>espérerait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>espérons&lt;/td>
+&lt;td>avons espéré&lt;/td>
+&lt;td>espérions&lt;/td>
+&lt;td>espérerons&lt;/td>
+&lt;td>que nous espérions&lt;/td>
+&lt;td>espérerions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>espérez&lt;/td>
+&lt;td>avez espéré&lt;/td>
+&lt;td>espériez&lt;/td>
+&lt;td>espérerez&lt;/td>
+&lt;td>que vous espériez&lt;/td>
+&lt;td>espéreriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>espèrent&lt;/td>
+&lt;td>ont espéré&lt;/td>
+&lt;td>espéraient&lt;/td>
+&lt;td>espéreront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles espèrent&lt;/td>
+&lt;td>espéreraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>PROMENER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>promène&lt;/td>
+&lt;td>ai promené&lt;/td>
+&lt;td>promenais&lt;/td>
+&lt;td>promènerai&lt;/td>
+&lt;td>que je promène&lt;/td>
+&lt;td>promènerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>promènes&lt;/td>
+&lt;td>as promené&lt;/td>
+&lt;td>promenais&lt;/td>
+&lt;td>promèneras&lt;/td>
+&lt;td>que tu promènes&lt;/td>
+&lt;td>promènerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>promène&lt;/td>
+&lt;td>a promené&lt;/td>
+&lt;td>promenait&lt;/td>
+&lt;td>promènera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on promène&lt;/td>
+&lt;td>promènerait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>promenons&lt;/td>
+&lt;td>avons promené&lt;/td>
+&lt;td>promenions&lt;/td>
+&lt;td>promènerons&lt;/td>
+&lt;td>que nous promenions&lt;/td>
+&lt;td>promènerions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>promenez&lt;/td>
+&lt;td>avez promené&lt;/td>
+&lt;td>promeniez&lt;/td>
+&lt;td>promenerez&lt;/td>
+&lt;td>que vous promeniez&lt;/td>
+&lt;td>promèneriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>promènent&lt;/td>
+&lt;td>ont promené&lt;/td>
+&lt;td>promenaient&lt;/td>
+&lt;td>promèneront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles promènent&lt;/td>
+&lt;td>promèneraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;em>有 -y 結尾就會換來換去&lt;/em>: envoyer, nettoyer&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ENVOYER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>&lt;strong>envoie&lt;/strong>&lt;/td>
+&lt;td>ai envoyé&lt;/td>
+&lt;td>envoyais&lt;/td>
+&lt;td>&lt;strong>enverrai&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>que j&amp;rsquo;envoie&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>&lt;strong>envoies&lt;/strong>&lt;/td>
+&lt;td>as envoyé&lt;/td>
+&lt;td>envoyais&lt;/td>
+&lt;td>&lt;strong>enverras&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>que tu envoies&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>&lt;strong>envoie&lt;/strong>&lt;/td>
+&lt;td>a envoyé&lt;/td>
+&lt;td>envoyait&lt;/td>
+&lt;td>&lt;strong>enverra&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>qu&amp;rsquo;il/elle/on envoie&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverrait&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>&lt;strong>envoyons&lt;/strong>&lt;/td>
+&lt;td>avons envoyé&lt;/td>
+&lt;td>envoyions&lt;/td>
+&lt;td>&lt;strong>enverrons&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>que nous envoyions&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverrions&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>&lt;strong>envoyez&lt;/strong>&lt;/td>
+&lt;td>avez envoyé&lt;/td>
+&lt;td>envoyiez&lt;/td>
+&lt;td>&lt;strong>enverrez&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>que vous envoyiez&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverriez&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>&lt;strong>envoient&lt;/strong>&lt;/td>
+&lt;td>ont envoyé&lt;/td>
+&lt;td>envoyaient&lt;/td>
+&lt;td>&lt;strong>enverront&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>qu&amp;rsquo;ils/elles envoient&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverraient&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>nettoie&lt;/td>
+&lt;td>ai nettoyé&lt;/td>
+&lt;td>nettoyais&lt;/td>
+&lt;td>nettoierai&lt;/td>
+&lt;td>que je nettoie&lt;/td>
+&lt;td>nettoierais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>nettoies&lt;/td>
+&lt;td>as nettoyé&lt;/td>
+&lt;td>nettoyais&lt;/td>
+&lt;td>nettoieras&lt;/td>
+&lt;td>que tu nettoies&lt;/td>
+&lt;td>nettoierais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>nettoie&lt;/td>
+&lt;td>a nettoyé&lt;/td>
+&lt;td>nettoyait&lt;/td>
+&lt;td>nettoiera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on nettoie&lt;/td>
+&lt;td>nettoierait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>nettoyons&lt;/td>
+&lt;td>avons nettoyé&lt;/td>
+&lt;td>nettoyions&lt;/td>
+&lt;td>nettoierons&lt;/td>
+&lt;td>que nous nettoyions&lt;/td>
+&lt;td>nettoierions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>nettoyez&lt;/td>
+&lt;td>avez nettoyé&lt;/td>
+&lt;td>nettoyiez&lt;/td>
+&lt;td>nettoierez&lt;/td>
+&lt;td>que vous nettoyiez&lt;/td>
+&lt;td>nettoieriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>nettoient&lt;/td>
+&lt;td>ont nettoyé&lt;/td>
+&lt;td>nettoyaient&lt;/td>
+&lt;td>nettoieront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles nettoient&lt;/td>
+&lt;td>nettoieraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="只有第三人稱單數的天氣-pleuvoir--neiger">只有第三人稱單數的天氣 pleuvoir &amp;amp; neiger
+&lt;/h3>&lt;p>&lt;code>neiger&lt;/code> 不算是規則變化動詞，但只是因為他只有第三人稱單數的變形而已，其他人稱不適用。但變形本身基本上是套用規則變化的。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>PLEUVOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>pleut&lt;/td>
+&lt;td>a plu&lt;/td>
+&lt;td>pleuvait&lt;/td>
+&lt;td>pleuvra&lt;/td>
+&lt;td>pleuve&lt;/td>
+&lt;td>pleuvrait&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="規則變化複雜到我已經不知道怎麼吐槽-vouloir-pouvoir-devoir-savoir-voir-naître-connaître">規則變化複雜到我已經不知道怎麼吐槽 vouloir, pouvoir, devoir, savoir, voir, naître, connaître
+&lt;/h3>&lt;p>想要、能夠、需要這三個字我喜歡一起做比較，儘管他們沒有到很相似。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>VOULOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>veux&lt;/td>
+&lt;td>ai voulu&lt;/td>
+&lt;td>voulais&lt;/td>
+&lt;td>voudrai&lt;/td>
+&lt;td>que je veuille&lt;/td>
+&lt;td>voudrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>veux&lt;/td>
+&lt;td>as voulu&lt;/td>
+&lt;td>voulais&lt;/td>
+&lt;td>voudras&lt;/td>
+&lt;td>que tu veuilles&lt;/td>
+&lt;td>voudrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>veut&lt;/td>
+&lt;td>a voulu&lt;/td>
+&lt;td>voulait&lt;/td>
+&lt;td>voudra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on veuille&lt;/td>
+&lt;td>voudrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>voulons&lt;/td>
+&lt;td>avons voulu&lt;/td>
+&lt;td>voulions&lt;/td>
+&lt;td>voudrons&lt;/td>
+&lt;td>que nous voulions&lt;/td>
+&lt;td>voudrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>voulez&lt;/td>
+&lt;td>avez voulu&lt;/td>
+&lt;td>vouliez&lt;/td>
+&lt;td>voudrez&lt;/td>
+&lt;td>que vous vouliez&lt;/td>
+&lt;td>voudriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>veulent&lt;/td>
+&lt;td>ont voulu&lt;/td>
+&lt;td>voulaient&lt;/td>
+&lt;td>voudront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles veuillent&lt;/td>
+&lt;td>voudraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>POUVOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>peux&lt;/td>
+&lt;td>ai pu&lt;/td>
+&lt;td>pouvais&lt;/td>
+&lt;td>&lt;strong>pourrai&lt;/strong>&lt;/td>
+&lt;td>que je puisse&lt;/td>
+&lt;td>&lt;strong>pourrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>peux&lt;/td>
+&lt;td>as pu&lt;/td>
+&lt;td>pouvais&lt;/td>
+&lt;td>&lt;strong>pourras&lt;/strong>&lt;/td>
+&lt;td>que tu puisses&lt;/td>
+&lt;td>&lt;strong>pourrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>peut&lt;/td>
+&lt;td>a pu&lt;/td>
+&lt;td>pouvait&lt;/td>
+&lt;td>&lt;strong>pourra&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on puisse&lt;/td>
+&lt;td>&lt;strong>pourrait&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>pouvons&lt;/td>
+&lt;td>avons pu&lt;/td>
+&lt;td>pouvions&lt;/td>
+&lt;td>&lt;strong>pourrons&lt;/strong>&lt;/td>
+&lt;td>que nous puissions&lt;/td>
+&lt;td>&lt;strong>pourrions&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>pouvez&lt;/td>
+&lt;td>avez pu&lt;/td>
+&lt;td>pouviez&lt;/td>
+&lt;td>&lt;strong>pourrez&lt;/strong>&lt;/td>
+&lt;td>que vous puissiez&lt;/td>
+&lt;td>&lt;strong>pourriez&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>peuvent&lt;/td>
+&lt;td>ont pu&lt;/td>
+&lt;td>pouvaient&lt;/td>
+&lt;td>&lt;strong>pourront&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles puissent&lt;/td>
+&lt;td>&lt;strong>pourraient&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>DEVOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>dois&lt;/td>
+&lt;td>ai dû&lt;/td>
+&lt;td>devais&lt;/td>
+&lt;td>devrai&lt;/td>
+&lt;td>que je doive&lt;/td>
+&lt;td>devrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>dois&lt;/td>
+&lt;td>as dû&lt;/td>
+&lt;td>devais&lt;/td>
+&lt;td>devras&lt;/td>
+&lt;td>que tu doives&lt;/td>
+&lt;td>devrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>doit&lt;/td>
+&lt;td>a dû&lt;/td>
+&lt;td>devait&lt;/td>
+&lt;td>devra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on doive&lt;/td>
+&lt;td>devrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>devons&lt;/td>
+&lt;td>avons dû&lt;/td>
+&lt;td>devions&lt;/td>
+&lt;td>devrons&lt;/td>
+&lt;td>que nous devions&lt;/td>
+&lt;td>devrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>devez&lt;/td>
+&lt;td>avez dû&lt;/td>
+&lt;td>deviez&lt;/td>
+&lt;td>devrez&lt;/td>
+&lt;td>que vous deviez&lt;/td>
+&lt;td>devriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>doivent&lt;/td>
+&lt;td>ont dû&lt;/td>
+&lt;td>devaient&lt;/td>
+&lt;td>devront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles doivent&lt;/td>
+&lt;td>devraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>同為 -oir 結尾的 savoir 和 voir&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>SAVOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>sais&lt;/td>
+&lt;td>ai su&lt;/td>
+&lt;td>savais&lt;/td>
+&lt;td>saurai&lt;/td>
+&lt;td>que je sache&lt;/td>
+&lt;td>saurais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>sais&lt;/td>
+&lt;td>as su&lt;/td>
+&lt;td>savais&lt;/td>
+&lt;td>sauras&lt;/td>
+&lt;td>que tu saches&lt;/td>
+&lt;td>saurais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>sait&lt;/td>
+&lt;td>a su&lt;/td>
+&lt;td>savait&lt;/td>
+&lt;td>saura&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on sache&lt;/td>
+&lt;td>saurait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>savons&lt;/td>
+&lt;td>avons su&lt;/td>
+&lt;td>savions&lt;/td>
+&lt;td>saurons&lt;/td>
+&lt;td>que nous sachions&lt;/td>
+&lt;td>saurions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>savez&lt;/td>
+&lt;td>avez su&lt;/td>
+&lt;td>saviez&lt;/td>
+&lt;td>saurez&lt;/td>
+&lt;td>que vous sachiez&lt;/td>
+&lt;td>sauriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>savent&lt;/td>
+&lt;td>ont su&lt;/td>
+&lt;td>savaient&lt;/td>
+&lt;td>sauront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles sachent&lt;/td>
+&lt;td>sauraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>VOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>vois&lt;/td>
+&lt;td>ai vu&lt;/td>
+&lt;td>voyais&lt;/td>
+&lt;td>&lt;strong>verrai&lt;/strong>&lt;/td>
+&lt;td>que je voie&lt;/td>
+&lt;td>&lt;strong>verrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>vois&lt;/td>
+&lt;td>as vu&lt;/td>
+&lt;td>voyais&lt;/td>
+&lt;td>&lt;strong>verras&lt;/strong>&lt;/td>
+&lt;td>que tu voies&lt;/td>
+&lt;td>&lt;strong>verrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>voit&lt;/td>
+&lt;td>a vu&lt;/td>
+&lt;td>voyait&lt;/td>
+&lt;td>&lt;strong>verra&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on voie&lt;/td>
+&lt;td>&lt;strong>verrait&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>voyons&lt;/td>
+&lt;td>avons vu&lt;/td>
+&lt;td>voyions&lt;/td>
+&lt;td>&lt;strong>verrons&lt;/strong>&lt;/td>
+&lt;td>que nous voyions&lt;/td>
+&lt;td>&lt;strong>verrions&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>voyez&lt;/td>
+&lt;td>avez vu&lt;/td>
+&lt;td>voyiez&lt;/td>
+&lt;td>&lt;strong>verrez&lt;/strong>&lt;/td>
+&lt;td>que vous voyiez&lt;/td>
+&lt;td>&lt;strong>verriez&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>voient&lt;/td>
+&lt;td>ont vu&lt;/td>
+&lt;td>voyaient&lt;/td>
+&lt;td>&lt;strong>verront&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles voient&lt;/td>
+&lt;td>&lt;strong>verraient&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>最後是 -naître 系列，這個詞是 futur 和 conditionnel 有 accent，其他沒有。雖然 naître 有點複雜，但其實只有被動式比較常見，因此我自己只有記 p.p. 而已。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>NAÎTRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>nais&lt;/td>
+&lt;td>suis né(e)&lt;/td>
+&lt;td>naissais&lt;/td>
+&lt;td>naîtrai&lt;/td>
+&lt;td>que je naisse&lt;/td>
+&lt;td>naîtrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>nais&lt;/td>
+&lt;td>es né(e)&lt;/td>
+&lt;td>naissais&lt;/td>
+&lt;td>naîtras&lt;/td>
+&lt;td>que tu naisses&lt;/td>
+&lt;td>naîtrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>naît&lt;/td>
+&lt;td>est né(e)&lt;/td>
+&lt;td>naissait&lt;/td>
+&lt;td>naîtra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on naisse&lt;/td>
+&lt;td>naîtrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>naissons&lt;/td>
+&lt;td>sommes né(e)s&lt;/td>
+&lt;td>naissions&lt;/td>
+&lt;td>naîtrons&lt;/td>
+&lt;td>que nous naissions&lt;/td>
+&lt;td>naîtrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>naissez&lt;/td>
+&lt;td>êtes né(e)(s)&lt;/td>
+&lt;td>naissiez&lt;/td>
+&lt;td>naîtrez&lt;/td>
+&lt;td>que vous naissiez&lt;/td>
+&lt;td>naîtriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>naissent&lt;/td>
+&lt;td>sont né(e)s&lt;/td>
+&lt;td>naissaient&lt;/td>
+&lt;td>naîtront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles naissent&lt;/td>
+&lt;td>naîtraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CONNAÎTRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>connais&lt;/td>
+&lt;td>ai connu&lt;/td>
+&lt;td>connaissais&lt;/td>
+&lt;td>connaîtrai&lt;/td>
+&lt;td>que je connaisse&lt;/td>
+&lt;td>connaîtrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>connais&lt;/td>
+&lt;td>as connu&lt;/td>
+&lt;td>connaissais&lt;/td>
+&lt;td>connaîtras&lt;/td>
+&lt;td>que tu connaisses&lt;/td>
+&lt;td>connaîtrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>connaît&lt;/td>
+&lt;td>a connu&lt;/td>
+&lt;td>connaissait&lt;/td>
+&lt;td>connaîtra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on connaisse&lt;/td>
+&lt;td>connaîtrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>connaissons&lt;/td>
+&lt;td>avons connu&lt;/td>
+&lt;td>connaissions&lt;/td>
+&lt;td>connaîtrons&lt;/td>
+&lt;td>que nous connaissions&lt;/td>
+&lt;td>connaîtrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>connaissez&lt;/td>
+&lt;td>avez connu&lt;/td>
+&lt;td>connaissiez&lt;/td>
+&lt;td>connaîtrez&lt;/td>
+&lt;td>que vous connaissiez&lt;/td>
+&lt;td>connaîtriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>connaissent&lt;/td>
+&lt;td>ont connu&lt;/td>
+&lt;td>connaissaient&lt;/td>
+&lt;td>connaîtront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles connaissent&lt;/td>
+&lt;td>connaîtraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="總結">總結
+&lt;/h2>&lt;p>未來有機會再發比較中高階的單字，如果以上有打錯、或是有更好的記法跟解釋，歡迎留言！謝謝！&lt;/p></description></item><item><title>適合新的一年有個好希望——《最有生產力的一年》</title><link>https://miyaya.github.io/p/%E9%81%A9%E5%90%88%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%E6%9C%89%E5%80%8B%E5%A5%BD%E5%B8%8C%E6%9C%9B%E6%9C%80%E6%9C%89%E7%94%9F%E7%94%A2%E5%8A%9B%E7%9A%84%E4%B8%80%E5%B9%B4/</link><pubDate>Fri, 26 Jan 2024 16:13:16 +0100</pubDate><guid>https://miyaya.github.io/p/%E9%81%A9%E5%90%88%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%E6%9C%89%E5%80%8B%E5%A5%BD%E5%B8%8C%E6%9C%9B%E6%9C%80%E6%9C%89%E7%94%9F%E7%94%A2%E5%8A%9B%E7%9A%84%E4%B8%80%E5%B9%B4/</guid><description>&lt;h2 id="簡介">簡介
+&lt;/h2>&lt;p>去年年底開始看這本書，不禁對新的一年充滿了希望。&lt;/p>
+&lt;p>在捷克的時候發現，自己有一個問題，就是注意力超級不集中 XD 這剛好也是這本書的一大命題：&lt;strong>每次做一件事的時候極度的專注在當下是高生產力、高效率的充分條件&lt;/strong>。&lt;/p>
+&lt;blockquote>
+&lt;p>📖 如今，最有生產力的人是那些從容行事的人；而要做到從容行事，最好的辦法就是培養、並維持強有力的專注力肌肉。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="往內在探討動機所謂高生產力的定義">往內在探討動機——所謂高生產力的定義
+&lt;/h2>&lt;blockquote>
+&lt;p>📖 最具生產力的人，工作速度介於和尚和股票交易員之間：速度快到足以完成每件事，同時又慢到足以讓自己辨識最重要的事，然後&lt;strong>從容不迫且用心地執行&lt;/strong>。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;p>我很喜歡這本書的一個地方是，雖然歸類於生產力工具書，但作者的文筆很不錯，不僅提供實用的方法，還給我一種能見樹又能見林的感覺。一開始的這段話呼應到後面會提到的「如何提高生產力」，以及什麼叫做高生產力。&lt;/p>
+&lt;h3 id="找到那些最重要的事">找到那些最重要的事
+&lt;/h3>&lt;blockquote>
+&lt;ul>
+&lt;li>📖 提高生產力的關鍵，在於創造出更多時間，讓你有餘裕進行實際上對自己有意義的事情。&lt;/li>
+&lt;li>📖 這三項任務占所有工作的20％，卻帶給你至少80％的價值。「價值」這個詞在此非常關鍵：跟一般有意義的任務不同，這些具終極目標的任務不見得給你個人帶來很多價值或意義，但肯定會對你的生產力帶來極大的價值。
+📖&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>對應到許多其他生產力的書籍，似乎可以歸納出高生產力的究極定義： &lt;strong>我們不能創造時間，因此只能盡可能把時間留給那些最重要的事&lt;/strong>。像是《生時間》所有的例子，都是在幫讀者節省下花在低報酬事務的時間，留給更有價值的事。而這邊的 &lt;em>有價值&lt;/em> 不僅僅是那些有辦法量化的結果，像是工作、薪水、專案，能帶來價值的還有人際關係、熱情所在、提升心靈與生理健康⋯⋯。&lt;/p>
+&lt;h2 id="所以其實會覺得時間變多了精力變好了不那麼忙">所以其實會覺得時間變多了、精力變好了：「不那麼忙」？
+&lt;/h2>&lt;blockquote>
+&lt;p>📖 當你持續長時間工作，或是花太多時間忙東忙西，通常這並不表示你有太多工作要做，而只是意味著你並未明智善用精力和專注力。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;p>大學時期的我，總喜歡追求很多 threads 同時進行的生活，最好一刻不得安寧，然後有種生活很繽紛、充實的感覺。我並沒有要否定過去的自己，畢竟我很珍惜有那段時間的摸索，但好像過了那段歲月後，若還是追求同樣的生活步調，反而會讓很多事情做不好。&lt;/p>
+&lt;p>當時能有很多能量去嘗試、去享受、去犯錯、以及去放棄。在體驗過許多不同領域後，找到自己有興趣的範疇、能夠探索更多有趣的 insight，然後&lt;em>專注&lt;/em>於此，還能保有體力過著有餘韻的生活節奏。&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>📖 只要有機會，最具生產力的人會優先管理好自己的精力和注意力，時間管理則是次要。&lt;/li>
+&lt;li>📖 生產力並非指做得更多、更快，而是指用心嚴謹地做正確的事情。這就是為什麼騰出更多時間和注意力空間做事情會如此有效，因為這麼做能賦予你更多空間，做好更高回報的任務、避開低回報任務，而且變得更具生產力。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>另一方面，如今的現代人大概都有落入社群媒體的陷阱過，不停的 scroll。我們都知道，這些對我們然後最後對導致情緒低落、生產力低落，甚至在兩者交互作用之下，還會產生一個惡化循環 😱 我想這本書之於現代人的用途，至少對我來說，某種程度上第一步就是從這個陷阱中解套。&lt;/p>
+&lt;blockquote>
+&lt;p>📖 良好的生產力技巧大多有個奇怪的特質：當它們讓你每天完成更多事情時，卻往往讓你感到生產力變低。就像從工作中退一步去計畫、用較少的時間做事情，以及脫離網路等技巧，全都能幫助你完成更多的工作，但也會使你的工作不再那麼刺激，因而營造出一種錯覺，讓你以為完成的工作變少了。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="我自己就是瞎忙冠軍">我自己就是瞎忙冠軍
+&lt;/h3>&lt;blockquote>
+&lt;ul>
+&lt;li>📖 帕金森定律（Parkinson&amp;rsquo;s law）指出：有多少可運用的時間，就會衍生出足夠的工作量來塞滿這些時間。在我的一年計畫裡，我發現這個定律特別適用於低回報的任務。由於你的大腦邊緣系統會抗拒做更具挑戰、最高回報的任務，因此低影響力的工作支援任務，幾乎就成為「工作迷幻藥」或「工作糖果」。當你在處理這些任務時，自然會感覺很有生產力&lt;/li>
+&lt;li>📖 忙碌若不能讓你完成任何事情，那它跟懶散不做事又有什麼區別？
+生產力與忙碌的程度或有多少效能無關，它只跟你完成多少有關。
+單單只是因為你覺得有生產力，並不代表你真的有生產力。反之，儘管你富含生產力，你卻往往不覺得自己有生產力。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>雖說大學時期我參加的活動多、還有課業、打工、出去玩什麼之類的，整體而言行程比較多，那時如果我比較難專心、效率比較差，好像還情有可原。也就是說現在，尤其是目前，我半年前辭去了打工後，生活只剩下研究所跟法文課，生活應該要變得比較輕鬆，時間會自然而然被「生」出來，但似乎也沒有 😂😂 甚至我在學期末只有兩門課，生活彷彿依舊還是被課業塞滿了。我做專案的步調變慢、專注度下降，因為我潛意識裡深知：&lt;strong>我時間很多&lt;/strong>。&lt;/p>
+&lt;p>我做什麼都慢慢來，因為我不怕我的時間被浪費掉。&lt;/p>
+&lt;p>從一開始的真瞎忙，到現在是裝忙 😂 天啊！！能夠在新的一年開始閱讀這本書，也算是某種程度的幸運吧（比較有動力去面對問題，還可以趁機 set new resolutions）&lt;/p>
+&lt;h2 id="透過安排任務與行程來達到自由">透過安排任務與行程來達到自由
+&lt;/h2>&lt;blockquote>
+&lt;p>📖 簡化行事曆得以創造更多空間留給高回報的任務，如此一來，當臨時發生緊急事件需要處理時，你才有更充裕的空間足以反應。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;p>看了這麼多本提升生產力、工作效率的書後，似乎終於瞭解到所謂 prductive 的本質。以前真的會因為行事曆被塞得滿滿的，到處東奔西跑，或是擁有很長的工時（至少是與薪資不成比例的工時 QQ）就認為自己做了很多事！而因此為自己感到驕傲。現在看來，以前每年都沒有達成的新年願望，就是在所謂「行程很滿」之下的犧牲品。我總會想，我真的沒有時間做這些事。但事實上是，我們應該要評估應該把精力、注意力、時間留給誰？&lt;/p>
+&lt;p>（新年新希望：好比說&lt;em>把我買的一堆線上課程看完&lt;/em>，從來沒有，每年都在買，但從來沒有看完過！！）&lt;/p>
+&lt;blockquote>
+&lt;p>📖 因為建立一份任務列表，就等於模擬完成實際工作──雖然什麼事都還沒完成，只是紙上談兵而已。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;p>（是的，今年也再次把這個願望寫下來了，完成度會如何呢&amp;hellip;&amp;hellip;）&lt;/p>
+&lt;h3 id="實際的計畫">實際的計畫
+&lt;/h3>&lt;blockquote>
+&lt;p>📖 野心大絕非壞事──你我都該如此，只不過，為了達成目標所採用的方式愈激進，你就愈不可能持續下去。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;p>同一時間，我也剛重讀完《12週做完一年工作》，藉著新年的時機，幫自己制定了一連串的長短期目標，等晚些時間再來回顧、盤點，看看做得怎麼樣。這本書沒有很實際的說明要怎設置實際的計畫，在這部分比較接近老生常談，就推薦大家去看《12 week year》啦！&lt;/p>
+&lt;p>話說，如果從另一個角度，因為《12 week year》是屬於 top-down 的目標設置，搞不好也可以採用像是《原子習慣》這類 bottom-up 的方法，以免目標太過龐大 (which means, you should build a system here)&lt;/p>
+&lt;h3 id="自主性">自主性
+&lt;/h3>&lt;blockquote>
+&lt;p>📖 生產力相關書籍之所以能吸引眾多讀者，是因為書中承諾能夠幫助我們重拾對所做一切事情的掌控權。
+我喜歡那種「事情都在我掌控之中」的感覺。當我從腦海中清出所有任務、計畫，以及懸而未決的事情後，我獲得更多的注意力，足以專注在眼前的任務上，這讓我對於自己的工作有更大的控制權，並且讓我變得更有生產力。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>我超級喜歡做計畫。&lt;/strong>&lt;/p>
+&lt;p>但此時這也是一個陷阱（對我而言）。&lt;/p>
+&lt;p>我容易淪為在做完計畫後就止步於此，沒有真實的行動&amp;hellip;&lt;/p>
+&lt;h3 id="承諾與初衷">承諾與初衷
+&lt;/h3>&lt;p>在自主性與承諾與行動之間，《12週做完一年工作》給了很好的解釋，有絕對的自由與彈性，勢必相對的要持續跟承諾性的對自己問責。&lt;/p>
+&lt;blockquote>
+&lt;p>📖 如果你不重視自己當下努力做出的改變，或是不清楚自己為何想要完成更多的深層原因，你當下就不會有動力做出短暫的犧牲，以達成長期的目標。&lt;/p>
+&lt;/blockquote>
+&lt;p>呈前段所說，我自己有一個很不好的習慣：&lt;strong>我只喜歡做規劃、不喜歡執行&lt;/strong>。&lt;/p>
+&lt;p>想說這到底什麼鬼 XDD 我豈不成是什麼夢想家，其實根本沒有執行能力嗎!! 從另一個角度來看，我其實超級喜歡拖延，可能在某種程度上，當我做完安排之後我已經滿足了，潛意識沒有繼續堅持的理由（天啊，我的大腦好笨）&lt;/p>
+&lt;p>為此，我試過很多方法：看心理諮商、閱讀《拖延心理學》以及各種提升生產力的書、使用數位工具提醒自己、追蹤任務等。但大部分都失敗了，有時候有用、有時候卻會沒有用，這是為什麼呢？我最近找到了真正的原因。&lt;/p>
+&lt;h2 id="好了來做吧">好了！來做吧！
+&lt;/h2>&lt;blockquote>
+&lt;p>📖 生產力的技巧是用來幫助你更聰明地工作；但前提是，你得真正工作，不然再好的技巧也沒用。&lt;/p>
+&lt;/blockquote>
+&lt;p>看到這邊，我再次心有戚戚焉，忍不住為自己沒達成的目標找藉口：&lt;em>我真的沒有時間做這些事啊啊啊&lt;/em>。&lt;/p>
+&lt;blockquote>
+&lt;p>📖 《戰惰》（The Procrastinator&amp;rsquo;s Handbook）一書作者麗塔．艾米特（Rita Emmett）總結得非常好；在她提出「艾米特定律」（Emmett&amp;rsquo;s law）時是這麼說的：「害怕做某件事所耗費的時間和精力，比真正做那件事本身還要多。」&lt;/p>
+&lt;/blockquote>
+&lt;p>事實上，我超級愛拖延，有那麼多無趣的功課、乏味的任務，以及無人問責的項目。我在設置目標上總是充滿動力跟憧憬，但一旦完成之後，我再也不會打開我的記事本、notion 任務資料庫、 todo list 去檢查完成了沒，漸漸的，我的目標變得越來越難以企及。&lt;/p>
+&lt;blockquote>
+&lt;p>📖 這正是為什麼要用心嚴謹工作，而非更快、更辛苦工作的另一項重要原因。藉由放慢工作腳步，你處理事情的思慮也會更加周延、覺知力更強；如此一來，當你眼前出現新的事情，你也更容易看清它能帶給你多大的回報。&lt;/p>
+&lt;/blockquote>
+&lt;p>對我而言，真正的問題是我覺得那些任務、那些被我排在行程裡的事都太無聊了。&lt;/p>
+&lt;blockquote>
+&lt;p>📖 每當我嘗試一次只做一件事時，我總覺得自己好像錯過了什麼好玩的事情。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://miyaya.github.io/p/%E9%81%A9%E5%90%88%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%E6%9C%89%E5%80%8B%E5%A5%BD%E5%B8%8C%E6%9C%9B%E6%9C%80%E6%9C%89%E7%94%9F%E7%94%A2%E5%8A%9B%E7%9A%84%E4%B8%80%E5%B9%B4/mbti.jpeg"
+width="1179"
+height="1176"
+srcset="https://miyaya.github.io/p/%E9%81%A9%E5%90%88%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%E6%9C%89%E5%80%8B%E5%A5%BD%E5%B8%8C%E6%9C%9B%E6%9C%80%E6%9C%89%E7%94%9F%E7%94%A2%E5%8A%9B%E7%9A%84%E4%B8%80%E5%B9%B4/mbti_hu4e539fe62822a133425410a41941cea6_174047_480x0_resize_q75_box.jpeg 480w, https://miyaya.github.io/p/%E9%81%A9%E5%90%88%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%E6%9C%89%E5%80%8B%E5%A5%BD%E5%B8%8C%E6%9C%9B%E6%9C%80%E6%9C%89%E7%94%9F%E7%94%A2%E5%8A%9B%E7%9A%84%E4%B8%80%E5%B9%B4/mbti_hu4e539fe62822a133425410a41941cea6_174047_1024x0_resize_q75_box.jpeg 1024w"
+loading="lazy"
+alt="身為完完全全的 P 型人的 me be like ⬆️"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>這應該是我從這本書最重要的 take-away，也是我今年真正的課題——&lt;strong>把專注執行變的好玩一些&lt;/strong>。這也是我從這本書找到，我總是不行動、拖拖拉拉背後的真正原因，這些任務不好玩、乏味，光是想到就提不起勁，怎麼有辦法還勉強自己動身 &lt;em>(真的是藉口一堆)&lt;/em>&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>📖 唯有當你一次只做一件事時，你才能有足夠的注意力投注其中。&lt;/li>
+&lt;li>📖 要把你在工作上投注的專注力從原先的53％，提高到80％或90％，並非一朝一夕就能做到，但它能帶給你意想不到的成效，非常值得你付出努力。&lt;/li>
+&lt;li>📖 「人的思緒總是游移不定。」而研究證實：「游移不定的心思並不快樂。」從進化的角度來看：「具有思索非眼前發生事情的能力，屬於認知的高階功能，但它卻伴隨著情緒的成本。」雖然你的時間極其有限（所以生產力才會如此重要），但也正因如此，你更應該放慢腳步，在提高生產力的同時，全心全意享受這個過程。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>因為我深深知道，光靠意志力是沒有用的。對我來說，我的意志力脆弱到連鼓勵自己下床的勇氣(?)都沒有，我平常要是想耍廢，是會躺平直到下午4點才勉強起床，因為實在太想尿尿了。&lt;em>(沒錯好荒謬)&lt;/em> 如果想要達成成功的專注、進入心流，那就是讓做這件事情的本身變得有趣，讓我的大腦知道這件事的價值，以及當下是很好玩、很值得付出時間的！畢竟，人類的生理機制沒有那麼完整規劃未來的設計，更何況我注意力能集中的時間太短了。&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>📖 一次只做一件事還賦予我更多的注意力空間，讓我更富同情心、更體貼，且更快樂。我強烈相信，一個人在努力提升生產力時，一定要具備豐富的同情心：不僅對別人慈悲，對自己也是一樣。&lt;/li>
+&lt;li>📖 總之，要做到一次只做一件事需要某些調整，但我相信這麼做不僅可以幫助你完成更多工作，還能幫助你成為更好的人。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>這方面，在我看諮商的時候、以及《拖延心理學》中都有提到。我常常為了很多事情而自責，即便我可能沒有意識到我正對自己感到不滿，但從很多情緒用字中，諮商師點出我對自己的苛責，有時候一些無傷大雅的紓壓方式可能真的就是好好放鬆、大吃一頓，這些都是沒關係的。舉例來說，因為我的拖延，導致很多事情沒有在第一時間完成，因此感到沮喪跟無力，更沒有動力去做。但追究起原因，我就真的不想做這些事情，拖延可能是壞習慣、但或許也是難免。我慢慢的在練習對自己說沒關係，知道背後的原因，能夠更理智的去看待事情。看得多、看得遠，自然就培養出了換位思考的能力。&lt;/p>
+&lt;p>在《12週做完一年工作》中的盤點章節中在在提到盤點的意義，並不是為了讓我們情緒低落、譴責自己糟糕的成效，而是能夠週期性的客觀評估。首先第一步就是，學會如何心平氣和的接受自己被打一個分數，然後藉此當作未來改正的動力。一開始我覺得很難，畢竟一個 40% 的成效擺在眼前真的不是很好看，但漸漸的練習就會理解到，人生就是這樣，起起伏伏，沒有辦法天天過年嘛！&lt;/p>
+&lt;blockquote>
+&lt;p>📖 要克服負面的自我對話實在很難，但我內心有一部分就是相信：到最後，我肯定會沒事的。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="正念心流冥想">正念、心流、冥想
+&lt;/h3>&lt;p>最後，這或許是幫助專注力訓練肌肉的最佳運動，因此在許多生產力書籍都會提到的一個項目。&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>📖 藉由正念和冥想，你將學會控制自己的專注力，進而投注更多注意力在眼前的任務上。&lt;/li>
+&lt;li>📖 每天只要五到十分鐘冥想，就足以重新改造你的大腦，因而徹底改變你看待自身工作與生活的方式。雪倫採用的是切合實際的冥想方式，並將之視為從容度日、與自己內在連結，進而活出幸福人生的一種方式&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>我嘗試過幾次，但一般時候做總好像沒什麼幫助：我對練習呼吸、閉上眼睛專注在自己身上一點興趣也沒有。睡前的正念練習倒是讓我都睡得太快，還做不到一半就睡著了。&lt;/p>
+&lt;p>後來我開始做瑜伽，我依舊對練習呼吸沒有太大的興趣，但是每一次的伸展、不同的姿勢，我能因此而更專注在當下、在自己身上。甚至做完之後，我還感到心裡飄飄的，好像放下了什麼重擔，變得輕鬆了一些。&lt;/p>
+&lt;blockquote>
+&lt;p>📖 正念能讓你從容做好眼前的工作，因為它讓你真正退一步思索想要達成的目標、領會你當下的感受，並瞭解你當下在想些什麼。據雪倫表示，這樣的機會每天多到無以計數：「在你談話之前、開會前或處理任何事情之前，不妨退一步，試著與自己的內在連結，看清自己想要什麼。譬如：你最想從談話當中看到什麼結果？然後朝那樣的結果努力，而不是任由你的感覺牽著鼻子走。」正念讓你每天隨時得以設定「微小計畫」，一整天累積下來，終會讓你變得更具生產力。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;p>不管是提高生產力、調整作息、減肥、運動，所有他人推薦給我們的，最終都是要&lt;strong>自己去嘗試才能真正體會到適不適合自己&lt;/strong>。&lt;/p>
+&lt;h2 id="回顧">回顧
+&lt;/h2>&lt;p>像是《刻意練習》一再強調的，不斷練習是不是正確的學習之路，而是要有意識的去觀察、調整自己的狀態；還有《子彈思考整理術》中提到的，把你所想要關注的記錄下來，若時時刻刻我們都能活在當下、定時回顧，那我們則永遠不會停下腳步前進。當然別忘了執行計畫或許最有效的《12 week year》。&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>📖 這個方法的主要精髓，在於每週回顧一次熱點清單，想想你在過去一週分別花多少時間在上面，並想想未來的一週你打算關注哪些地方。
+雖然我花了好幾個星期，才將各個熱點底下的承諾和責任全數列出，然而一旦完成之後，每當我望著這張清單，就能清楚看見我的人生風貌在我面前展開。&lt;/li>
+&lt;li>📖 最具生產力的人與其他人不同的地方在於：他們每個星期都會修正方向，一步步把事情做得愈來愈好。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h2 id="實際應用與連結">實際應用與連結
+&lt;/h2>&lt;h3 id="節錄書中列出的挑戰">節錄書中列出的挑戰
+&lt;/h3>&lt;blockquote>
+&lt;p>📖 你應該在下班前，或是上床前，就先決定隔天要達成的三項目標。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;p>大部分的挑戰我覺得都很實用，操作起來也很容易，我覺得光是為了這些挑戰，就很值得入手這本書。
+所有的挑戰其實也都可以跟其他書籍相關聯：如每日三個重點、保持好精神可以對應到《生時間》、利用黃金時段工作可以對應到《12 year week》、捕捉以及熱點可以對應到《搞定》。&lt;/p>
+&lt;h3 id="生時間與-things-3">《生時間》與 Things 3
+&lt;/h3>&lt;blockquote>
+&lt;p>📖 後來，我想到一個建立計畫總清單的簡單方法，亦即把它們與熱點結合，將所有計畫分門別類歸在各個熱點之下。（如果你一翻開本書就看到這一頁，這幾句話應該會讓你一頭霧水吧！）就像創立一個隨時可供檢視的熱點清單一樣，這張清單簡明易懂，但非常有效。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://miyaya.github.io/p/%E9%81%A9%E5%90%88%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%E6%9C%89%E5%80%8B%E5%A5%BD%E5%B8%8C%E6%9C%9B%E6%9C%80%E6%9C%89%E7%94%9F%E7%94%A2%E5%8A%9B%E7%9A%84%E4%B8%80%E5%B9%B4/things.png"
+width="1047"
+height="812"
+srcset="https://miyaya.github.io/p/%E9%81%A9%E5%90%88%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%E6%9C%89%E5%80%8B%E5%A5%BD%E5%B8%8C%E6%9C%9B%E6%9C%80%E6%9C%89%E7%94%9F%E7%94%A2%E5%8A%9B%E7%9A%84%E4%B8%80%E5%B9%B4/things_hu194f61f7e62e15019b8a7519b5f94dd7_210319_480x0_resize_box_3.png 480w, https://miyaya.github.io/p/%E9%81%A9%E5%90%88%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%E6%9C%89%E5%80%8B%E5%A5%BD%E5%B8%8C%E6%9C%9B%E6%9C%80%E6%9C%89%E7%94%9F%E7%94%A2%E5%8A%9B%E7%9A%84%E4%B8%80%E5%B9%B4/things_hu194f61f7e62e15019b8a7519b5f94dd7_210319_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Things 3"
+class="gallery-image"
+data-flex-grow="128"
+data-flex-basis="309px"
+>&lt;/p>
+&lt;p>看到這邊如果你覺得太抽象，那建議你看《搞定》這本書，裡面歸納任務、分配時間的說明寫得非常好，後來我甚至因為漂亮的介面去買了 things 3，我覺得很好用，真的是幫助大大，自從我習慣把要做的事情打進去之後，就真的再也沒有忘記該做的事。
+書中提到的熱點就是 things 3 裡面的「領域」，可以幫助使用者分門別類該做的任務。使用簡單、同步性好、介面漂亮，推推！&lt;/p>
+&lt;h2 id="總結">總結
+&lt;/h2>&lt;blockquote>
+&lt;ul>
+&lt;li>📖 追求生產力的過程，往往也是認清自我極限的過程。&lt;/li>
+&lt;li>📖 能否每天從容嚴謹且意志堅定地做事，決定生產力的高低。不過，找出背後的深層意義也同等重要。你行動背後的意圖就像是連接箭頭的箭桿，若你不深入探索自己內心深處為何想要完成某一件事，便很難日復一日提升自己的生產力。這個生產力觀點是本書截至目前為止最不迷人的忠告了，但它應該是最重要的。若是你不在乎自己究竟想做出什麼改變，就算你投入無數的時間提高生產力，或是培養新的習慣，都是徒勞；因為你不會有動力長久維持這些改變。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>去年在辭職之後，終於把精神跟體力贏了回來。以前我總說「沒有時間」、「沒有力氣」，那些話都是真的。因為打工的體力活實在是太累人了，我已經沒有一絲絲力氣坐在書桌前，學新東西也好、寫日誌也好，任何有真實 input/output 的活動我都沒有辦法做了，我的體力沒有辦法支撐我的注意力跟心思，我只能坐在沙發上、躺在床上享受電視跟社群媒體帶給我的無腦的快樂。&lt;/p>
+&lt;p>而如今，我有辦法提筆，邊想望著我的未來，提筆寫下意圖 (intention)、目標、計畫&amp;hellip;&amp;hellip;，然後漸漸地朝著目標前進。&lt;/p>
+&lt;h3 id="生活品質與生活本質的核心">生活品質與生活本質的核心
+&lt;/h3>&lt;blockquote>
+&lt;p>📖 我很快就意識到，身邊的人不光是我計畫存在的理由，而且是我計畫存在的目的。是這些人給了我努力的意義，而且我至今所做的每一份工作，這些人也賦予了它們意義。
+正因為身邊的人，我們才會做現在做的事情，他們也是推動我們完成更多成就的關鍵。與其他人維持良好的社交關係，已被證實能讓我們更幸福、更投入工作，並且想要提高生產力。
+總而言之，人是追求生產力的背後原因。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;p>我以前從未這麼想過，甚至還會覺得維持好習慣、高生產力，都是一種在競爭環境之下的產物，除了提升競爭力之外沒有其他的好處跟動機。但其實不然，想想也覺得蠻合理的：當一個人的身心靈狀態好，沒有過多的社會壓力，我們自然能選擇理性、善良、寬容。&lt;/p>
+&lt;blockquote>
+&lt;p>📖 因為大腦無法分辨觀想與實際經驗的區別，因此你在回想時，等於讓最有意義的經歷重複發生。日積月累下來，你的大腦便將這些點連接起來，形成一條軌跡，讓你相信自己的人生深具意義。
+📖&lt;/p>
+&lt;/blockquote>
+&lt;p>這本書的金句書摘實在太多，因為電子書畫線的功能很方便，我就一時畫線一時爽、一直畫線一直爽。真的是一本閱讀時看了會頻頻點頭，之後回想還是會覺得很有收穫，實作上來也很有幫助的一本書！&lt;/p></description></item><item><title>兩年前，我買了電子閱讀器⋯⋯然後呢</title><link>https://miyaya.github.io/p/%E5%85%A9%E5%B9%B4%E5%89%8D%E6%88%91%E8%B2%B7%E4%BA%86%E9%9B%BB%E5%AD%90%E9%96%B1%E8%AE%80%E5%99%A8%E7%84%B6%E5%BE%8C%E5%91%A2/</link><pubDate>Mon, 15 Jan 2024 23:15:39 +0100</pubDate><guid>https://miyaya.github.io/p/%E5%85%A9%E5%B9%B4%E5%89%8D%E6%88%91%E8%B2%B7%E4%BA%86%E9%9B%BB%E5%AD%90%E9%96%B1%E8%AE%80%E5%99%A8%E7%84%B6%E5%BE%8C%E5%91%A2/</guid><description>&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>多虧 2022 暑假時心血來潮買了一台 Kobo，讓我有機會在國外還能享受到中文閱讀的樂趣。而且 9 月開始讀書之後，通勤時間變得很長，因此手上握有一台閱讀器，就可以根據當下的心情選擇想讀的書，而不用侷限於紙材書的體積、重量，讓苦悶的搭車時光美好一點。&lt;/p>
+&lt;p>雖然通勤時間一直都還是維持很長很長，但從去年的下半年開始演變成買書的速度遠大於看書 😂，因為一邊讀書加上一邊打工的日子持續太久，生活有些失衡、burned-out，買東西的樂趣 (?) 沒有辦法促成想讀書的動力，實在太疲憊了。買來的書大約有近一半沒有開始閱讀，有些書則是開了後沒有很好看，因此一直被我擱置著XD&lt;/p>
+&lt;p>可能一年回顧下來，我會因此立志 2024 會多認真把書閱讀完。&lt;/p>
+&lt;p>另一方面，嘗試了有聲書，覺得部分書籍是一個很不錯的體驗，雖然很多人說有聲書很方便，可以在搭車、做家事的時候聽，但因為我不是買小說類型的有聲書，就還是會想要做筆記，這個時候就還是需要拿手機出來紀錄。但小說我又會想要透過閱讀文字來想像跟感受那個氛圍與情境，可能我還沒有習慣有聲書像是背景播放的模式吧！&lt;/p>
+&lt;h2 id="電子書大推坑">電子書大推坑
+&lt;/h2>&lt;p>其實一開始在網路上看到大家推坑電子閱讀器的時候，我只想說那不然就去實體店摸摸看機器好了。結果店員介紹完一輪我有興趣的那台之後，我馬上就買了😂 在買了電子閱讀器之後，我整個就像是暈船的少女，完全無法自拔，覺得他就是我這輩子的真愛了。甚至我之後還到處跟同事朋友說一定要買一台電子閱讀器：「這會是你人生中最棒的投資！！！！」（我的原話沒有這麼直接，但是心裡是這樣吶喊的沒錯）&lt;/p>
+&lt;h3 id="封閉式-vs-開放式">封閉式 vs 開放式
+&lt;/h3>&lt;p>電子閱讀器其實很簡單，分成封閉或是開放式，用手機的系統來比喻的話，封閉式有點像 apple，你在 ios 裡載的軟體啊、檔案啊都是只屬於他們自己的，沒有辦法帶到其他平台；反之開放式有點像 android，今天你想用三星、明天你想換 google pixel，啊你買的軟體也不會就不能用了。只需要把各家的軟體下載進電子閱讀器就可以使用！
+封閉式的好處是比較穩定，可能目前也是比較主流一點點。開放式的好處則是可以統整四散各家的書籍，假如你有在不同平台買書的話。&lt;/p>
+&lt;h3 id="樂天-kobo-閱讀器">樂天 Kobo 閱讀器
+&lt;/h3>&lt;p>誠如前段所說，無論是開放還是封閉，其實現在也都有支援 app 內閱讀的功能，那你就可能就會質疑，我用平板看書就好啦！
+確實。&lt;/p>
+&lt;p>但閱讀器的好處實在太多了：&lt;/p>
+&lt;ol>
+&lt;li>保護你的眼睛，採用的電子墨水技術不像一般螢幕的藍光&lt;/li>
+&lt;li>可以無痛畫線，畫了再擦掉，還可以輸出註記與筆記&lt;/li>
+&lt;li>甚至可以查字典，可以看原文書、一邊學語言&lt;/li>
+&lt;li>有的支援有聲書功能，不過我都用手機 app 連結藍芽耳機，所以好像閱讀器本身有沒有沒差&lt;/li>
+&lt;li>紀錄閱讀時間，我自己會覺得蠻勵志的 XD&lt;/li>
+&lt;li>推薦相關書籍，我最喜歡就是想逛就能逛、買了可以馬上看的那種即時滿足感（宅）&lt;/li>
+&lt;li>完全防水，如果一邊泡澡一邊閱讀&amp;hellip;好爽&lt;/li>
+&lt;/ol>
+&lt;p>只是目前黑白的閱讀器比較多，習慣看漫畫、雜誌的讀者可能就要選購比較大台的閱讀器，或是好啦你就用平板。
+我自己用的是 kobo libra 2，上面的功能都有符合，而且我還硬是要用這台看漫畫 😂 如果要&lt;strong>懶人包推薦&lt;/strong>的話，依照習慣可以分成：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>比較常看英文書買 kindle、只看中文書買讀墨、都有的話買 kobo。&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>喜歡隨身帶的買小尺寸、只放在家裡的買大尺寸，建議買帶按鈕的，筆功能的看口袋深度+個人需求。&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="完成閱讀總列表">完成閱讀總列表
+&lt;/h2>&lt;h3 id="2022">2022
+&lt;/h3>&lt;blockquote>
+&lt;p>📖 &lt;strong>統計數值&lt;/strong>&lt;/p>
+&lt;p>總共 - 5本(不含漫畫)&lt;/p>
+&lt;p>語言 - 中文(5/5)&lt;/p>
+&lt;p>類別 - 非小說(1/5); 小說(4/5)&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>歡迎光臨夢境百貨：您所訂購的夢已銷售一空&lt;/li>
+&lt;li>婚前一年&lt;/li>
+&lt;li>姊妹&lt;/li>
+&lt;li>如果我們無法以光速前進&lt;/li>
+&lt;li>子彈思考整理術：釐清超載思緒，化想法為行動，專注最重要的事，設計你想要的人生&lt;/li>
+&lt;/ol>
+&lt;p>漫畫的話，當時趁特價買入了一堆進擊的巨人，主要是動畫還沒畫的集數。真的太神、太好看了。雖然許多人對這樣的結局不甚滿意，但我個人覺得很滿意，就算沒有到完美但也不影響他在我心中是神作的地位！今年年底終於動畫版出來了，我坐在螢幕前面大哭特哭哭，感謝 Mappa 把動畫版做出來。氣氛、音樂、口白、畫面堆疊出來的作品，以及這麼多年來的心路歷程，《進擊的巨人》稱之神作當之無愧。同去年所說，還是看動畫好看，至少我是看動畫才懂了艾連的心境，有夠可憐。&lt;/p>
+&lt;h3 id="2023">2023
+&lt;/h3>&lt;blockquote>
+&lt;p>📖 &lt;strong>統計數值&lt;/strong>&lt;/p>
+&lt;p>總共 - 19 本&lt;/p>
+&lt;p>語言 - 中文 (17/19)、英文 (2/19)&lt;/p>
+&lt;p>類別 - 非小說(11/19)、小說(5/19)、圖文書 (3/19)&lt;/p>
+&lt;p>媒體 - 電子閱讀器 (16/19)、有聲書 (3/19)&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>👑 查令十字路 84 號&lt;/li>
+&lt;li>不便利的便利店1 &amp;amp; 2&lt;/li>
+&lt;li>別讓自責成為一種習慣：放過自己的100個正向練習&lt;/li>
+&lt;li>忘憂音樂盒&lt;/li>
+&lt;li>只工作、不上班的自主人生：人氣podcast製作人瓦基打造夢幻工作的14個行動計畫&lt;/li>
+&lt;li>打造第二大腦：多一個數位大腦，資訊超載時代的高效能知識管理術&lt;/li>
+&lt;li>82 年生的金智英&lt;/li>
+&lt;li>👑 明日，明日，又明日&lt;/li>
+&lt;li>刻意練習：原創者全面解析，比天賦更關鍵的學習法&lt;/li>
+&lt;li>斜槓青年：全球職涯新趨勢，迎接更有價值的多職人生&lt;/li>
+&lt;li>搞定！工作效率大師教你：事情再多照樣做好的搞定5步驟&lt;/li>
+&lt;li>&lt;em>[有聲書]&lt;/em> Make time&lt;/li>
+&lt;li>&lt;em>[有聲書]&lt;/em> 拖延心理學&lt;/li>
+&lt;li>火箭老媽，烏龜老爸：我家，或許也是你家的故事&lt;/li>
+&lt;li>愛書小日子&lt;/li>
+&lt;li>內向小日子&lt;/li>
+&lt;li>就算長大了，也還是會難過&lt;/li>
+&lt;li>&lt;em>[有聲書]&lt;/em> The 12 Week Year&lt;/li>
+&lt;/ol>
+&lt;h2 id="簡要心得與類別不含漫畫">簡要心得與類別(不含漫畫)
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>書名&lt;/th>
+&lt;th>類別與關鍵字&lt;/th>
+&lt;th>喜歡程度&lt;/th>
+&lt;th>有的話會想買續集或推薦其他人看&lt;/th>
+&lt;th>大綱&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>歡迎光臨夢境百貨：您所訂購的夢已銷售一空&lt;/td>
+&lt;td>奇幻小說；溫馨、感動&lt;/td>
+&lt;td>個人覺得偏小品，不是很符合我的口味。看完的時候就覺得「不錯」這樣，但也沒有慾望想再買第二本&lt;/td>
+&lt;td>🌟🌟🌟 有點猶豫&lt;/td>
+&lt;td>許多與夢境相關的極短篇，有些人喜歡的理由應該是很溫馨，不過我覺得在夢境外的描述讓我有點出戲，不知道是翻譯不夠好還是我就不喜歡這種說故事方法&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>婚前一年&lt;/td>
+&lt;td>推理(?)小說；渣男、感情&lt;/td>
+&lt;td>到底是不是推理小說不知道，真的要看推理小說我可能還是會選東野圭吾。除此之外描述的故事很在地，而且蠻貼近現實生活，不錯&lt;/td>
+&lt;td>🌟🌟🌟🌟 尚可&lt;/td>
+&lt;td>渣男的故事，看到結局會有種登愣的感覺。回去翻很多小細節、甚至還上網爬文，因為看不懂結尾XD 沒有覺得很精彩，但因為整體很寫實，不禁覺得若發生在現實生活應該是蠻精彩的&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>姊妹&lt;/td>
+&lt;td>感情小說；節奏慢、悲傷&lt;/td>
+&lt;td>看完就會覺得：「看完了」的那種喜歡程度，尤其我對探索內心的悲傷、情緒這類文學實在沒什麼興趣。當初買只是因為原作者是法國人，然後封面上寫劇情有大轉折，恩真的嚇我一跳&lt;/td>
+&lt;td>🌟🌟 還好&lt;/td>
+&lt;td>一個抑鬱女子的痛苦心路歷程，看完也是登愣的感覺，不過並稱不上是精彩的震撼&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>如果我們無法以光速前進&lt;/td>
+&lt;td>科幻小說；溫暖&lt;/td>
+&lt;td>看完整本會覺得蠻滿意的，獲得了一些能量，也對人性vs科技彷彿有些新的觀點&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 滿意&lt;/td>
+&lt;td>背景可能是未來、外星等科幻的設定，但最終都會把故事拉回人與人之前的互動&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>子彈思考整理術：釐清超載思緒，化想法為行動，專注最重要的事，設計你想要的人生&lt;/td>
+&lt;td>個人成長；實用、時間管理&lt;/td>
+&lt;td>看完很期待馬上實作，不過還是看個人需求，這本書好像沒有打到我當時生活的痛點&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 滿意&lt;/td>
+&lt;td>透過記錄下生活所有代辦事項，觀察過去與現在以便未來更有效率的運用時間&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>進擊的巨人&lt;/td>
+&lt;td>漫畫&lt;/td>
+&lt;td>會想要膜拜作者的喜歡程度；話說，還是動畫看了比較爽&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 會很想要跟其他有看的人討論；然後叫沒看的人這輩子一定要看；自己有空的時候會再拿出來看&lt;/td>
+&lt;td>會有巨人冒出來吃人、讓大家的生活很悲慘的世界設定，因此人類蓋了層層高牆來阻擋巨人，原本以為會是反烏托邦爽片或腦片，結果看了之後成為人生最愛的漫畫之一&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>書名&lt;/th>
+&lt;th>類別與關鍵字&lt;/th>
+&lt;th>喜歡程度&lt;/th>
+&lt;th>有的話會想買續集或推薦其他人看&lt;/th>
+&lt;th>大綱&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>查令十字路 84 號&lt;/td>
+&lt;td>非小說、書信&lt;/td>
+&lt;td>沒有看過這種文體（可能有，交換日記？）非常真摯、禮貌的文筆可以一窺當時的時代環境以及兩人簡單卻深刻的跨國友情&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 超級好看！不愧為文學經典&lt;/td>
+&lt;td>美國作家海倫·漢芙與英國古書銷售商法蘭克·鐸爾的往來信件內容&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>不便利的便利店1 &amp;amp; 2&lt;/td>
+&lt;td>文學小說；溫馨、感人&lt;/td>
+&lt;td>第一集比《歡迎光臨夢境百貨》，但沒有《解憂雜貨店》好看。第二集沒有比第一集好看很多，但講述了很多角色後續的人生故事，結局的結法算是讓我蠻滿意的&lt;/td>
+&lt;td>🌟🌟🌟🌟 不錯的小說&lt;/td>
+&lt;td>開便利店的廉女士某天錢包被偷了，被一個人很好的流浪漢搶(?)回來，因此她決定讓他來當自己的便利店大夜班…以及身旁的人一連串的故事。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>別讓自責成為一種習慣：放過自己的100個正向練習&lt;/td>
+&lt;td>非小說；心理勵志、大眾心理學&lt;/td>
+&lt;td>行動導向的心靈書籍，不是俗濫的雞湯、看了不會生氣(?)，反而會反思自己的行為並可以立刻做出簡單的行動改善問題，個人認為很實際&lt;/td>
+&lt;td>🌟🌟🌟🌟 低潮時候的首選&lt;/td>
+&lt;td>真的收錄了 100 個思維以及行動上的練習，幫助自己更快樂。每個都小而實際、很好閱讀也很好上手&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>忘憂音樂盒&lt;/td>
+&lt;td>文學小說；溫馨、微奇幻、極短篇&lt;/td>
+&lt;td>又是《解憂雜貨店》風格再現的書，但是不知為何很不有趣，內容連貫性也不高，啊那個音樂盒店是到處快閃嗎？&lt;/td>
+&lt;td>🌟🌟 特價99才買的&lt;/td>
+&lt;td>這家音樂盒店的老闆，擁有一種特殊的能力，他聽得見這些心事重重的人內心重複播放一首歌曲。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>只工作、不上班的自主人生&lt;/td>
+&lt;td>非小說；生涯規劃&lt;/td>
+&lt;td>有探討如何找喜歡的職涯、如何行動等等，以及一些時間、精力分配的問題。文筆不錯，這本書也可以當作找書的起點，因為作者推薦了許多好書。&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 應該會成為生涯規劃的top10之一&lt;/td>
+&lt;td>瓦基離開原公司創業的心路歷程跟過程。列點說明一路上學習到的東西以及該注意的地方。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>打造第二大腦&lt;/td>
+&lt;td>非小說；商業工具書、成功法、知識管理&lt;/td>
+&lt;td>透過 CODE 以及 PARA 大法，歸類每天搜集到的知識與參考資料，知識管理系統可以更加整潔，也更容易找到東西，自然提升生產力。&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 需要跟著實作才真正有價值。適合「那個東西在哪裡看過但找不到」的人、創作者、或是一般人想你的整理數位系統也蠻實用&lt;/td>
+&lt;td>筆記方法-CODE法則：獲取、組織、萃取、表達；管理筆記的系統-PARA系統：專案、領域、資源、檔案庫&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>82 年生的金智英&lt;/td>
+&lt;td>小說但放了很多真實數據；時代小說、女權、諷刺&lt;/td>
+&lt;td>看完再次慶幸沒有生在韓國。在某個時代背景下，每個人都是金智英&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 做好心理準備的話就可以看，女性悲歌&lt;/td>
+&lt;td>金智英的一生：新舊時代的南韓在性別議題上的問題&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>明日，明日，又明日&lt;/td>
+&lt;td>翻譯文學；愛情、創業、友情、人生&lt;/td>
+&lt;td>太好看了… 廢寢忘食地看，這就是人生，不完美但你也不能怎麼樣，只好明日明日又明日&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 2023必看、2023最好看&lt;/td>
+&lt;td>山姆與莎蒂，童年時在醫院偶遇，但發生了一些事，彼此的生命反覆交錯又分開。再次相遇後決定一起創業，但世事難料，他們之間的複雜的關係持續推動著彼此的感情與人生。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>刻意練習&lt;/td>
+&lt;td>非小說；正向心理學、潛能開發、人格天賦&lt;/td>
+&lt;td>撇開最後例子一堆看得很吃力之外，不意外的都還是一些體力型、記憶型的項目，啊我自己是覺得這個理論已經無法支持現在的知識型工作（統整、梳理新知識、或是根據手邊資料思考並輸出等）&lt;/td>
+&lt;td>🌟🌟 其實整本書就一句話：「有意識的刻意練習才能系統性的達成目標」&lt;/td>
+&lt;td>我們想要學習新技能不應該依賴天賦，而是靠著一些技巧刻意練習而成功&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>斜槓青年&lt;/td>
+&lt;td>非小說；職涯發展&lt;/td>
+&lt;td>我蠻意外這是一個中國作者寫的書，因為整個書大讚資本主義(?) 看的時候覺得有點好笑。另一方面，後半段感覺有點像集結諸多其他職涯發展的書的讀書心得(?)，但從某個角度來看，是 是看完這本就等於看了很多本(??)&lt;/td>
+&lt;td>🌟🌟🌟🌟 我個人其實覺得看了蠻勵志的，雖然有些章節好像沒有與主題有直接的關係。適合喜歡看職涯發展類的書的人&lt;/td>
+&lt;td>我居然忘記這本書在寫什麼，上網一查發現這本書毀譽參半，哇哈哈！大概就是斜槓的定義、如何準備心態、跟如何應映現在的社會趨勢以保有足夠的實力，吧？&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>搞定&lt;/td>
+&lt;td>非小說；時間管理、商業工具書&lt;/td>
+&lt;td>我覺得非常實用，理論寫的可行、可靠，文字讀起來也很輕鬆但不會太短、太口語。&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 很適合很忙碌的現代人，同推應用程式 thing 3&lt;/td>
+&lt;td>介紹GTD系統：透過「捕捉（記下來）-理清、分類（決定怎麼處置）-回顧（避免瞎忙）-執行」來協助人把所有重要的事情做好，同時減輕頭腦記東西的負荷。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Make time&lt;/td>
+&lt;td>有聲書；原文書；時間管理、時間規劃、商業工具書&lt;/td>
+&lt;td>算是我第一本有聲書，因為這本書算是很口語，句子也都不長，算是幸運的選到一本適合輕鬆聽的書，提供的提供的「highlight」方法非常實用。&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 也很適合給忙碌的現代人，喜歡《最有生產力的一年》的話應該也會喜歡這本書&lt;/td>
+&lt;td>介紹 “highlight-laser-energize-reflect” 的系統以及細節，包含一堆給自己省時間、生時間的方法，有的蠻極端的，但秉持著實驗精神，可能有機率值得一試&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>拖延心理學&lt;/td>
+&lt;td>有聲書；心理學&lt;/td>
+&lt;td>適合「知道為什麼就會可以比較理性解決問題」的人，因為解釋得很完整，也提供解法（心境上跟實作上），不算是心靈雞湯，實用！聽完之後覺得應該要買紙本，這樣才比較方便畫線，因為我的筆記上甚至寫了：「蠻實用的可以再聽一次」（請問到底為什麼不直接把聽到什麼寫下來）&lt;/td>
+&lt;td>🌟🌟🌟🌟 雖然看完的我還是一直在拖延，但這本提供了一個比較理性的觀點。我的 take away 是拖延的時候會盡量不要太譴責自己XDDD （推薦給大家，很實用的）&lt;/td>
+&lt;td>解析拖延行為背後的心理動機跟過程，也有提到如何克服&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>火箭老媽，烏龜老爸&lt;/td>
+&lt;td>圖文書；非小說&lt;/td>
+&lt;td>我對家庭議題的感動點其實蠻低的，不難看但這本書好像沒有很打動我ㄟ&lt;/td>
+&lt;td>🌟🌟🌟 適合喜歡李白的人&lt;/td>
+&lt;td>描述李白跟家人的故事、互動&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>愛書小日子&lt;/td>
+&lt;td>圖文書；非小說、極短篇、小品&lt;/td>
+&lt;td>看了之後我才發現，其實我好像沒有那麼愛書 😂😂 雖然不少點還是心有戚戚焉，但因為現在太少看小說了，就比較難體會一些沈浸在故事情節的部分&lt;/td>
+&lt;td>🌟🌟🌟🌟 喜歡看書的人，看了就會覺得內心暖暖的很可愛&lt;/td>
+&lt;td>愛書人的日常，跟內心小劇場&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>內向小日子&lt;/td>
+&lt;td>圖文書；非小說、極短篇、小品&lt;/td>
+&lt;td>喜歡上面的風格的話就也會喜歡這本，因為作者是同一個人，也是一本可愛的圖文書，可以很輕鬆地看完&lt;/td>
+&lt;td>🌟🌟🌟🌟 內向人共感適用&lt;/td>
+&lt;td>內向的人超多小劇場一次全部畫出來&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>就算長大了，也還是會難過&lt;/td>
+&lt;td>非小說；心靈勵志&lt;/td>
+&lt;td>當初因為手邊有很多電子書點數要用，加上有點低潮，買了一拖拉庫心靈勵志書，甚至還有好幾本還沒看完&lt;/td>
+&lt;td>🌟🌟🌟 不難看的心靈雞湯&lt;/td>
+&lt;td>各種方面給你一些建議，讓你有辦法快樂一點，哪怕這些理論你可能已經知道&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>The 12 week year&lt;/td>
+&lt;td>非小說；原文書、有聲書、商業工具書&lt;/td>
+&lt;td>喔這本也是非常實用，從規劃、實踐到回饋，很像把專案 sprint 的時間尺度拉大，並應用到個人目標的領域上，可想而知應該是一個可靠的系統&lt;/td>
+&lt;td>🌟🌟🌟🌟🌟 有夢想卻沒有好計畫來實踐的人非常適合&lt;/td>
+&lt;td>透過 divide-conquer 建立 vision-goal-plan 一致的系統，並教導如何建立系統與背後的心態、以及如何避免常見的陷阱&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="值得一記的筆記">值得一記的筆記
+&lt;/h2>&lt;h3 id="如果我們無法以光速前進">如果我們無法以光速前進
+&lt;/h3>&lt;blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>留在地球上的理由，僅因一個人便足夠了。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>我們透過消費想要獲得的，難道只有情感嗎？人類追求的不是意義嗎？只消費排除了意義的情感，難道不會使人類淪為單純地被物質所束縛的動物嗎？況且人類最初追求意義的行為，&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>不也是一種為了抵達高次元的，而非最終的幸福的方法？&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>意義賦予在脈絡之中，但有時對一些人而言，需要的並不是有含義的眼淚，而是眼淚本身。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果我們因為擁有某種物質而得到情感上的滿足，是不是也可以理解為是想擁有那種感情呢？&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>總有一天，我們會以和現在不同的面貌生活在另一個世界，哪怕是在遙遠的未來也還是會有人孤獨和寂寞，並且渴望觸及到什麼。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h3 id="不便利的便利店-2">不便利的便利店 2
+&lt;/h3>&lt;blockquote>
+&lt;p>一段好的關係，絕對不會從天而降，而是需要透過思考、判斷與努力才能獲得。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="明日明日又明日">明日，明日，又明日
+&lt;/h3>&lt;blockquote>
+&lt;ul>
+&lt;li>同意和另一個人一起玩，風險可不低，因為這代表你願意敞開自己，放下防禦，承擔受傷的可能性。人類這樣做就像狗露出肚皮一樣，表示「我知道就算你有能力傷害我，也不會這麼做」。也像狗用嘴叼住你的手，但絕不會咬下去。一起玩需要信任和愛。&lt;/li>
+&lt;li>在遊戲裡，次序最為重要。遊戲自有邏輯，但玩家也要在遊玩中摸索出自己的邏輯，才能獲得勝利。任何勝利都有次序。所有遊戲都有最佳解。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>因為我自己會寫程式的關係，讀到跟開發有關係的就會不禁思考，這是可行的嗎？或是這是有邏輯的嗎？我不敢說這本書的遊戲都可能真的可以被做出來，但至少描述得煞有其事（我也沒有真的做過遊戲就是），讓我一直很在意的是有一次莎蒂說 render engine 一定要自己刻，我整個嚇壞，不可能吧！！！&lt;/p>
+&lt;blockquote>
+&lt;p>『雙人孤獨』意思是即使跟其他人在一起，也會覺得自己形單影隻。」賽門轉頭看著他老公的眼睛，「在遇到你之前，我一直都有這種感覺。跟家人、朋友、每一任男朋友在一起的時候都是。因為太常有這種感覺，我以為活著就是這樣，活著就得接受人在根本上是孤獨的。」賽門眼睛濕潤，「我知道我很不可理喻，我知道你不在乎德文或婚姻。我能說的只有我愛你，謝謝你還是跟我結婚了。&lt;/p>
+&lt;/blockquote>
+&lt;p>好浪漫！！！太浪漫了 😭😭😭&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>只要你相信，那麼名字就是命運。&lt;/li>
+&lt;li>會，在我心裡她會。我太熟悉你媽媽了，我可以扮演她。跟我媽媽和我奶奶也是這樣，還有我小時候最好的朋友有娜，她在她親戚家旁邊的湖裡淹死了。世界上沒有鬼，但是這裡，」她指指自己的頭，「是一座鬼屋。」&lt;/li>
+&lt;li>「還有什麼比工作更好？」他停頓，「還有什麼比工作更糟？」&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>明日，明日，又明日，
+日復一日碎步前行，
+竭至歷史的最後一個音節，
+我們的所有昨日為傻瓜照亮
+歸向塵土的道路。熄了吧，熄了吧，區區燭火！
+生命只是行走的影子，是可憐的演員，
+短暫登台時的喜與悲，
+過後就不再有人傾聽。這個故事
+由傻瓜講述，充滿喧囂與憤怒，
+沒有任何意義。&lt;/p>
+&lt;/blockquote>
+&lt;p>這段是經典《馬克白》的其中一段，我自己很喜歡這部莎劇。看到此處真的是內心很激動，豁然理解為什麼書名取為《明日，明日，又明日》，中文譯名也翻得很好。這段話似乎貫穿了整本書想傳達的故事核心概念，有點惆悵人生就是這樣（畢竟是場悲劇），但又因為悲劇本身而感到浪漫。&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>「也許是某種比你孩子的意志更強大的力量？甚至比生物學更強大？」
+「你說的是哪種力量？」
+「演算法。」阿拉巴斯特的眼睛迅速掃視房間，彷彿他們正受到監控，接著壓低聲音說，「你知道吧，看不見的力量，偉大的智者，指引我們所有人的人生。」
+「你好迷信。」&lt;/li>
+&lt;li>她讀過一本談意識的書，書上說人類的大腦在長年運作下，會製造出所愛之人的人工智能。大腦收集數據，在腦海裡建構出那個人的虛擬版本。在那個人死去後，你的大腦仍然相信那個虛擬的人存在，因為的確，腦海裡的人還在。不過，過了一陣子，記憶會漸漸淡化，每一年，這個當時憑藉活人製造出的人工智能都會漸漸消減。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>這段完全讓我想到《如果我們無法以光速前進》其中一章（也是我印象最深刻的一章），把死去的親人的抽象性格存在某種圖書館(?)，此虛擬的版本可以提供給親人「再現」的服務，天啊太可怕了，光想到就雞皮疙瘩。&lt;/p>
+&lt;blockquote>
+&lt;p>莎蒂還沒辦法把娜歐米當成完整的人，這又是一件不能輕易承認的事。她認識的許多母親都說孩子從一來到這個世界就有自己的樣子，但莎蒂不同意。沒有語言的人算是什麼人？沒有品味呢？沒有偏好？沒有經驗？走到童年的盡頭時，哪個成年人會認為自己從一開始就是完全體？莎蒂知道就連她自己，直到最近都還不是個完整的人。期許孩子從一開始就一切俱全並不合理。娜歐米現在還只是一幅素描，到了某個時候，就能成為完整的3D角色。&lt;/p>
+&lt;/blockquote>
+&lt;p>看完我自己畫線的地方，再次覺得這本書實在太好看了 😍 透過對話與行為的描繪，他們的人生好像在我眼前歷歷在目，他們的人生好像又涵蓋了許多人體驗、未體驗過的人生：所有快樂與不快樂、沈重與難以釋懷的傷痛、友情愛情與家人的關係。&lt;/p>
+&lt;h2 id="結語">結語
+&lt;/h2>&lt;p>沒有特別計算閱讀的數量，但數量的確可以反映出行動的樣貌，非常期待可以繼續完成閱讀更多好書！再次感謝閱讀器這個偉大的發明，好處太多了，真的是相見恨晚。&lt;/p></description></item><item><title>一週捷克之旅</title><link>https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/</link><pubDate>Sat, 13 Jan 2024 15:55:39 +0000</pubDate><guid>https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/</guid><description>&lt;img src="https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/1.jpg" alt="Featured image of post 一週捷克之旅" />&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>安排了 2024 一開始去一直以來很想去的捷克，終於有機會嚐嚐聽聞許久類似於台灣食物的料理、還有一訪新藝術時期有名的畫家慕夏。因為不想為了多走幾個國家而淪於走馬看花的行程（另一方面，這個時候去匈牙利的機票太貴了），因此把足跡都留在捷克，多安排了一些小鎮的行程，也是很有趣！&lt;/p>
+&lt;h2 id="預算">預算
+&lt;/h2>&lt;h3 id="機票">機票
+&lt;/h3>&lt;p>ORY - PRG 來回 169.98€ &lt;code>折合約 6700 台幣&lt;/code>&lt;/p>
+&lt;h3 id="飯店含城市稅">飯店（含城市稅）
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>城市&lt;/th>
+&lt;th>天數&lt;/th>
+&lt;th>價錢 €&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CK&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>111.35&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>KV&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>99.6&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prague&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>125&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Airport&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>96.7&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>平均 72.1€/ 晚 總共 216.4€/ 人 &lt;code>折合約 7378 台幣&lt;/code>&lt;/p>
+&lt;h3 id="交通">交通
+&lt;/h3>&lt;p>巴士 22€ (Prague-CK 來回 + Prague-KV 來回)&lt;/p>
+&lt;p>輕軌*4 4.93€&lt;/p>
+&lt;p>總共約 27€/ 人 &lt;code>折合約 921 台幣&lt;/code>&lt;/p>
+&lt;h2 id="行程">行程
+&lt;/h2>&lt;blockquote>
+&lt;p>📝 Day 1: 從巴黎飛到布拉格、再搭巴士到 CK 小鎮 (Český Krumlov 庫倫洛夫)&lt;/p>
+&lt;p>Day 2: CK 小鎮&lt;/p>
+&lt;p>Day 3: 一早搭巴士回布拉格&lt;/p>
+&lt;p>Day 4: 布拉格&lt;/p>
+&lt;p>Day 5: 一早搭巴士去溫泉小鎮 (Karlovy vary 卡羅維瓦利)&lt;/p>
+&lt;p>Day 6: 中午搭巴士回布拉格、晚上搭公車去機場飯店&lt;/p>
+&lt;p>Day 7: 回巴黎&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="ck-小鎮說一生必去的城市好像有些言過其實">CK 小鎮說一生必去的城市好像有些言過其實
+&lt;/h3>&lt;p>我們第一天就在 CK 小鎮落腳，也去了大家網路推薦、幾乎一致好評的地窖餐廳 Krčma Šatlava，不小心點了兩人套餐，上菜的時候真的不可思議，因為一份套餐只要 880 CZK ，但目測的份量大概四個人吃都綽綽有餘 … 有一個超大豬膝、豬肋條約 8 根、5 支雞翅?、2 隻大雞腿，還有一些馬鈴書跟蔬菜餅。毫不意外，勤儉持家的我們兩人把剩下的食物連同醬料都打包了。結果是吃到隔天還吃不完 = = 建議有打算要去的，如果不是超級特別愛吃肉，謹慎選擇。&lt;/p>
+&lt;p>因為接下來每一天我只要聞到有烤肉味，我整個人渾身不對勁、食慾下降 🤢🤢。捷克傳統料理的肉太多了，我看我還是先 pass 好了。&lt;/p>
+&lt;p>隔天我們花了約將近一天的時間在城裡逛逛，這個小鎮真的很小，店家彼此距離約 3 分鐘的腳程就可以走到。遠一點的一些城堡、塔的景點，從市中心出發也是在 15 分鐘內的閒晃就能走到。 可能是天氣因素加上這個城市有點小，整個城市沒有到非常令人驚艷。但登塔、以及在一些高地望出去的風景還是很漂亮，感覺得到老城保護的很好，捷克的老式建築也很有特色：紅瓦屋頂、圓拱形牆壁。&lt;/p>
+&lt;p>&lt;img src="https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0219.jpg"
+width="2657"
+height="3542"
+srcset="https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0219_hucab59599be5442f2c001c784e8de179b_2421403_480x0_resize_q75_box.jpg 480w, https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0219_hucab59599be5442f2c001c784e8de179b_2421403_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="CK小鎮 斗篷橋"
+class="gallery-image"
+data-flex-grow="75"
+data-flex-basis="180px"
+> &lt;img src="https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0752.jpg"
+width="4032"
+height="3024"
+srcset="https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0752_hu8af8f78e70f393b1806136791383d350_4630828_480x0_resize_q75_box.jpg 480w, https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0752_hu8af8f78e70f393b1806136791383d350_4630828_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="從彩繪塔望出去的景色"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;p>網路上查到太多資料說「此生必去」、「ＯＯ媒體推薦童話小鎮」，這類標題不禁把期望值拉得很高。也有可能歐洲真的太多所謂「世界最美ＯＯ」，確實 CK 小鎮很漂亮，我也覺得不虛此行，不過歐洲也有其他城市也是相同的特別與美麗。喔對了我真的要吐槽，有人還說什麼 CK 小鎮是布拉格近郊，巴士隨便搭單程兩個半小時起跳，都快到國界了，不要跟我開玩笑好嗎。&lt;/p>
+&lt;h3 id="布拉格">布拉格
+&lt;/h3>&lt;p>第一天在布拉格有先快速吃個小點，找到一間這邊有名的連鎖速食店 &lt;code>Baguette Boulevard&lt;/code> ，雖然取了一個很法式的名字 😂 最讓我驚豔的是裡面居然有賣自製的 iced tea，喝起來味道很淡（稱讚意味，歐洲普遍的軟式飲料實在都太甜了）、然後副餐有賣湯。我直接興奮到模糊、大點特點、喝到好感動！！！薯條也不錯吃，醬料給的方式很比利時（大方）。&lt;/p>
+&lt;p>後來有好幾天都是吃亞洲食物，因為我對肉肉料理實在沒有辦法。居然在下大雨的寒冷傍晚找到一間小火鍋 &lt;code>Basu 巴蜀&lt;/code> = =，不小心開點後發現是網美餐廳（端來的肉盤還放了乾冰在冒煙），結果開吃之後直接不可思議，太好吃了吧 … 如果說在歐洲好吃的火鍋是海底撈，那這間就是最好吃的小火鍋（不是，我甚至沒有在法國吃過小火鍋誒）而且也沒有到很貴，可以點到的食材品質也都很不錯 … 忍不住再回味一下吃到茼蒿跟娃娃菜的感動瞬間。&lt;/p>
+&lt;p>最後一天在城堡區，決定再吃一次當地料理，結果一試，選到一間氣氛很好、服務生態度超級好、食物也不錯吃的 &lt;code>Restaurace U Labuti&lt;/code> 。我點了在奧匈捷都還算蠻有名的炸雞排？還是炸豬排？ &lt;code>Schnitzel&lt;/code> ，不錯不錯。推薦給怕肉肉全餐但又想體驗當地料理的人 XD&lt;/p>
+&lt;p>欸！怎麼都在聊吃的啦！&lt;/p>
+&lt;p>因為真的好便宜又好好吃，這一週旅行我還忍不住三進三出 &lt;code>Comebuy&lt;/code> ，大吃珍珠，烏龍奶茶有夠好喝。🧋&lt;/p>
+&lt;h4 id="慕夏博物館">慕夏博物館
+&lt;/h4>&lt;p>本趟旅行的重頭戲，其實比想像中還要再小一些。可以看的展品沒有到很多，動線設計也是普通，不過對新藝術有興趣的人我覺得實在不能錯過。看著這些精緻的廣告畫作，不難想像20世紀初世界一片和樂、蓬勃的光景。&lt;/p>
+&lt;p>如果有去布拉格的城堡區，千萬不要錯過裡面的教堂，其中一面玻璃畫是由慕夏負責，真的好美。&lt;/p>
+&lt;p>&lt;img src="https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0555.jpg"
+width="3024"
+height="4032"
+srcset="https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0555_hu13ac8c434ca3e12a0b2b917685878f59_2000392_480x0_resize_q75_box.jpg 480w, https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0555_hu13ac8c434ca3e12a0b2b917685878f59_2000392_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="布拉格城堡的慕夏玻璃窗"
+class="gallery-image"
+data-flex-grow="75"
+data-flex-basis="180px"
+> &lt;img src="https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0531.jpg"
+width="4032"
+height="3024"
+srcset="https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0531_hu1f049f6d082acb926d2353d13f13362f_1219217_480x0_resize_q75_box.jpg 480w, https://miyaya.github.io/p/%E4%B8%80%E9%80%B1%E6%8D%B7%E5%85%8B%E4%B9%8B%E6%97%85/img/IMG_0531_hu1f049f6d082acb926d2353d13f13362f_1219217_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="Karlovy Vary"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;h3 id="溫泉小鎮倒是不要錯過">溫泉小鎮倒是不要錯過
+&lt;/h3>&lt;p>這個城市的風景，我個人覺得大勝 CK 小鎮。CK 比較像是保存良好的老城區，KV 則像是童話小鎮，每個房子的顏色都很粉嫩，雖然天氣很差，但還是可以看到整個城市的風格非常和諧且舒適。&lt;/p>
+&lt;p>這裡也可搜集到所有捷克有名的有機保養類品牌 &lt;code>Botanicus&lt;/code> 、 &lt;code>Manufaktura&lt;/code> 、 &lt;code>Apoteka&lt;/code> ，而且不會發生突然有一團亞洲觀光客如蝗蟲過境的掃盪商店、大聲喧嘩的場景，舒服。&lt;/p>
+&lt;p>我們在路邊真的捕捉到許多提供飲用、洗手的自然泉水，也看到很多路人去裝水來喝，而且還一臉津津有味、意猶未盡的樣子，甚至還拿寶特瓶裝一大堆。結論是不好喝、非常不好喝，供參。&lt;/p>
+&lt;h2 id="捷克整體印象">捷克整體印象
+&lt;/h2>&lt;h3 id="街景">街景
+&lt;/h3>&lt;p>很多房子感覺因為觀光的關係，改造成類似博物館的內容，雖然內容很難引起一般人的興趣，但可以想像他們對觀光、文化的重視？&lt;/p>
+&lt;p>另一方面，走在路上會遇到不少美術工作室、畫廊，裡面的作品很有他們的特色，也有一般人買得起的作品 XD 整體的體驗很不錯。&lt;/p>
+&lt;h3 id="人情">人情
+&lt;/h3>&lt;p>普遍來講，可能很依賴觀光加上捷克語偏小眾，用英文溝通都不是問題，只是有時候有些人臉真的好臭 🙈 原地嚇壞，但各地應該都是有友善的人跟機車的人，還好我線條很粗通常都沒有受到太大的影響。&lt;/p>
+&lt;p>第一天晚上我們剛抵達 CK 小鎮，還在車站邊走邊查路，突然一旁路人就跟我們說要往上面走。我們內心滿頭問號，想說他們怎麼知道我們要去哪裡 😂 後來猜到應該是因為我們一看就是觀光客，當地的好心人在烏漆嘛黑的路邊給看起來很無助的觀光客一點指引。（人好好）（愛心）&lt;/p>
+&lt;p>我們在 KV 逛街的時候，遇到了此生最友善、最大方的櫃姐，她瘋狂提供我們小樣，還讓我們帶回去試用一個晚上，毫無施壓的 sales 技巧，不得不讓我們隔天回去買一堆產品。（佩服）&lt;/p>
+&lt;h3 id="飲食">飲食
+&lt;/h3>&lt;p>飲料都沒什麼味道，像是 iced tea 以及這邊有名的 lemonade，顏色很鮮豔但喝起來實在很淡。另一方面食物都好鹹，像是吃薯泥的時候比較像在吃鹽巴佐馬鈴薯？&lt;/p>
+&lt;p>再次強調，內陸飲食習慣大概就是肉肉天堂，我自己覺得跟德國比的話又更肉肉（在說什麼）。&lt;/p>
+&lt;h3 id="要不要換捷克克朗">要不要換捷克克朗？
+&lt;/h3>&lt;p>第一天我換了 30€ 以免不時之需，約接近 800 CZK。結果 7 天的行程，只遇到一個小攤販不收刷卡，大部分的店不僅接受刷卡、還接受歐元現金支付。不過匯率可能沒有到很漂亮，最漂亮的應該是慕夏博物館，1:24，其他店家大部分有 23 就了不起了。&lt;/p>
+&lt;p>所以需要的話頂多換小額，手邊持歐元的話甚至不用換匯也沒關係。&lt;/p>
+&lt;h2 id="結論">結論
+&lt;/h2>&lt;p>在很多地方都會覺得不像是出國，因為路上實在太多…台灣人了…。就是當你走在路上，旁邊有一群人講話超大聲，仔細一聽發現這是熟悉的語言、甚至是熟悉的口音，不禁覺得有點好笑。然後還有聽到一些白目言論，不禁感嘆出國了也是要注意言行，不要因為語言不一樣就自以為可以肆無忌憚地批評另一個國家與文化呀。&lt;/p>
+&lt;p>這次去捷克真的看到跟西歐完全不同的風土民情、以及令人嘆為觀止的物價。這讓我迫不及待安排去其他國家的行程！！如果有機會，也會很希望可以有機會二訪捷克。&lt;/p></description></item><item><title>Archives</title><link>https://miyaya.github.io/archives/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://miyaya.github.io/archives/</guid><description/></item><item><title>Search</title><link>https://miyaya.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://miyaya.github.io/search/</guid><description/></item></channel></rss>
