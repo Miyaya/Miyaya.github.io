@@ -91,5 +91,5 @@ C++ 的內容蠻經典的，我自己準備的方向是把 [LeetCode 75](https:/
 
 [Render Hell by Simon](https://simonschreibt.de/gat/renderhell/)
 
-[CV-2023](./CV-Miya-LEE-2023-EN.pdf)
+[CV-2023](CV-Miya-LEE-2023-EN.pdf)
 
