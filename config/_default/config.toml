@@ -1,7 +1,7 @@
 # Change baseurl before deploy
 baseurl = "https://miyaya.github.io"
 languageCode = "en-us"
-paginate = 5
+pagination.pagerSize = 5
 title = "Miya's Blog"
 
 # Theme i18n support
