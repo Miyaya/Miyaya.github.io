@@ -1,0 +1,2943 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DELF B1 on Miya's Blog</title><link>https://miyaya.github.io/tags/delf-b1/</link><description>Recent content in DELF B1 on Miya's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 31 Jan 2024 01:12:54 +0100</lastBuildDate><atom:link href="https://miyaya.github.io/tags/delf-b1/index.xml" rel="self" type="application/rss+xml"/><item><title>基本初級法文動詞變化一覽表</title><link>https://miyaya.github.io/p/%E5%9F%BA%E6%9C%AC%E5%88%9D%E7%B4%9A%E6%B3%95%E6%96%87%E5%8B%95%E8%A9%9E%E8%AE%8A%E5%8C%96%E4%B8%80%E8%A6%BD%E8%A1%A8/</link><pubDate>Wed, 31 Jan 2024 01:12:54 +0100</pubDate><guid>https://miyaya.github.io/p/%E5%9F%BA%E6%9C%AC%E5%88%9D%E7%B4%9A%E6%B3%95%E6%96%87%E5%8B%95%E8%A9%9E%E8%AE%8A%E5%8C%96%E4%B8%80%E8%A6%BD%E8%A1%A8/</guid><description>&lt;p>本文章收錄基本+初級的法文動詞變化，包含現在式 (présent)、複合過去式 (passé composé)、未完成式 (imparfait)、未來式 (futur)，以及比較進階的虛擬式 (subjonctif présent) 跟條件式 (conditionnel présent)。&lt;/p>
+&lt;h2 id="大致上動詞變化的規則">大致上動詞變化的規則
+&lt;/h2>&lt;p>大部分來說結尾有 r 發音的，要不是 futur、要不就是 conditionnel，因為 conditionnel 也是從 futur 的字首來的。而 imparfait 字首通常都不會是 r 結尾，然後 subjonctif 的字首結尾通常聽起來都很奇怪 😂 比如說很多 ss。&lt;/p>
+&lt;p>一些動詞在使用 passé composé 時需要使用助動詞 être 而非 avoir。這些動詞通常是表示移動、轉變和一些反身動詞。&lt;/p>
+&lt;details>
+&lt;summary>因為例子也不多，一共 17 個，啊有些還長很像，點三角形展開，可以全部記起來: &lt;/summary>
+&lt;ul>
+&lt;li>arriver&lt;/li>
+&lt;li>partir&lt;/li>
+&lt;li>rester&lt;/li>
+&lt;li>entrer&lt;/li>
+&lt;li>rentrer&lt;/li>
+&lt;li>sortir&lt;/li>
+&lt;li>aller&lt;/li>
+&lt;li>venir&lt;/li>
+&lt;li>devenir&lt;/li>
+&lt;li>revenir&lt;/li>
+&lt;li>monter&lt;/li>
+&lt;li>descendre&lt;/li>
+&lt;li>naître&lt;/li>
+&lt;li>mourir&lt;/li>
+&lt;li>tomber&lt;/li>
+&lt;li>retourner&lt;/li>
+&lt;li>passer&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;h2 id="規則變化動詞">規則變化動詞
+&lt;/h2>&lt;p>規則變化的動詞可以分成三類: -er/ -ir / -re。規則本身這邊就不多做討論了。&lt;/p>
+&lt;h3 id="動詞變化規則">動詞變化規則
+&lt;/h3>&lt;p>第一類以 &lt;code>aimer&lt;/code> 來當作例子，則變化如下。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>AIMER 喜歡&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>j&amp;rsquo;aime&lt;/td>
+&lt;td>j&amp;rsquo;ai aimé&lt;/td>
+&lt;td>j&amp;rsquo;aimais&lt;/td>
+&lt;td>j&amp;rsquo;aimerai&lt;/td>
+&lt;td>que j&amp;rsquo;aime&lt;/td>
+&lt;td>j&amp;rsquo;aimerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>tu aimes&lt;/td>
+&lt;td>tu as aimé&lt;/td>
+&lt;td>tu aimais&lt;/td>
+&lt;td>tu aimeras&lt;/td>
+&lt;td>que tu aimes&lt;/td>
+&lt;td>tu aimerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>il/elle/on aime&lt;/td>
+&lt;td>il/elle/on a aimé&lt;/td>
+&lt;td>il/elle/on aimait&lt;/td>
+&lt;td>il/elle/on aimera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on aime&lt;/td>
+&lt;td>il/elle/on aimerait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>nous aimons&lt;/td>
+&lt;td>nous avons aimé&lt;/td>
+&lt;td>nous aimions&lt;/td>
+&lt;td>nous aimerons&lt;/td>
+&lt;td>que nous aimions&lt;/td>
+&lt;td>nous aimerions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>vous aimez&lt;/td>
+&lt;td>vous avez aimé&lt;/td>
+&lt;td>vous aimiez&lt;/td>
+&lt;td>vous aimerez&lt;/td>
+&lt;td>que vous aimiez&lt;/td>
+&lt;td>vous aimeriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>ils/elles aiment&lt;/td>
+&lt;td>ils/elles ont aimé&lt;/td>
+&lt;td>ils/elles aimaient&lt;/td>
+&lt;td>ils/elles aimeront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles aiment&lt;/td>
+&lt;td>ils/elles aimeraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>第二類，舉例來說有 &lt;code>choisir&lt;/code>。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CHOISIR 選擇&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>je choisis&lt;/td>
+&lt;td>j&amp;rsquo;ai choisi&lt;/td>
+&lt;td>je choisissais&lt;/td>
+&lt;td>je choisirai&lt;/td>
+&lt;td>que je choisisse&lt;/td>
+&lt;td>je choisirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>tu choisis&lt;/td>
+&lt;td>tu as choisi&lt;/td>
+&lt;td>tu choisissais&lt;/td>
+&lt;td>tu choisiras&lt;/td>
+&lt;td>que tu choisisses&lt;/td>
+&lt;td>tu choisirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>il/elle/on choisit&lt;/td>
+&lt;td>il/elle/on a choisi&lt;/td>
+&lt;td>il/elle/on choisissait&lt;/td>
+&lt;td>il/elle/on choisira&lt;/td>
+&lt;td>que il/elle/on choisisse&lt;/td>
+&lt;td>il/elle/on choisirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>nous choisissons&lt;/td>
+&lt;td>nous avons choisi&lt;/td>
+&lt;td>nous choisissions&lt;/td>
+&lt;td>nous choisirons&lt;/td>
+&lt;td>que nous choisissions&lt;/td>
+&lt;td>nous choisirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>vous choisissez&lt;/td>
+&lt;td>vous avez choisi&lt;/td>
+&lt;td>vous choisissiez&lt;/td>
+&lt;td>vous choisirez&lt;/td>
+&lt;td>que vous choisissiez&lt;/td>
+&lt;td>vous choisiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>ils/elles choisissent&lt;/td>
+&lt;td>ils/elles ont choisi&lt;/td>
+&lt;td>ils/elles choisissaient&lt;/td>
+&lt;td>ils/elles choisiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles choisissent&lt;/td>
+&lt;td>ils/elles choisiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>第三類比較少見一點點，但也是很重要，如 &lt;code>descendre&lt;/code>。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>DESCENDRE 下降&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>je descends&lt;/td>
+&lt;td>j&amp;rsquo;ai descendu&lt;/td>
+&lt;td>je descendais&lt;/td>
+&lt;td>je descendrai&lt;/td>
+&lt;td>que je descende&lt;/td>
+&lt;td>je descendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>tu descends&lt;/td>
+&lt;td>tu as descendu&lt;/td>
+&lt;td>tu descendais&lt;/td>
+&lt;td>tu descendras&lt;/td>
+&lt;td>que tu descendes&lt;/td>
+&lt;td>tu descendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>il/elle/on descend&lt;/td>
+&lt;td>il/elle/on a descendu&lt;/td>
+&lt;td>il/elle/on descendait&lt;/td>
+&lt;td>il/elle/on descendra&lt;/td>
+&lt;td>que il/elle/on descende&lt;/td>
+&lt;td>il/elle/on descendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>nous descendons&lt;/td>
+&lt;td>nous avons descendu&lt;/td>
+&lt;td>nous descendions&lt;/td>
+&lt;td>nous descendrons&lt;/td>
+&lt;td>que nous descendions&lt;/td>
+&lt;td>nous descendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>vous descendez&lt;/td>
+&lt;td>vous avez descendu&lt;/td>
+&lt;td>vous descendiez&lt;/td>
+&lt;td>vous descendrez&lt;/td>
+&lt;td>que vous descendiez&lt;/td>
+&lt;td>vous descendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>ils/elles descendent&lt;/td>
+&lt;td>ils/elles ont descendu&lt;/td>
+&lt;td>ils/elles descendaient&lt;/td>
+&lt;td>ils/elles descendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles descendent&lt;/td>
+&lt;td>ils/elles descendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="包含的單字">包含的單字
+&lt;/h3>&lt;p>&lt;strong>基本&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>aimer, écouter, manger, nager(!), regarder&lt;/li>
+&lt;li>choisir, finir, réussir&lt;/li>
+&lt;li>descendre, entendre, perdre, vendre&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>初級&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>aider, ajouter, arriver, changer, demander, donner, enseigner, essaye(!), étudier, fermer, fumer, gagner, goûter, jouer, laver, monter, occuper, oublier, parler, payer, penser, pleurer, porter, raconter, remercier, rester, retourner, réveiller, tomber, travailler, visiter&lt;/li>
+&lt;li>obéir&lt;/li>
+&lt;li>沒有&lt;/li>
+&lt;/ol>
+&lt;p>這邊給兩個動詞打上了驚嘆號，因為他們在規則中還是帶一點發音上造成的拼寫變化。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>nager&lt;/code> 因為 g 碰上 a 會發嘎的音，所以再加上字尾前，要先卡一個 e。比如說 imparfait 第一人稱會是 je nag&lt;em>&lt;strong>e&lt;/strong>&lt;/em>ais。&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>同理 &lt;code>placer&lt;/code> 也是在 imparfait 的時候把 c 改成 ç 以維持跟 ce 相同的發音。&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;code>essayer&lt;/code> 則是有時候是 y 結尾、有時候是 ie 結尾，查了一下發現原來都可以，一個動詞原來還可以享有兩種拼法！！（坐下 s&amp;rsquo;assoir 也是）只能說：法文，I 服ㄌ U⋯⋯&lt;/p>&lt;/blockquote>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>essaie/ essaye&lt;/td>
+&lt;td>ai essayé&lt;/td>
+&lt;td>essayais&lt;/td>
+&lt;td>essaierai/ essayerai&lt;/td>
+&lt;td>que j&amp;rsquo;essaie/ essaye&lt;/td>
+&lt;td>essaierais/ essayerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>essaies/ essayes&lt;/td>
+&lt;td>as essayé&lt;/td>
+&lt;td>essayais&lt;/td>
+&lt;td>essaieras/ essayeras&lt;/td>
+&lt;td>que tu essaies/ essayes&lt;/td>
+&lt;td>essaierais/ essayerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>essaie/ essaye&lt;/td>
+&lt;td>a essayé&lt;/td>
+&lt;td>essayait&lt;/td>
+&lt;td>essaiera/ essayera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on essaie/ essaye&lt;/td>
+&lt;td>essaierait/ essayerait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>essayons/ essayons&lt;/td>
+&lt;td>avons essayé&lt;/td>
+&lt;td>essayions&lt;/td>
+&lt;td>essaierons/ essayerons&lt;/td>
+&lt;td>que nous essayions&lt;/td>
+&lt;td>essaierions/ essayerions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>essayez/ essayez&lt;/td>
+&lt;td>avez essayé&lt;/td>
+&lt;td>essayiez&lt;/td>
+&lt;td>essaierez/ essayerez&lt;/td>
+&lt;td>que vous essayiez&lt;/td>
+&lt;td>essaieriez/ essayeriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>essaient/ essayent&lt;/td>
+&lt;td>ont essayé&lt;/td>
+&lt;td>essayaient&lt;/td>
+&lt;td>essaieront/ essayeront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles essaient/ essayent&lt;/td>
+&lt;td>essaieraient/ essayeraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>再補充，雖說也有其他 -yer 結尾的單字，但就沒有這種兩種拼法的特權了。如 &lt;code>envoyer&lt;/code>, &lt;code>nottoyer&lt;/code>，然後他們也屬於不規則變化，跟上面的命運可說是完全不同！&lt;/p>
+&lt;h2 id="不規則變化動詞">不規則變化動詞
+&lt;/h2>&lt;h3 id="一定要會的-être-avoir">一定要會的 être, avoir
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ÊTRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>suis&lt;/td>
+&lt;td>ai été&lt;/td>
+&lt;td>étais&lt;/td>
+&lt;td>serai&lt;/td>
+&lt;td>que je sois&lt;/td>
+&lt;td>serais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>es&lt;/td>
+&lt;td>as été&lt;/td>
+&lt;td>étais&lt;/td>
+&lt;td>seras&lt;/td>
+&lt;td>que tu sois&lt;/td>
+&lt;td>serais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>est&lt;/td>
+&lt;td>a été&lt;/td>
+&lt;td>était&lt;/td>
+&lt;td>sera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on soit&lt;/td>
+&lt;td>serait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>sommes&lt;/td>
+&lt;td>avons été&lt;/td>
+&lt;td>étions&lt;/td>
+&lt;td>serons&lt;/td>
+&lt;td>que nous soyons&lt;/td>
+&lt;td>serions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>êtes&lt;/td>
+&lt;td>avez été&lt;/td>
+&lt;td>étiez&lt;/td>
+&lt;td>serez&lt;/td>
+&lt;td>que vous soyez&lt;/td>
+&lt;td>seriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>sont&lt;/td>
+&lt;td>ont été&lt;/td>
+&lt;td>étaient&lt;/td>
+&lt;td>seront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles soient&lt;/td>
+&lt;td>seraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>AVOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>ai&lt;/td>
+&lt;td>ai eu&lt;/td>
+&lt;td>avais&lt;/td>
+&lt;td>aurai&lt;/td>
+&lt;td>que j&amp;rsquo;aie&lt;/td>
+&lt;td>aurais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>as&lt;/td>
+&lt;td>as eu&lt;/td>
+&lt;td>avais&lt;/td>
+&lt;td>auras&lt;/td>
+&lt;td>que tu aies&lt;/td>
+&lt;td>aurais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>a&lt;/td>
+&lt;td>a eu&lt;/td>
+&lt;td>avait&lt;/td>
+&lt;td>aura&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on ait&lt;/td>
+&lt;td>aurait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>avons&lt;/td>
+&lt;td>avons eu&lt;/td>
+&lt;td>avions&lt;/td>
+&lt;td>aurons&lt;/td>
+&lt;td>que nous ayons&lt;/td>
+&lt;td>aurions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>avez&lt;/td>
+&lt;td>avez eu&lt;/td>
+&lt;td>aviez&lt;/td>
+&lt;td>aurez&lt;/td>
+&lt;td>que vous ayez&lt;/td>
+&lt;td>auriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>ont&lt;/td>
+&lt;td>ont eu&lt;/td>
+&lt;td>avaient&lt;/td>
+&lt;td>auront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles aient&lt;/td>
+&lt;td>auraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>這兩個動詞會最常用到，加上 plus-que-parfait 跟 futur antèrieur 也是從這兩個助動詞去變化，所以要好好記！&lt;/p>
+&lt;h3 id="原型動詞長相騙人的-aller-faire-venir-prendre-同場加映跟他們有點像的-dire-devenir-apprendre-se-souvenir">原型動詞長相騙人的 aller, faire, venir, prendre (同場加映跟他們有點像的 dire, devenir, apprendre, se souvenir)
+&lt;/h3>&lt;p>這邊收錄一些以為是 -er/ -ir/ -re 結尾的，但法文直接給你一個出奇不意，怎麼會這麼簡單呢。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ALLER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>vais&lt;/td>
+&lt;td>suis allé(e)&lt;/td>
+&lt;td>allais&lt;/td>
+&lt;td>irai&lt;/td>
+&lt;td>que j&amp;rsquo;aille&lt;/td>
+&lt;td>irais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>vas&lt;/td>
+&lt;td>es allé(e)&lt;/td>
+&lt;td>allais&lt;/td>
+&lt;td>iras&lt;/td>
+&lt;td>que tu ailles&lt;/td>
+&lt;td>irais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>va&lt;/td>
+&lt;td>est allé(e)&lt;/td>
+&lt;td>allait&lt;/td>
+&lt;td>ira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on aille&lt;/td>
+&lt;td>irait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>allons&lt;/td>
+&lt;td>sommes allé(e)s&lt;/td>
+&lt;td>allions&lt;/td>
+&lt;td>irons&lt;/td>
+&lt;td>que nous allions&lt;/td>
+&lt;td>irions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>allez&lt;/td>
+&lt;td>êtes allé(e)(s)&lt;/td>
+&lt;td>alliez&lt;/td>
+&lt;td>irez&lt;/td>
+&lt;td>que vous alliez&lt;/td>
+&lt;td>iriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>vont&lt;/td>
+&lt;td>sont allé(e)s&lt;/td>
+&lt;td>allaient&lt;/td>
+&lt;td>iront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles aillent&lt;/td>
+&lt;td>iraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>這個字的 subjonctif 我總會不小心跟 avoir 的搞混。後來我發現有個常用的句子，我常在影集裡面看到: &amp;ldquo;Il faut que j&amp;rsquo;y aille.&amp;quot;，意指「我要走了」、「我得走了」，有一個實際句子就比較不會弄錯。&lt;/p>
+&lt;hr>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>FAIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>fais&lt;/td>
+&lt;td>ai fait&lt;/td>
+&lt;td>faisais&lt;/td>
+&lt;td>ferai&lt;/td>
+&lt;td>que je fasse&lt;/td>
+&lt;td>ferais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>fais&lt;/td>
+&lt;td>as fait&lt;/td>
+&lt;td>faisais&lt;/td>
+&lt;td>feras&lt;/td>
+&lt;td>que tu fasses&lt;/td>
+&lt;td>ferais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>fait&lt;/td>
+&lt;td>a fait&lt;/td>
+&lt;td>faisait&lt;/td>
+&lt;td>fera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on fasse&lt;/td>
+&lt;td>ferait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>faisons&lt;/td>
+&lt;td>avons fait&lt;/td>
+&lt;td>faisions&lt;/td>
+&lt;td>ferons&lt;/td>
+&lt;td>que nous fassions&lt;/td>
+&lt;td>ferions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>&lt;em>&lt;strong>faites&lt;/strong>&lt;/em>&lt;/td>
+&lt;td>avez fait&lt;/td>
+&lt;td>faisiez&lt;/td>
+&lt;td>ferez&lt;/td>
+&lt;td>que vous fassiez&lt;/td>
+&lt;td>feriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>font&lt;/td>
+&lt;td>ont fait&lt;/td>
+&lt;td>faisaient&lt;/td>
+&lt;td>feront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles fassent&lt;/td>
+&lt;td>feraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;code>faire&lt;/code> 我覺得也是很常用的字，他就掌握了最一開始提到的大原則: futur 跟 conditionnel 字首是 r 結尾，subjonctif 是 ss。
+啊這個字有個地方很怪，就是 vous 的現在式突然來一個 -tes，跟 &lt;code>dire&lt;/code> 一樣。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>DIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>dis&lt;/td>
+&lt;td>ai dit&lt;/td>
+&lt;td>disais&lt;/td>
+&lt;td>dirai&lt;/td>
+&lt;td>que je dise&lt;/td>
+&lt;td>dirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>dis&lt;/td>
+&lt;td>as dit&lt;/td>
+&lt;td>disais&lt;/td>
+&lt;td>diras&lt;/td>
+&lt;td>que tu dises&lt;/td>
+&lt;td>dirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>dit&lt;/td>
+&lt;td>a dit&lt;/td>
+&lt;td>disait&lt;/td>
+&lt;td>dira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on dise&lt;/td>
+&lt;td>dirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>disons&lt;/td>
+&lt;td>avons dit&lt;/td>
+&lt;td>disions&lt;/td>
+&lt;td>dirons&lt;/td>
+&lt;td>que nous disions&lt;/td>
+&lt;td>dirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>&lt;strong>dites&lt;/strong>&lt;/td>
+&lt;td>avez dit&lt;/td>
+&lt;td>disiez&lt;/td>
+&lt;td>direz&lt;/td>
+&lt;td>que vous disiez&lt;/td>
+&lt;td>diriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>disent&lt;/td>
+&lt;td>ont dit&lt;/td>
+&lt;td>disaient&lt;/td>
+&lt;td>diront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles disent&lt;/td>
+&lt;td>diraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>VENIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>viens&lt;/td>
+&lt;td>suis venu(e)&lt;/td>
+&lt;td>venais&lt;/td>
+&lt;td>viendrai&lt;/td>
+&lt;td>que je vienne&lt;/td>
+&lt;td>viendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>viens&lt;/td>
+&lt;td>es venu(e)&lt;/td>
+&lt;td>venais&lt;/td>
+&lt;td>viendras&lt;/td>
+&lt;td>que tu viennes&lt;/td>
+&lt;td>viendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>vient&lt;/td>
+&lt;td>est venu(e)&lt;/td>
+&lt;td>venait&lt;/td>
+&lt;td>viendra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on vienne&lt;/td>
+&lt;td>viendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>venons&lt;/td>
+&lt;td>sommes venu(e)s&lt;/td>
+&lt;td>venions&lt;/td>
+&lt;td>viendrons&lt;/td>
+&lt;td>que nous venions&lt;/td>
+&lt;td>viendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>venez&lt;/td>
+&lt;td>êtes venu(e)(s)&lt;/td>
+&lt;td>veniez&lt;/td>
+&lt;td>viendrez&lt;/td>
+&lt;td>que vous veniez&lt;/td>
+&lt;td>viendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>viennent&lt;/td>
+&lt;td>sont venu(e)s&lt;/td>
+&lt;td>venaient&lt;/td>
+&lt;td>viendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles viennent&lt;/td>
+&lt;td>viendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>DEVENIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>deviens&lt;/td>
+&lt;td>suis devenu(e)&lt;/td>
+&lt;td>devenais&lt;/td>
+&lt;td>deviendrai&lt;/td>
+&lt;td>que je devienne&lt;/td>
+&lt;td>deviendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>deviens&lt;/td>
+&lt;td>es devenu(e)&lt;/td>
+&lt;td>devenais&lt;/td>
+&lt;td>deviendras&lt;/td>
+&lt;td>que tu deviennes&lt;/td>
+&lt;td>deviendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>devient&lt;/td>
+&lt;td>est devenu(e)&lt;/td>
+&lt;td>devenait&lt;/td>
+&lt;td>deviendra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on devienne&lt;/td>
+&lt;td>deviendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>devenons&lt;/td>
+&lt;td>sommes devenu(e)(s)&lt;/td>
+&lt;td>devenions&lt;/td>
+&lt;td>deviendrons&lt;/td>
+&lt;td>que nous devenions&lt;/td>
+&lt;td>deviendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>devenez&lt;/td>
+&lt;td>êtes devenu(e)(s)&lt;/td>
+&lt;td>deveniez&lt;/td>
+&lt;td>deviendrez&lt;/td>
+&lt;td>que vous deveniez&lt;/td>
+&lt;td>deviendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>deviennent&lt;/td>
+&lt;td>sont devenu(e)(s)&lt;/td>
+&lt;td>devenaient&lt;/td>
+&lt;td>deviendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles deviennent&lt;/td>
+&lt;td>deviendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>雖然這是 -ir 結尾的字，但其實是不規則變化。法文真的是很多規則，然後再有很多例外 🙃
+我自己在記的時候，覺得這個字跟 &lt;code>prendre&lt;/code>、&lt;code>apprendre&lt;/code>有異曲同工之妙，ils/ elles 的動詞變化會多加一個 n 因此念法也不一樣，然後也會影響到 subjontif，因為字首是取 ils/ elles 的現在式。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>PRENDRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>prends&lt;/td>
+&lt;td>ai pris&lt;/td>
+&lt;td>prenais&lt;/td>
+&lt;td>prendrai&lt;/td>
+&lt;td>que je prenne&lt;/td>
+&lt;td>prendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>prends&lt;/td>
+&lt;td>as pris&lt;/td>
+&lt;td>prenais&lt;/td>
+&lt;td>prendras&lt;/td>
+&lt;td>que tu prennes&lt;/td>
+&lt;td>prendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>prend&lt;/td>
+&lt;td>a pris&lt;/td>
+&lt;td>prenait&lt;/td>
+&lt;td>prendra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on prenne&lt;/td>
+&lt;td>prendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>prenons&lt;/td>
+&lt;td>avons pris&lt;/td>
+&lt;td>prenions&lt;/td>
+&lt;td>prendrons&lt;/td>
+&lt;td>que nous prenions&lt;/td>
+&lt;td>prendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>prenez&lt;/td>
+&lt;td>avez pris&lt;/td>
+&lt;td>preniez&lt;/td>
+&lt;td>prendrez&lt;/td>
+&lt;td>que vous preniez&lt;/td>
+&lt;td>prendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>prennent&lt;/td>
+&lt;td>ont pris&lt;/td>
+&lt;td>prenaient&lt;/td>
+&lt;td>prendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles prennent&lt;/td>
+&lt;td>prendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>APPRENDRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>apprends&lt;/td>
+&lt;td>ai appris&lt;/td>
+&lt;td>apprenais&lt;/td>
+&lt;td>apprendrai&lt;/td>
+&lt;td>que j&amp;rsquo;apprenne&lt;/td>
+&lt;td>apprendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>apprends&lt;/td>
+&lt;td>as appris&lt;/td>
+&lt;td>apprenais&lt;/td>
+&lt;td>apprendras&lt;/td>
+&lt;td>que tu apprennes&lt;/td>
+&lt;td>apprendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>apprend&lt;/td>
+&lt;td>a appris&lt;/td>
+&lt;td>apprenait&lt;/td>
+&lt;td>apprendra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on apprenne&lt;/td>
+&lt;td>apprendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>apprenons&lt;/td>
+&lt;td>avons appris&lt;/td>
+&lt;td>apprenions&lt;/td>
+&lt;td>apprendrons&lt;/td>
+&lt;td>que nous apprenions&lt;/td>
+&lt;td>apprendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>apprenez&lt;/td>
+&lt;td>avez appris&lt;/td>
+&lt;td>appreniez&lt;/td>
+&lt;td>apprendrez&lt;/td>
+&lt;td>que vous appreniez&lt;/td>
+&lt;td>apprendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>apprennent&lt;/td>
+&lt;td>ont appris&lt;/td>
+&lt;td>apprenaient&lt;/td>
+&lt;td>apprendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles apprennent&lt;/td>
+&lt;td>apprendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>同場加映，&lt;code>venir&lt;/code> 家族的字配上反身。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>SE SOUVENIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>me souviens&lt;/td>
+&lt;td>me suis souvenu(e)&lt;/td>
+&lt;td>me souvenais&lt;/td>
+&lt;td>me souviendrai&lt;/td>
+&lt;td>que je me souvienne&lt;/td>
+&lt;td>me souviendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>te souviens&lt;/td>
+&lt;td>te es souvenu(e)&lt;/td>
+&lt;td>te souvenais&lt;/td>
+&lt;td>te souviendras&lt;/td>
+&lt;td>que tu te souviennes&lt;/td>
+&lt;td>te souviendrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>se souvient&lt;/td>
+&lt;td>se est souvenu(e)&lt;/td>
+&lt;td>se souvenait&lt;/td>
+&lt;td>se souviendra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on se souvienne&lt;/td>
+&lt;td>se souviendrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>nous souvenons&lt;/td>
+&lt;td>nous sommes souvenu(e)s&lt;/td>
+&lt;td>nous souvenions&lt;/td>
+&lt;td>nous souviendrons&lt;/td>
+&lt;td>que nous nous souvenions&lt;/td>
+&lt;td>nous souviendrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>vous souvenez&lt;/td>
+&lt;td>vous êtes souvenu(e)(s)&lt;/td>
+&lt;td>vous souveniez&lt;/td>
+&lt;td>vous souviendrez&lt;/td>
+&lt;td>que vous vous souveniez&lt;/td>
+&lt;td>vous souviendriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>se souviennent&lt;/td>
+&lt;td>se sont souvenu(e)s&lt;/td>
+&lt;td>se souvenaient&lt;/td>
+&lt;td>se souviendront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles se souviennent&lt;/td>
+&lt;td>se souviendraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="其他也是假裝--ir-變化的-partir-sortir-dormir-courir-ouvrir-offrir-mourir">其他也是假裝 -ir 變化的 partir, sortir, dormir, courir, ouvrir, offrir, mourir
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>PARTIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>pars&lt;/td>
+&lt;td>suis parti(e)&lt;/td>
+&lt;td>partais&lt;/td>
+&lt;td>partirai&lt;/td>
+&lt;td>que je parte&lt;/td>
+&lt;td>partirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>pars&lt;/td>
+&lt;td>es parti(e)&lt;/td>
+&lt;td>partais&lt;/td>
+&lt;td>partiras&lt;/td>
+&lt;td>que tu partes&lt;/td>
+&lt;td>partirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>part&lt;/td>
+&lt;td>est parti(e)&lt;/td>
+&lt;td>partait&lt;/td>
+&lt;td>partira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on parte&lt;/td>
+&lt;td>partirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>partons&lt;/td>
+&lt;td>sommes parti(e)s&lt;/td>
+&lt;td>partions&lt;/td>
+&lt;td>partirons&lt;/td>
+&lt;td>que nous partions&lt;/td>
+&lt;td>partirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>partez&lt;/td>
+&lt;td>êtes parti(e)(s)&lt;/td>
+&lt;td>partiez&lt;/td>
+&lt;td>partirez&lt;/td>
+&lt;td>que vous partiez&lt;/td>
+&lt;td>partiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>partent&lt;/td>
+&lt;td>sont parti(e)s&lt;/td>
+&lt;td>partaient&lt;/td>
+&lt;td>partiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles partent&lt;/td>
+&lt;td>partiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>SORTIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>sors&lt;/td>
+&lt;td>suis sorti(e)&lt;/td>
+&lt;td>sortais&lt;/td>
+&lt;td>sortirai&lt;/td>
+&lt;td>que je sorte&lt;/td>
+&lt;td>sortirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>sors&lt;/td>
+&lt;td>es sorti(e)&lt;/td>
+&lt;td>sortais&lt;/td>
+&lt;td>sortiras&lt;/td>
+&lt;td>que tu sortes&lt;/td>
+&lt;td>sortirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>sort&lt;/td>
+&lt;td>est sorti(e)&lt;/td>
+&lt;td>sortait&lt;/td>
+&lt;td>sortira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on sorte&lt;/td>
+&lt;td>sortirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>sortons&lt;/td>
+&lt;td>sommes sorti(e)s&lt;/td>
+&lt;td>sortions&lt;/td>
+&lt;td>sortirons&lt;/td>
+&lt;td>que nous sortions&lt;/td>
+&lt;td>sortirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>sortez&lt;/td>
+&lt;td>êtes sorti(e)(s)&lt;/td>
+&lt;td>sortiez&lt;/td>
+&lt;td>sortirez&lt;/td>
+&lt;td>que vous sortiez&lt;/td>
+&lt;td>sortiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>sortent&lt;/td>
+&lt;td>sont sorti(e)s&lt;/td>
+&lt;td>sortaient&lt;/td>
+&lt;td>sortiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles sortent&lt;/td>
+&lt;td>sortiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>DORMIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>dors&lt;/td>
+&lt;td>ai dormi&lt;/td>
+&lt;td>dormais&lt;/td>
+&lt;td>dormirai&lt;/td>
+&lt;td>que je dorme&lt;/td>
+&lt;td>dormirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>dors&lt;/td>
+&lt;td>as dormi&lt;/td>
+&lt;td>dormais&lt;/td>
+&lt;td>dormiras&lt;/td>
+&lt;td>que tu dormes&lt;/td>
+&lt;td>dormirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>dort&lt;/td>
+&lt;td>a dormi&lt;/td>
+&lt;td>dormait&lt;/td>
+&lt;td>dormira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on dorme&lt;/td>
+&lt;td>dormirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>dormons&lt;/td>
+&lt;td>avons dormi&lt;/td>
+&lt;td>dormions&lt;/td>
+&lt;td>dormirons&lt;/td>
+&lt;td>que nous dormions&lt;/td>
+&lt;td>dormirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>dormez&lt;/td>
+&lt;td>avez dormi&lt;/td>
+&lt;td>dormiez&lt;/td>
+&lt;td>dormirez&lt;/td>
+&lt;td>que vous dormiez&lt;/td>
+&lt;td>dormiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>dorment&lt;/td>
+&lt;td>ont dormi&lt;/td>
+&lt;td>dormaient&lt;/td>
+&lt;td>dormiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles dorment&lt;/td>
+&lt;td>dormiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;code>courir&lt;/code> 要注意的部分是因為 -ir 前還是 r，所以 futur 就有兩個 r，接著影響到 conditionnel 也有兩個 r。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>COURIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>cours&lt;/td>
+&lt;td>ai couru&lt;/td>
+&lt;td>courais&lt;/td>
+&lt;td>&lt;strong>courrai&lt;/strong>&lt;/td>
+&lt;td>que je coure&lt;/td>
+&lt;td>&lt;strong>courrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>cours&lt;/td>
+&lt;td>as couru&lt;/td>
+&lt;td>courais&lt;/td>
+&lt;td>&lt;strong>courras&lt;/strong>&lt;/td>
+&lt;td>que tu coures&lt;/td>
+&lt;td>&lt;strong>courrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>court&lt;/td>
+&lt;td>a couru&lt;/td>
+&lt;td>courait&lt;/td>
+&lt;td>&lt;strong>courra&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on coure&lt;/td>
+&lt;td>&lt;strong>courrait&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>courons&lt;/td>
+&lt;td>avons couru&lt;/td>
+&lt;td>courions&lt;/td>
+&lt;td>&lt;strong>courrons&lt;/strong>&lt;/td>
+&lt;td>que nous courions&lt;/td>
+&lt;td>&lt;strong>courrions&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>courez&lt;/td>
+&lt;td>avez couru&lt;/td>
+&lt;td>couriez&lt;/td>
+&lt;td>&lt;strong>courrez&lt;/strong>&lt;/td>
+&lt;td>que vous couriez&lt;/td>
+&lt;td>&lt;strong>courriez&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>courent&lt;/td>
+&lt;td>ont couru&lt;/td>
+&lt;td>couraient&lt;/td>
+&lt;td>&lt;strong>courront&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles courent&lt;/td>
+&lt;td>&lt;strong>courraient&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>這兩個字的 participe passé (p.p.) 是在這個不規則 -ir 系列中唯一相同結尾的，然後現在式變成 -re 結尾，我覺得很容易全部都混在一起 XD
+雖然說沒有特別難記，但因為不算很常用到，練習的次數比較少就還是不太熟～&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>OUVRIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>ouvre&lt;/td>
+&lt;td>ai ouvert&lt;/td>
+&lt;td>ouvrais&lt;/td>
+&lt;td>ouvrirai&lt;/td>
+&lt;td>que j&amp;rsquo;ouvre&lt;/td>
+&lt;td>ouvrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>ouvres&lt;/td>
+&lt;td>as ouvert&lt;/td>
+&lt;td>ouvrais&lt;/td>
+&lt;td>ouvriras&lt;/td>
+&lt;td>que tu ouvres&lt;/td>
+&lt;td>ouvrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>ouvre&lt;/td>
+&lt;td>a ouvert&lt;/td>
+&lt;td>ouvrait&lt;/td>
+&lt;td>ouvrira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on ouvre&lt;/td>
+&lt;td>ouvrirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>ouvrons&lt;/td>
+&lt;td>avons ouvert&lt;/td>
+&lt;td>ouvrions&lt;/td>
+&lt;td>ouvrirons&lt;/td>
+&lt;td>que nous ouvrions&lt;/td>
+&lt;td>ouvririons&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>ouvrez&lt;/td>
+&lt;td>avez ouvert&lt;/td>
+&lt;td>ouvriez&lt;/td>
+&lt;td>ouvrirez&lt;/td>
+&lt;td>que vous ouvriez&lt;/td>
+&lt;td>ouvririez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>ouvrent&lt;/td>
+&lt;td>ont ouvert&lt;/td>
+&lt;td>ouvraient&lt;/td>
+&lt;td>ouvriront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles ouvrent&lt;/td>
+&lt;td>ouvriraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>OFFRIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>offre&lt;/td>
+&lt;td>ai offert&lt;/td>
+&lt;td>offrais&lt;/td>
+&lt;td>offrirai&lt;/td>
+&lt;td>que j&amp;rsquo;offre&lt;/td>
+&lt;td>offrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>offres&lt;/td>
+&lt;td>as offert&lt;/td>
+&lt;td>offrais&lt;/td>
+&lt;td>offriras&lt;/td>
+&lt;td>que tu offres&lt;/td>
+&lt;td>offrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>offre&lt;/td>
+&lt;td>a offert&lt;/td>
+&lt;td>offrait&lt;/td>
+&lt;td>offrira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on offre&lt;/td>
+&lt;td>offrirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>offrons&lt;/td>
+&lt;td>avons offert&lt;/td>
+&lt;td>offrions&lt;/td>
+&lt;td>offrirons&lt;/td>
+&lt;td>que nous offrions&lt;/td>
+&lt;td>offririons&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>offrez&lt;/td>
+&lt;td>avez offert&lt;/td>
+&lt;td>offriez&lt;/td>
+&lt;td>offrirez&lt;/td>
+&lt;td>que vous offriez&lt;/td>
+&lt;td>offririez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>offrent&lt;/td>
+&lt;td>ont offert&lt;/td>
+&lt;td>offraient&lt;/td>
+&lt;td>offriront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles offrent&lt;/td>
+&lt;td>offriraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>最後一個我覺得變化也是怪且難背。他的 futur 也有兩個 r。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>MOURIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>meurs&lt;/td>
+&lt;td>suis mort(e)&lt;/td>
+&lt;td>mourais&lt;/td>
+&lt;td>&lt;strong>mourrai&lt;/strong>&lt;/td>
+&lt;td>que je meure&lt;/td>
+&lt;td>&lt;strong>mourrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>meurs&lt;/td>
+&lt;td>es mort(e)&lt;/td>
+&lt;td>mourais&lt;/td>
+&lt;td>&lt;strong>mourras&lt;/strong>&lt;/td>
+&lt;td>que tu meures&lt;/td>
+&lt;td>&lt;strong>mourrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>meurt&lt;/td>
+&lt;td>est mort(e)&lt;/td>
+&lt;td>mourait&lt;/td>
+&lt;td>&lt;strong>mourra&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on meure&lt;/td>
+&lt;td>&lt;strong>mourrait&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>mourons&lt;/td>
+&lt;td>sommes mort(e)s&lt;/td>
+&lt;td>mourions&lt;/td>
+&lt;td>&lt;strong>mourrons&lt;/strong>&lt;/td>
+&lt;td>que nous mourions&lt;/td>
+&lt;td>&lt;strong>mourrions&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>mourez&lt;/td>
+&lt;td>êtes mort(e)(s)&lt;/td>
+&lt;td>mouriez&lt;/td>
+&lt;td>&lt;strong>mourrez&lt;/strong>&lt;/td>
+&lt;td>que vous mouriez&lt;/td>
+&lt;td>&lt;strong>mourriez&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>meurent&lt;/td>
+&lt;td>sont mort(e)s&lt;/td>
+&lt;td>mouraient&lt;/td>
+&lt;td>&lt;strong>mourront&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles meurent&lt;/td>
+&lt;td>&lt;strong>mourraient&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="假裝是--re-的-sourire-écrire-boire-croire-lire">假裝是 -re 的 sourire, écrire, boire, croire, lire
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>SOURIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>souris&lt;/td>
+&lt;td>ai souri&lt;/td>
+&lt;td>souriais&lt;/td>
+&lt;td>sourirai&lt;/td>
+&lt;td>que je sourie&lt;/td>
+&lt;td>sourirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>souris&lt;/td>
+&lt;td>as souri&lt;/td>
+&lt;td>souriais&lt;/td>
+&lt;td>souriras&lt;/td>
+&lt;td>que tu souries&lt;/td>
+&lt;td>sourirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>sourit&lt;/td>
+&lt;td>a souri&lt;/td>
+&lt;td>souriait&lt;/td>
+&lt;td>sourira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on sourie&lt;/td>
+&lt;td>sourirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>sourions&lt;/td>
+&lt;td>avons souri&lt;/td>
+&lt;td>sourions&lt;/td>
+&lt;td>sourirons&lt;/td>
+&lt;td>que nous sourions&lt;/td>
+&lt;td>souririons&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>souriez&lt;/td>
+&lt;td>avez souri&lt;/td>
+&lt;td>souriez&lt;/td>
+&lt;td>sourirez&lt;/td>
+&lt;td>que vous souriez&lt;/td>
+&lt;td>souririez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>sourient&lt;/td>
+&lt;td>ont souri&lt;/td>
+&lt;td>souriaient&lt;/td>
+&lt;td>souriront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles sourient&lt;/td>
+&lt;td>souriraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ÉCRIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>écris&lt;/td>
+&lt;td>ai écrit&lt;/td>
+&lt;td>écrivais&lt;/td>
+&lt;td>écrirai&lt;/td>
+&lt;td>que j&amp;rsquo;écrive&lt;/td>
+&lt;td>écrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>écris&lt;/td>
+&lt;td>as écrit&lt;/td>
+&lt;td>écrivais&lt;/td>
+&lt;td>écriras&lt;/td>
+&lt;td>que tu écrives&lt;/td>
+&lt;td>écrirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>écrit&lt;/td>
+&lt;td>a écrit&lt;/td>
+&lt;td>écrivait&lt;/td>
+&lt;td>écrira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on écrive&lt;/td>
+&lt;td>écrirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>écrivons&lt;/td>
+&lt;td>avons écrit&lt;/td>
+&lt;td>écrivions&lt;/td>
+&lt;td>écrirons&lt;/td>
+&lt;td>que nous écrivions&lt;/td>
+&lt;td>écririons&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>écrivez&lt;/td>
+&lt;td>avez écrit&lt;/td>
+&lt;td>écriviez&lt;/td>
+&lt;td>écrirez&lt;/td>
+&lt;td>que vous écriviez&lt;/td>
+&lt;td>écririez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>écrivent&lt;/td>
+&lt;td>ont écrit&lt;/td>
+&lt;td>écrivaient&lt;/td>
+&lt;td>écriront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles écrivent&lt;/td>
+&lt;td>écriraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>BOIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>bois&lt;/td>
+&lt;td>ai bu&lt;/td>
+&lt;td>buvais&lt;/td>
+&lt;td>boirai&lt;/td>
+&lt;td>que je boive&lt;/td>
+&lt;td>boirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>bois&lt;/td>
+&lt;td>as bu&lt;/td>
+&lt;td>buvais&lt;/td>
+&lt;td>boiras&lt;/td>
+&lt;td>que tu boives&lt;/td>
+&lt;td>boirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>boit&lt;/td>
+&lt;td>a bu&lt;/td>
+&lt;td>buvait&lt;/td>
+&lt;td>boira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on boive&lt;/td>
+&lt;td>boirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>buvons&lt;/td>
+&lt;td>avons bu&lt;/td>
+&lt;td>buvions&lt;/td>
+&lt;td>boirons&lt;/td>
+&lt;td>que nous buvions&lt;/td>
+&lt;td>boirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>buvez&lt;/td>
+&lt;td>avez bu&lt;/td>
+&lt;td>buviez&lt;/td>
+&lt;td>boirez&lt;/td>
+&lt;td>que vous buviez&lt;/td>
+&lt;td>boiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>boivent&lt;/td>
+&lt;td>ont bu&lt;/td>
+&lt;td>buvaient&lt;/td>
+&lt;td>boiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles boivent&lt;/td>
+&lt;td>boiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CROIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>crois&lt;/td>
+&lt;td>ai cru&lt;/td>
+&lt;td>croyais&lt;/td>
+&lt;td>croirai&lt;/td>
+&lt;td>que je croie&lt;/td>
+&lt;td>croirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>crois&lt;/td>
+&lt;td>as cru&lt;/td>
+&lt;td>croyais&lt;/td>
+&lt;td>croiras&lt;/td>
+&lt;td>que tu croies&lt;/td>
+&lt;td>croirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>croit&lt;/td>
+&lt;td>a cru&lt;/td>
+&lt;td>croyait&lt;/td>
+&lt;td>croira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on croie&lt;/td>
+&lt;td>croirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>croyons&lt;/td>
+&lt;td>avons cru&lt;/td>
+&lt;td>croyions&lt;/td>
+&lt;td>croirons&lt;/td>
+&lt;td>que nous croyions&lt;/td>
+&lt;td>croirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>croyez&lt;/td>
+&lt;td>avez cru&lt;/td>
+&lt;td>croyiez&lt;/td>
+&lt;td>croirez&lt;/td>
+&lt;td>que vous croyiez&lt;/td>
+&lt;td>croiriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>croient&lt;/td>
+&lt;td>ont cru&lt;/td>
+&lt;td>croyaient&lt;/td>
+&lt;td>croiront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles croient&lt;/td>
+&lt;td>croiraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>LIRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>lis&lt;/td>
+&lt;td>ai lu&lt;/td>
+&lt;td>lisais&lt;/td>
+&lt;td>lirai&lt;/td>
+&lt;td>que je lise&lt;/td>
+&lt;td>lirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>lis&lt;/td>
+&lt;td>as lu&lt;/td>
+&lt;td>lisais&lt;/td>
+&lt;td>liras&lt;/td>
+&lt;td>que tu lises&lt;/td>
+&lt;td>lirais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>lit&lt;/td>
+&lt;td>a lu&lt;/td>
+&lt;td>lisait&lt;/td>
+&lt;td>lira&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on lise&lt;/td>
+&lt;td>lirait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>lisons&lt;/td>
+&lt;td>avons lu&lt;/td>
+&lt;td>lisions&lt;/td>
+&lt;td>lirons&lt;/td>
+&lt;td>que nous lisions&lt;/td>
+&lt;td>lirions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>lisez&lt;/td>
+&lt;td>avez lu&lt;/td>
+&lt;td>lisiez&lt;/td>
+&lt;td>lirez&lt;/td>
+&lt;td>que vous lisiez&lt;/td>
+&lt;td>liriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>lisent&lt;/td>
+&lt;td>ont lu&lt;/td>
+&lt;td>lisaient&lt;/td>
+&lt;td>liront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles lisent&lt;/td>
+&lt;td>liraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="因為發音不規則變化的-acheter-lever-élever-espérer-appeler-envoyer-nettoyer">因為發音不規則變化的 acheter, lever, élever, espérer, appeler, envoyer, nettoyer
+&lt;/h3>&lt;p>接下來是看似正常的單字，實際上因為發音的關係，在那邊換 accent、加字母，法文真是酷斃了 😭&lt;/p>
+&lt;p>&lt;em>只有過去式是一個 l&lt;/em>: appeler&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>APPELER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>appelle&lt;/td>
+&lt;td>ai appelé&lt;/td>
+&lt;td>appelais&lt;/td>
+&lt;td>appellerai&lt;/td>
+&lt;td>que j&amp;rsquo;appelle&lt;/td>
+&lt;td>appellerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>appelles&lt;/td>
+&lt;td>as appelé&lt;/td>
+&lt;td>appelais&lt;/td>
+&lt;td>appelleras&lt;/td>
+&lt;td>que tu appelles&lt;/td>
+&lt;td>appellerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>appelle&lt;/td>
+&lt;td>a appelé&lt;/td>
+&lt;td>appelait&lt;/td>
+&lt;td>appellera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on appelle&lt;/td>
+&lt;td>appellerait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>appelons&lt;/td>
+&lt;td>avons appelé&lt;/td>
+&lt;td>appelions&lt;/td>
+&lt;td>appellerons&lt;/td>
+&lt;td>que nous appelions&lt;/td>
+&lt;td>appellerions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>appelez&lt;/td>
+&lt;td>avez appelé&lt;/td>
+&lt;td>appeliez&lt;/td>
+&lt;td>appellerez&lt;/td>
+&lt;td>que vous appeliez&lt;/td>
+&lt;td>appelleriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>appellent&lt;/td>
+&lt;td>ont appelé&lt;/td>
+&lt;td>appelaient&lt;/td>
+&lt;td>appelleront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles appellent&lt;/td>
+&lt;td>appelleraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;em>只有兩個過去式沒有加 accent grâve&lt;/em>: acheter, lever, élever, espérer, promener&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ACHETER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>achète&lt;/td>
+&lt;td>ai acheté&lt;/td>
+&lt;td>achetais&lt;/td>
+&lt;td>achèterai&lt;/td>
+&lt;td>que j&amp;rsquo;achète&lt;/td>
+&lt;td>achèterais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>achètes&lt;/td>
+&lt;td>as acheté&lt;/td>
+&lt;td>achetais&lt;/td>
+&lt;td>achèteras&lt;/td>
+&lt;td>que tu achètes&lt;/td>
+&lt;td>achèterais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>achète&lt;/td>
+&lt;td>a acheté&lt;/td>
+&lt;td>achetait&lt;/td>
+&lt;td>achètera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on achète&lt;/td>
+&lt;td>achèterait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>achetons&lt;/td>
+&lt;td>avons acheté&lt;/td>
+&lt;td>achetions&lt;/td>
+&lt;td>achèterons&lt;/td>
+&lt;td>que nous achetions&lt;/td>
+&lt;td>achèterions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>achetez&lt;/td>
+&lt;td>avez acheté&lt;/td>
+&lt;td>achetiez&lt;/td>
+&lt;td>achèterez&lt;/td>
+&lt;td>que vous achetiez&lt;/td>
+&lt;td>achèteriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>achètent&lt;/td>
+&lt;td>ont acheté&lt;/td>
+&lt;td>achetaient&lt;/td>
+&lt;td>achèteront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles achètent&lt;/td>
+&lt;td>achèteraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>LEVER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>lève&lt;/td>
+&lt;td>ai levé&lt;/td>
+&lt;td>levais&lt;/td>
+&lt;td>lèverai&lt;/td>
+&lt;td>que je lève&lt;/td>
+&lt;td>lèverais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>lèves&lt;/td>
+&lt;td>as levé&lt;/td>
+&lt;td>levais&lt;/td>
+&lt;td>lèveras&lt;/td>
+&lt;td>que tu lèves&lt;/td>
+&lt;td>lèverais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>lève&lt;/td>
+&lt;td>a levé&lt;/td>
+&lt;td>levait&lt;/td>
+&lt;td>lèvera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on lève&lt;/td>
+&lt;td>lèverait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>levons&lt;/td>
+&lt;td>avons levé&lt;/td>
+&lt;td>levions&lt;/td>
+&lt;td>lèverons&lt;/td>
+&lt;td>que nous levions&lt;/td>
+&lt;td>lèverions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>levez&lt;/td>
+&lt;td>avez levé&lt;/td>
+&lt;td>leviez&lt;/td>
+&lt;td>lèverez&lt;/td>
+&lt;td>que vous leviez&lt;/td>
+&lt;td>lèveriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>lèvent&lt;/td>
+&lt;td>ont levé&lt;/td>
+&lt;td>levaient&lt;/td>
+&lt;td>lèveront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles lèvent&lt;/td>
+&lt;td>lèveraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ÉLEVER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>élève&lt;/td>
+&lt;td>ai élevé&lt;/td>
+&lt;td>élevais&lt;/td>
+&lt;td>élèverai&lt;/td>
+&lt;td>que j&amp;rsquo;élève&lt;/td>
+&lt;td>élèverais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>élèves&lt;/td>
+&lt;td>as élevé&lt;/td>
+&lt;td>élevais&lt;/td>
+&lt;td>élèveras&lt;/td>
+&lt;td>que tu élèves&lt;/td>
+&lt;td>élèverais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>élève&lt;/td>
+&lt;td>a élevé&lt;/td>
+&lt;td>élevait&lt;/td>
+&lt;td>élèvera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on élève&lt;/td>
+&lt;td>élèverait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>élevons&lt;/td>
+&lt;td>avons élevé&lt;/td>
+&lt;td>élevions&lt;/td>
+&lt;td>élèverons&lt;/td>
+&lt;td>que nous élevions&lt;/td>
+&lt;td>élèverions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>élevez&lt;/td>
+&lt;td>avez élevé&lt;/td>
+&lt;td>éleviez&lt;/td>
+&lt;td>élèverez&lt;/td>
+&lt;td>que vous éleviez&lt;/td>
+&lt;td>élèveriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>élèvent&lt;/td>
+&lt;td>ont élevé&lt;/td>
+&lt;td>élevaient&lt;/td>
+&lt;td>élèveront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles élèvent&lt;/td>
+&lt;td>élèveraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ESPÉRER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>espère&lt;/td>
+&lt;td>ai espéré&lt;/td>
+&lt;td>espérais&lt;/td>
+&lt;td>espérerai&lt;/td>
+&lt;td>que j&amp;rsquo;espère&lt;/td>
+&lt;td>espérerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>espères&lt;/td>
+&lt;td>as espéré&lt;/td>
+&lt;td>espérais&lt;/td>
+&lt;td>espéreras&lt;/td>
+&lt;td>que tu espères&lt;/td>
+&lt;td>espérerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>espère&lt;/td>
+&lt;td>a espéré&lt;/td>
+&lt;td>espérait&lt;/td>
+&lt;td>espérera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on espère&lt;/td>
+&lt;td>espérerait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>espérons&lt;/td>
+&lt;td>avons espéré&lt;/td>
+&lt;td>espérions&lt;/td>
+&lt;td>espérerons&lt;/td>
+&lt;td>que nous espérions&lt;/td>
+&lt;td>espérerions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>espérez&lt;/td>
+&lt;td>avez espéré&lt;/td>
+&lt;td>espériez&lt;/td>
+&lt;td>espérerez&lt;/td>
+&lt;td>que vous espériez&lt;/td>
+&lt;td>espéreriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>espèrent&lt;/td>
+&lt;td>ont espéré&lt;/td>
+&lt;td>espéraient&lt;/td>
+&lt;td>espéreront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles espèrent&lt;/td>
+&lt;td>espéreraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>PROMENER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>promène&lt;/td>
+&lt;td>ai promené&lt;/td>
+&lt;td>promenais&lt;/td>
+&lt;td>promènerai&lt;/td>
+&lt;td>que je promène&lt;/td>
+&lt;td>promènerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>promènes&lt;/td>
+&lt;td>as promené&lt;/td>
+&lt;td>promenais&lt;/td>
+&lt;td>promèneras&lt;/td>
+&lt;td>que tu promènes&lt;/td>
+&lt;td>promènerais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>promène&lt;/td>
+&lt;td>a promené&lt;/td>
+&lt;td>promenait&lt;/td>
+&lt;td>promènera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on promène&lt;/td>
+&lt;td>promènerait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>promenons&lt;/td>
+&lt;td>avons promené&lt;/td>
+&lt;td>promenions&lt;/td>
+&lt;td>promènerons&lt;/td>
+&lt;td>que nous promenions&lt;/td>
+&lt;td>promènerions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>promenez&lt;/td>
+&lt;td>avez promené&lt;/td>
+&lt;td>promeniez&lt;/td>
+&lt;td>promenerez&lt;/td>
+&lt;td>que vous promeniez&lt;/td>
+&lt;td>promèneriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>promènent&lt;/td>
+&lt;td>ont promené&lt;/td>
+&lt;td>promenaient&lt;/td>
+&lt;td>promèneront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles promènent&lt;/td>
+&lt;td>promèneraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;em>有 -y 結尾就會換來換去&lt;/em>: envoyer, nettoyer&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ENVOYER&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>&lt;strong>envoie&lt;/strong>&lt;/td>
+&lt;td>ai envoyé&lt;/td>
+&lt;td>envoyais&lt;/td>
+&lt;td>&lt;strong>enverrai&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>que j&amp;rsquo;envoie&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>&lt;strong>envoies&lt;/strong>&lt;/td>
+&lt;td>as envoyé&lt;/td>
+&lt;td>envoyais&lt;/td>
+&lt;td>&lt;strong>enverras&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>que tu envoies&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>&lt;strong>envoie&lt;/strong>&lt;/td>
+&lt;td>a envoyé&lt;/td>
+&lt;td>envoyait&lt;/td>
+&lt;td>&lt;strong>enverra&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>qu&amp;rsquo;il/elle/on envoie&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverrait&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>&lt;strong>envoyons&lt;/strong>&lt;/td>
+&lt;td>avons envoyé&lt;/td>
+&lt;td>envoyions&lt;/td>
+&lt;td>&lt;strong>enverrons&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>que nous envoyions&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverrions&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>&lt;strong>envoyez&lt;/strong>&lt;/td>
+&lt;td>avez envoyé&lt;/td>
+&lt;td>envoyiez&lt;/td>
+&lt;td>&lt;strong>enverrez&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>que vous envoyiez&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverriez&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>&lt;strong>envoient&lt;/strong>&lt;/td>
+&lt;td>ont envoyé&lt;/td>
+&lt;td>envoyaient&lt;/td>
+&lt;td>&lt;strong>enverront&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>qu&amp;rsquo;ils/elles envoient&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>enverraient&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>nettoie&lt;/td>
+&lt;td>ai nettoyé&lt;/td>
+&lt;td>nettoyais&lt;/td>
+&lt;td>nettoierai&lt;/td>
+&lt;td>que je nettoie&lt;/td>
+&lt;td>nettoierais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>nettoies&lt;/td>
+&lt;td>as nettoyé&lt;/td>
+&lt;td>nettoyais&lt;/td>
+&lt;td>nettoieras&lt;/td>
+&lt;td>que tu nettoies&lt;/td>
+&lt;td>nettoierais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>nettoie&lt;/td>
+&lt;td>a nettoyé&lt;/td>
+&lt;td>nettoyait&lt;/td>
+&lt;td>nettoiera&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on nettoie&lt;/td>
+&lt;td>nettoierait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>nettoyons&lt;/td>
+&lt;td>avons nettoyé&lt;/td>
+&lt;td>nettoyions&lt;/td>
+&lt;td>nettoierons&lt;/td>
+&lt;td>que nous nettoyions&lt;/td>
+&lt;td>nettoierions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>nettoyez&lt;/td>
+&lt;td>avez nettoyé&lt;/td>
+&lt;td>nettoyiez&lt;/td>
+&lt;td>nettoierez&lt;/td>
+&lt;td>que vous nettoyiez&lt;/td>
+&lt;td>nettoieriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>nettoient&lt;/td>
+&lt;td>ont nettoyé&lt;/td>
+&lt;td>nettoyaient&lt;/td>
+&lt;td>nettoieront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles nettoient&lt;/td>
+&lt;td>nettoieraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="只有第三人稱單數的天氣-pleuvoir--neiger">只有第三人稱單數的天氣 pleuvoir &amp;amp; neiger
+&lt;/h3>&lt;p>&lt;code>neiger&lt;/code> 不算是規則變化動詞，但只是因為他只有第三人稱單數的變形而已，其他人稱不適用。但變形本身基本上是套用規則變化的。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>PLEUVOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>pleut&lt;/td>
+&lt;td>a plu&lt;/td>
+&lt;td>pleuvait&lt;/td>
+&lt;td>pleuvra&lt;/td>
+&lt;td>pleuve&lt;/td>
+&lt;td>pleuvrait&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="規則變化複雜到我已經不知道怎麼吐槽-vouloir-pouvoir-devoir-savoir-voir-naître-connaître">規則變化複雜到我已經不知道怎麼吐槽 vouloir, pouvoir, devoir, savoir, voir, naître, connaître
+&lt;/h3>&lt;p>想要、能夠、需要這三個字我喜歡一起做比較，儘管他們沒有到很相似。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>VOULOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>veux&lt;/td>
+&lt;td>ai voulu&lt;/td>
+&lt;td>voulais&lt;/td>
+&lt;td>voudrai&lt;/td>
+&lt;td>que je veuille&lt;/td>
+&lt;td>voudrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>veux&lt;/td>
+&lt;td>as voulu&lt;/td>
+&lt;td>voulais&lt;/td>
+&lt;td>voudras&lt;/td>
+&lt;td>que tu veuilles&lt;/td>
+&lt;td>voudrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>veut&lt;/td>
+&lt;td>a voulu&lt;/td>
+&lt;td>voulait&lt;/td>
+&lt;td>voudra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on veuille&lt;/td>
+&lt;td>voudrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>voulons&lt;/td>
+&lt;td>avons voulu&lt;/td>
+&lt;td>voulions&lt;/td>
+&lt;td>voudrons&lt;/td>
+&lt;td>que nous voulions&lt;/td>
+&lt;td>voudrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>voulez&lt;/td>
+&lt;td>avez voulu&lt;/td>
+&lt;td>vouliez&lt;/td>
+&lt;td>voudrez&lt;/td>
+&lt;td>que vous vouliez&lt;/td>
+&lt;td>voudriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>veulent&lt;/td>
+&lt;td>ont voulu&lt;/td>
+&lt;td>voulaient&lt;/td>
+&lt;td>voudront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles veuillent&lt;/td>
+&lt;td>voudraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>POUVOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>peux&lt;/td>
+&lt;td>ai pu&lt;/td>
+&lt;td>pouvais&lt;/td>
+&lt;td>&lt;strong>pourrai&lt;/strong>&lt;/td>
+&lt;td>que je puisse&lt;/td>
+&lt;td>&lt;strong>pourrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>peux&lt;/td>
+&lt;td>as pu&lt;/td>
+&lt;td>pouvais&lt;/td>
+&lt;td>&lt;strong>pourras&lt;/strong>&lt;/td>
+&lt;td>que tu puisses&lt;/td>
+&lt;td>&lt;strong>pourrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>peut&lt;/td>
+&lt;td>a pu&lt;/td>
+&lt;td>pouvait&lt;/td>
+&lt;td>&lt;strong>pourra&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on puisse&lt;/td>
+&lt;td>&lt;strong>pourrait&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>pouvons&lt;/td>
+&lt;td>avons pu&lt;/td>
+&lt;td>pouvions&lt;/td>
+&lt;td>&lt;strong>pourrons&lt;/strong>&lt;/td>
+&lt;td>que nous puissions&lt;/td>
+&lt;td>&lt;strong>pourrions&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>pouvez&lt;/td>
+&lt;td>avez pu&lt;/td>
+&lt;td>pouviez&lt;/td>
+&lt;td>&lt;strong>pourrez&lt;/strong>&lt;/td>
+&lt;td>que vous puissiez&lt;/td>
+&lt;td>&lt;strong>pourriez&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>peuvent&lt;/td>
+&lt;td>ont pu&lt;/td>
+&lt;td>pouvaient&lt;/td>
+&lt;td>&lt;strong>pourront&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles puissent&lt;/td>
+&lt;td>&lt;strong>pourraient&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>DEVOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>dois&lt;/td>
+&lt;td>ai dû&lt;/td>
+&lt;td>devais&lt;/td>
+&lt;td>devrai&lt;/td>
+&lt;td>que je doive&lt;/td>
+&lt;td>devrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>dois&lt;/td>
+&lt;td>as dû&lt;/td>
+&lt;td>devais&lt;/td>
+&lt;td>devras&lt;/td>
+&lt;td>que tu doives&lt;/td>
+&lt;td>devrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>doit&lt;/td>
+&lt;td>a dû&lt;/td>
+&lt;td>devait&lt;/td>
+&lt;td>devra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on doive&lt;/td>
+&lt;td>devrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>devons&lt;/td>
+&lt;td>avons dû&lt;/td>
+&lt;td>devions&lt;/td>
+&lt;td>devrons&lt;/td>
+&lt;td>que nous devions&lt;/td>
+&lt;td>devrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>devez&lt;/td>
+&lt;td>avez dû&lt;/td>
+&lt;td>deviez&lt;/td>
+&lt;td>devrez&lt;/td>
+&lt;td>que vous deviez&lt;/td>
+&lt;td>devriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>doivent&lt;/td>
+&lt;td>ont dû&lt;/td>
+&lt;td>devaient&lt;/td>
+&lt;td>devront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles doivent&lt;/td>
+&lt;td>devraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>同為 -oir 結尾的 savoir 和 voir&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>SAVOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>sais&lt;/td>
+&lt;td>ai su&lt;/td>
+&lt;td>savais&lt;/td>
+&lt;td>saurai&lt;/td>
+&lt;td>que je sache&lt;/td>
+&lt;td>saurais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>sais&lt;/td>
+&lt;td>as su&lt;/td>
+&lt;td>savais&lt;/td>
+&lt;td>sauras&lt;/td>
+&lt;td>que tu saches&lt;/td>
+&lt;td>saurais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>sait&lt;/td>
+&lt;td>a su&lt;/td>
+&lt;td>savait&lt;/td>
+&lt;td>saura&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on sache&lt;/td>
+&lt;td>saurait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>savons&lt;/td>
+&lt;td>avons su&lt;/td>
+&lt;td>savions&lt;/td>
+&lt;td>saurons&lt;/td>
+&lt;td>que nous sachions&lt;/td>
+&lt;td>saurions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>savez&lt;/td>
+&lt;td>avez su&lt;/td>
+&lt;td>saviez&lt;/td>
+&lt;td>saurez&lt;/td>
+&lt;td>que vous sachiez&lt;/td>
+&lt;td>sauriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>savent&lt;/td>
+&lt;td>ont su&lt;/td>
+&lt;td>savaient&lt;/td>
+&lt;td>sauront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles sachent&lt;/td>
+&lt;td>sauraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>VOIR&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>vois&lt;/td>
+&lt;td>ai vu&lt;/td>
+&lt;td>voyais&lt;/td>
+&lt;td>&lt;strong>verrai&lt;/strong>&lt;/td>
+&lt;td>que je voie&lt;/td>
+&lt;td>&lt;strong>verrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>vois&lt;/td>
+&lt;td>as vu&lt;/td>
+&lt;td>voyais&lt;/td>
+&lt;td>&lt;strong>verras&lt;/strong>&lt;/td>
+&lt;td>que tu voies&lt;/td>
+&lt;td>&lt;strong>verrais&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>voit&lt;/td>
+&lt;td>a vu&lt;/td>
+&lt;td>voyait&lt;/td>
+&lt;td>&lt;strong>verra&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on voie&lt;/td>
+&lt;td>&lt;strong>verrait&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>voyons&lt;/td>
+&lt;td>avons vu&lt;/td>
+&lt;td>voyions&lt;/td>
+&lt;td>&lt;strong>verrons&lt;/strong>&lt;/td>
+&lt;td>que nous voyions&lt;/td>
+&lt;td>&lt;strong>verrions&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>voyez&lt;/td>
+&lt;td>avez vu&lt;/td>
+&lt;td>voyiez&lt;/td>
+&lt;td>&lt;strong>verrez&lt;/strong>&lt;/td>
+&lt;td>que vous voyiez&lt;/td>
+&lt;td>&lt;strong>verriez&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>voient&lt;/td>
+&lt;td>ont vu&lt;/td>
+&lt;td>voyaient&lt;/td>
+&lt;td>&lt;strong>verront&lt;/strong>&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles voient&lt;/td>
+&lt;td>&lt;strong>verraient&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>最後是 -naître 系列，這個詞是 futur 和 conditionnel 有 accent，其他沒有。雖然 naître 有點複雜，但其實只有被動式比較常見，因此我自己只有記 p.p. 而已。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>NAÎTRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>nais&lt;/td>
+&lt;td>suis né(e)&lt;/td>
+&lt;td>naissais&lt;/td>
+&lt;td>naîtrai&lt;/td>
+&lt;td>que je naisse&lt;/td>
+&lt;td>naîtrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>nais&lt;/td>
+&lt;td>es né(e)&lt;/td>
+&lt;td>naissais&lt;/td>
+&lt;td>naîtras&lt;/td>
+&lt;td>que tu naisses&lt;/td>
+&lt;td>naîtrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>naît&lt;/td>
+&lt;td>est né(e)&lt;/td>
+&lt;td>naissait&lt;/td>
+&lt;td>naîtra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on naisse&lt;/td>
+&lt;td>naîtrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>naissons&lt;/td>
+&lt;td>sommes né(e)s&lt;/td>
+&lt;td>naissions&lt;/td>
+&lt;td>naîtrons&lt;/td>
+&lt;td>que nous naissions&lt;/td>
+&lt;td>naîtrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>naissez&lt;/td>
+&lt;td>êtes né(e)(s)&lt;/td>
+&lt;td>naissiez&lt;/td>
+&lt;td>naîtrez&lt;/td>
+&lt;td>que vous naissiez&lt;/td>
+&lt;td>naîtriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>naissent&lt;/td>
+&lt;td>sont né(e)s&lt;/td>
+&lt;td>naissaient&lt;/td>
+&lt;td>naîtront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles naissent&lt;/td>
+&lt;td>naîtraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CONNAÎTRE&lt;/th>
+&lt;th>Présent&lt;/th>
+&lt;th>Passé composé&lt;/th>
+&lt;th>Imparfait&lt;/th>
+&lt;th>Futur&lt;/th>
+&lt;th>Subjonctif&lt;/th>
+&lt;th>Conditionnel&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Je&lt;/td>
+&lt;td>connais&lt;/td>
+&lt;td>ai connu&lt;/td>
+&lt;td>connaissais&lt;/td>
+&lt;td>connaîtrai&lt;/td>
+&lt;td>que je connaisse&lt;/td>
+&lt;td>connaîtrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tu&lt;/td>
+&lt;td>connais&lt;/td>
+&lt;td>as connu&lt;/td>
+&lt;td>connaissais&lt;/td>
+&lt;td>connaîtras&lt;/td>
+&lt;td>que tu connaisses&lt;/td>
+&lt;td>connaîtrais&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Il/Elle&lt;/td>
+&lt;td>connaît&lt;/td>
+&lt;td>a connu&lt;/td>
+&lt;td>connaissait&lt;/td>
+&lt;td>connaîtra&lt;/td>
+&lt;td>qu&amp;rsquo;il/elle/on connaisse&lt;/td>
+&lt;td>connaîtrait&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Nous&lt;/td>
+&lt;td>connaissons&lt;/td>
+&lt;td>avons connu&lt;/td>
+&lt;td>connaissions&lt;/td>
+&lt;td>connaîtrons&lt;/td>
+&lt;td>que nous connaissions&lt;/td>
+&lt;td>connaîtrions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Vous&lt;/td>
+&lt;td>connaissez&lt;/td>
+&lt;td>avez connu&lt;/td>
+&lt;td>connaissiez&lt;/td>
+&lt;td>connaîtrez&lt;/td>
+&lt;td>que vous connaissiez&lt;/td>
+&lt;td>connaîtriez&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ils/Elles&lt;/td>
+&lt;td>connaissent&lt;/td>
+&lt;td>ont connu&lt;/td>
+&lt;td>connaissaient&lt;/td>
+&lt;td>connaîtront&lt;/td>
+&lt;td>qu&amp;rsquo;ils/elles connaissent&lt;/td>
+&lt;td>connaîtraient&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="總結">總結
+&lt;/h2>&lt;p>未來有機會再發比較中高階的單字，如果以上有打錯、或是有更好的記法跟解釋，歡迎留言！謝謝！&lt;/p></description></item></channel></rss>
