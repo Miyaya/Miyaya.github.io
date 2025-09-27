@@ -12,7 +12,7 @@ tags:
     - React
     - Hook
 categories:
-    - Modern Web
+    - dev
 ---
 
 
