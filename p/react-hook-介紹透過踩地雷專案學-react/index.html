@@ -1,0 +1,1457 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content='為了找工作，我開始自學練習寫 React，多虧了現今有 ChatGPT，可以很快的針對簡單的任務開發甚至是 debug。一邊寫、我也一邊看相關的教學，因此想統整這當中學到的內容寫成文章，專案最終的 live demo 在這邊，不過目前只有很陽春的基本遊玩功能，希望可以找到時間把剩下的內容開發完成。\n初始設定 如題所說，今天要來做一個踩地雷的 clone，想了很久 React 的第一份 project 應該要做什麼好，因為想要做可以互動的東西，結果想到我小時候很喜歡玩的遊戲…我真的很喜歡玩踩地雷，初級我曾經用 6 秒破關（到目前還是沾沾自喜的程度）。\n廢話不多說，因為這篇文章主要想著墨在 React 的部分，所以專案設定我就簡單帶過～\n1 2 3 4 5 6 npm create vite@latest minesweeper --template react cd minesweeper npm install npm install -D tailwindcss postcss autoprefixer npx tailwindcss init -p 使用 node 跟 npm 開啟一個 vite 新專案後，加上 tailwind CSS 作為其中一個 dependency，節省一些設計樣式的時間。\n1 2 3 4 5 6 7 8 9 10 // tailwind.config.js module.exports = { content: [ "./src/**/*.{js,jsx,ts,tsx}", ], theme: { extend: {}, }, plugins: [], } 1 2 3 4 /** src/index.css **/ @tailwind base; @tailwind components; @tailwind utilities; 專案架構 Component 整個網頁的架構可以用幾個 component 來說明邏輯跟資料流:\n'><title>React Hook 介紹——透過踩地雷專案學 React</title><link rel=canonical href=https://miyaya.github.io/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/><link rel=stylesheet href=/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css><meta property='og:title' content="React Hook 介紹——透過踩地雷專案學 React"><meta property='og:description' content='為了找工作，我開始自學練習寫 React，多虧了現今有 ChatGPT，可以很快的針對簡單的任務開發甚至是 debug。一邊寫、我也一邊看相關的教學，因此想統整這當中學到的內容寫成文章，專案最終的 live demo 在這邊，不過目前只有很陽春的基本遊玩功能，希望可以找到時間把剩下的內容開發完成。\n初始設定 如題所說，今天要來做一個踩地雷的 clone，想了很久 React 的第一份 project 應該要做什麼好，因為想要做可以互動的東西，結果想到我小時候很喜歡玩的遊戲…我真的很喜歡玩踩地雷，初級我曾經用 6 秒破關（到目前還是沾沾自喜的程度）。\n廢話不多說，因為這篇文章主要想著墨在 React 的部分，所以專案設定我就簡單帶過～\n1 2 3 4 5 6 npm create vite@latest minesweeper --template react cd minesweeper npm install npm install -D tailwindcss postcss autoprefixer npx tailwindcss init -p 使用 node 跟 npm 開啟一個 vite 新專案後，加上 tailwind CSS 作為其中一個 dependency，節省一些設計樣式的時間。\n1 2 3 4 5 6 7 8 9 10 // tailwind.config.js module.exports = { content: [ "./src/**/*.{js,jsx,ts,tsx}", ], theme: { extend: {}, }, plugins: [], } 1 2 3 4 /** src/index.css **/ @tailwind base; @tailwind components; @tailwind utilities; 專案架構 Component 整個網頁的架構可以用幾個 component 來說明邏輯跟資料流:\n'><meta property='og:url' content='https://miyaya.github.io/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/'><meta property='og:site_name' content="Miya's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='React'><meta property='article:tag' content='Hook'><meta property='article:published_time' content='2024-09-08T22:56:57+02:00'><meta property='article:modified_time' content='2024-09-08T22:56:57+02:00'><meta property='og:image' content='https://miyaya.github.io/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/1.jpg'><meta name=twitter:title content="React Hook 介紹——透過踩地雷專案學 React"><meta name=twitter:description content='為了找工作，我開始自學練習寫 React，多虧了現今有 ChatGPT，可以很快的針對簡單的任務開發甚至是 debug。一邊寫、我也一邊看相關的教學，因此想統整這當中學到的內容寫成文章，專案最終的 live demo 在這邊，不過目前只有很陽春的基本遊玩功能，希望可以找到時間把剩下的內容開發完成。\n初始設定 如題所說，今天要來做一個踩地雷的 clone，想了很久 React 的第一份 project 應該要做什麼好，因為想要做可以互動的東西，結果想到我小時候很喜歡玩的遊戲…我真的很喜歡玩踩地雷，初級我曾經用 6 秒破關（到目前還是沾沾自喜的程度）。\n廢話不多說，因為這篇文章主要想著墨在 React 的部分，所以專案設定我就簡單帶過～\n1 2 3 4 5 6 npm create vite@latest minesweeper --template react cd minesweeper npm install npm install -D tailwindcss postcss autoprefixer npx tailwindcss init -p 使用 node 跟 npm 開啟一個 vite 新專案後，加上 tailwind CSS 作為其中一個 dependency，節省一些設計樣式的時間。\n1 2 3 4 5 6 7 8 9 10 // tailwind.config.js module.exports = { content: [ "./src/**/*.{js,jsx,ts,tsx}", ], theme: { extend: {}, }, plugins: [], } 1 2 3 4 /** src/index.css **/ @tailwind base; @tailwind components; @tailwind utilities; 專案架構 Component 整個網頁的架構可以用幾個 component 來說明邏輯跟資料流:\n'><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://miyaya.github.io/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/1.jpg'><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切換選單>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_f02a1ccfbec869ae.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🌯</span></figure><div class=site-meta><h1 class=site-name><a href=/>Miya's Blog</a></h1><h2 class=site-description></h2></div></header><ol class=menu-social><li><a href=https://github.com/Miyaya target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://www.instagram.com/miyaya.journal/ target=_blank title=Instagram rel=me><svg class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3"/><line x1="16.5" y1="7.5" x2="16.5" y2="7.501"/></svg></a></li><li><a href=https://www.linkedin.com/in/yi-hsuan-lee-9bb570132/ target=_blank title=LinkedIn rel=me><svg class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M16 16v-3a2 2 0 00-4 0"/></svg></a></li><li><a href=https://miya850604.medium.com/ target=_blank title=Medium rel=me><svg class="icon icon-tabler icon-tabler-brand-medium" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h1l3 3 3-3h1"/><line x1="8" y1="15" x2="10" y2="15"/><line x1="14" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9" y2="15"/><line x1="15" y1="9" x2="15" y2="15"/></svg></a></li><li><a href=https://www.youtube.com/channel/UCjCgzu6YRe8LJiPBkbRkVAg target=_blank title=YouTube rel=me><svg class="icon icon-tabler icon-tabler-brand-youtube" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>夜晚模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目錄</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#初始設定>初始設定</a></li><li><a href=#專案架構>專案架構</a><ol><li><a href=#component>Component</a></li></ol></li><li><a href=#初步開發>初步開發</a><ol><li><a href=#usestate>useState</a></li><li><a href=#useeffect>useEffect</a></li></ol></li><li><a href=#功能產生不同的棋盤大小>功能——產生不同的棋盤大小</a><ol><li><a href=#usememo>useMemo</a></li></ol></li><li><a href=#功能連帶打開沒有珠寶的格子的鄰居>功能——連帶打開沒有珠寶的格子的鄰居</a><ol><li><a href=#usecallback>useCallback</a></li></ol></li><li><a href=#ui新增剩餘的珠寶>UI——新增剩餘的珠寶</a></li><li><a href=#debug>Debug</a></li><li><a href=#ui新增遊戲結局>UI——新增遊戲結局</a></li><li><a href=#部署>部署</a></li><li><a href=#結論>結論</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/><img src=/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/1_hu_2222fc5f99f5aadc.jpg srcset="/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/1_hu_2222fc5f99f5aadc.jpg 800w, /p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/1_hu_1fb5a681cefdf2b0.jpg 1600w" width=800 height=571 loading=lazy alt="Featured image of post React Hook 介紹——透過踩地雷專案學 React"></a></div><div class=article-details><header class=article-category><a href=/categories/dev/ style=background-color:#2a9d8f;color:#fff>程式技術</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/>React Hook 介紹——透過踩地雷專案學 React</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Sep 08, 2024</time></div></footer></div></header><section class=article-content><p>為了找工作，我開始自學練習寫 React，多虧了現今有 ChatGPT，可以很快的針對簡單的任務開發甚至是 debug。一邊寫、我也一邊看相關的教學，因此想統整這當中學到的內容寫成文章，專案最終的 <a class=link href=https://where-is-bijou.vercel.app/ target=_blank rel=noopener>live demo</a> 在這邊，不過目前只有很陽春的基本遊玩功能，希望可以找到時間把剩下的內容開發完成。</p><h2 id=初始設定>初始設定</h2><p>如題所說，今天要來做一個踩地雷的 clone，想了很久 React 的第一份 project 應該要做什麼好，因為想要做可以互動的東西，結果想到我小時候很喜歡玩的遊戲…我真的很喜歡玩踩地雷，初級我曾經用 6 秒破關（到目前還是沾沾自喜的程度）。</p><p>廢話不多說，因為這篇文章主要想著墨在 React 的部分，所以專案設定我就簡單帶過～</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>npm create vite@latest minesweeper --template react
+</span></span><span class=line><span class=cl><span class=nb>cd</span> minesweeper
+</span></span><span class=line><span class=cl>npm install
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>npm install -D tailwindcss postcss autoprefixer
+</span></span><span class=line><span class=cl>npx tailwindcss init -p
+</span></span></code></pre></td></tr></table></div></div><p>使用 node 跟 npm 開啟一個 vite 新專案後，加上 tailwind CSS 作為其中一個 dependency，節省一些設計樣式的時間。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// tailwind.config.js
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>content</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;./src/**/*.{js,jsx,ts,tsx}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>theme</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>extend</span><span class=o>:</span> <span class=p>{},</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nx>plugins</span><span class=o>:</span> <span class=p>[],</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=c>/** src/index.css **/</span>
+</span></span><span class=line><span class=cl><span class=p>@</span><span class=k>tailwind</span> <span class=nt>base</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>@</span><span class=k>tailwind</span> <span class=nt>components</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>@</span><span class=k>tailwind</span> <span class=nt>utilities</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=專案架構>專案架構</h2><h3 id=component>Component</h3><p>整個網頁的架構可以用幾個 component 來說明邏輯跟資料流:</p><ul><li>Game - 創建遊戲、紀錄遊戲的邏輯、規則、輸贏</li><li>Board - 遊戲盤的實體，裝有許多個 cell</li><li>Cell - 每一個格子，紀錄了附近有幾個炸彈、被翻開了沒</li></ul><p>（因為是第一次開發，所以沒有想得很清楚，請見諒）</p><p>Component 主要的想法就是把相同概念、領域、規範的程式碼寫在一起，與 class 的概念有點類似，透過寫出一個可以重複使用程式碼的方法，使得整體的程式好讀易懂。</p><h2 id=初步開發>初步開發</h2><p>先把剛剛提到的架構元件寫出來</p><ol><li>Cell</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/components/Cell.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Cell</span> <span class=o>=</span> <span class=p>({</span> <span class=nx>value</span><span class=p>,</span> <span class=nx>onClick</span><span class=p>,</span> <span class=nx>onContextMenu</span><span class=p>,</span> <span class=nx>row</span><span class=p>,</span> <span class=nx>col</span> <span class=p>})</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>div</span>
+</span></span><span class=line><span class=cl>      <span class=na>className</span><span class=o>=</span><span class=s>&#34;w-8 h-8 border flex items-center justify-center cursor-pointer&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=na>onClick</span><span class=o>=</span><span class=p>{()</span> <span class=p>=&gt;</span> <span class=nx>onClick</span><span class=p>(</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>)}</span>
+</span></span><span class=line><span class=cl>      <span class=na>onContextMenu</span><span class=o>=</span><span class=p>{(</span><span class=nx>e</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>e</span><span class=p>.</span><span class=nx>preventDefault</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>        <span class=nx>onContextMenu</span><span class=p>(</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=p>}}</span>
+</span></span><span class=line><span class=cl>    <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span><span class=nx>value</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Cell</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><ol><li>Board</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/components/Board.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Cell</span> <span class=nx>from</span> <span class=s1>&#39;./Cell&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Board</span> <span class=o>=</span> <span class=p>({</span> <span class=nx>board</span><span class=p>,</span> <span class=nx>onClick</span><span class=p>,</span> <span class=nx>onContextMenu</span> <span class=p>})</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;grid&#34;</span> <span class=na>style</span><span class=o>=</span><span class=p>{{</span> <span class=nx>gridTemplateColumns</span><span class=o>:</span> <span class=sb>`repeat(</span><span class=si>${</span><span class=nx>board</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>length</span><span class=si>}</span><span class=sb>, 2rem)`</span> <span class=p>}}&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span><span class=nx>board</span><span class=p>.</span><span class=nx>map</span><span class=p>((</span><span class=nx>row</span><span class=p>,</span> <span class=nx>rowIndex</span><span class=p>)</span> <span class=p>=&gt;</span> 
+</span></span><span class=line><span class=cl>        <span class=nx>row</span><span class=p>.</span><span class=nx>map</span><span class=p>((</span><span class=nx>cell</span><span class=p>,</span> <span class=nx>colIndex</span><span class=p>)</span> <span class=p>=&gt;</span> 
+</span></span><span class=line><span class=cl>          <span class=p>&lt;</span><span class=nt>Cell</span>
+</span></span><span class=line><span class=cl>            <span class=na>key</span><span class=o>=</span><span class=p>{</span><span class=sb>`</span><span class=si>${</span><span class=nx>rowIndex</span><span class=si>}</span><span class=sb>-</span><span class=si>${</span><span class=nx>colIndex</span><span class=si>}</span><span class=sb>`</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=na>value</span><span class=o>=</span><span class=p>{</span><span class=nx>cell</span><span class=p>.</span><span class=nx>revealed</span> <span class=o>?</span> <span class=p>(</span><span class=nx>cell</span><span class=p>.</span><span class=nx>value</span> <span class=o>===</span> <span class=s1>&#39;M&#39;</span> <span class=o>?</span> <span class=s1>&#39;💣&#39;</span> <span class=o>:</span> <span class=nx>cell</span><span class=p>.</span><span class=nx>value</span><span class=p>)</span> <span class=o>:</span> <span class=p>(</span><span class=nx>cell</span><span class=p>.</span><span class=nx>flagged</span> <span class=o>?</span> <span class=s1>&#39;🚩&#39;</span> <span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>)}</span>
+</span></span><span class=line><span class=cl>            <span class=na>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>onClick</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=na>onContextMenu</span><span class=o>=</span><span class=p>{</span><span class=nx>onContextMenu</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=na>row</span><span class=o>=</span><span class=p>{</span><span class=nx>rowIndex</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=na>col</span><span class=o>=</span><span class=p>{</span><span class=nx>colIndex</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>          <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=p>)}</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Board</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><ol><li>Game</li></ol><p><code>createBoard</code> 負責在一開始的時候生成棋盤、放置地雷、並且計算鄰居炸彈有幾個。</p><p><code>handleCellClick</code> 處理如果點擊每個格子時的狀況，比如點到地雷則結束遊戲，如果不是地雷的話，則 <code>revealCells</code> 會把附近有幾個炸彈顯示出來。</p><aside>💡<p>阿突然想到，我在這邊放的不是地雷，是我家的貓咪——珠寶，所以以下的地雷、炸彈，我都改稱為珠寶 XD</p></aside><p>當使用右鍵點選格子的時候，<code>handleContextMenu</code> 會將這個標示成貓咪或是取消標示。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/components/Game.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span><span class=p>,</span> <span class=p>{</span> <span class=nx>useState</span><span class=p>,</span> <span class=nx>useEffect</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Board</span> <span class=nx>from</span> <span class=s1>&#39;./Board&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>createBoard</span> <span class=o>=</span> <span class=p>(</span><span class=nx>rows</span><span class=p>,</span> <span class=nx>cols</span><span class=p>,</span> <span class=nx>mines</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>board</span> <span class=o>=</span> <span class=nb>Array</span><span class=p>(</span><span class=nx>rows</span><span class=p>).</span><span class=nx>fill</span><span class=p>().</span><span class=nx>map</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=nb>Array</span><span class=p>(</span><span class=nx>cols</span><span class=p>).</span><span class=nx>fill</span><span class=p>({</span> <span class=nx>value</span><span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=nx>revealed</span><span class=o>:</span> <span class=kc>false</span><span class=p>,</span> <span class=nx>flagged</span><span class=o>:</span> <span class=kc>false</span> <span class=p>}));</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>minePositions</span> <span class=o>=</span> <span class=p>[];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>while</span> <span class=p>(</span><span class=nx>minePositions</span><span class=p>.</span><span class=nx>length</span> <span class=o>&lt;</span> <span class=nx>mines</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>row</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=nx>rows</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>col</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=nx>cols</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>minePositions</span><span class=p>.</span><span class=nx>some</span><span class=p>(</span><span class=nx>pos</span> <span class=p>=&gt;</span> <span class=nx>pos</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>===</span> <span class=nx>row</span> <span class=o>&amp;&amp;</span> <span class=nx>pos</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>===</span> <span class=nx>col</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>minePositions</span><span class=p>.</span><span class=nx>push</span><span class=p>([</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>      <span class=nx>board</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span> <span class=p>...</span><span class=nx>board</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>],</span> <span class=nx>value</span><span class=o>:</span> <span class=s1>&#39;M&#39;</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>row</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>row</span> <span class=o>&lt;</span> <span class=nx>rows</span><span class=p>;</span> <span class=nx>row</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>col</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>col</span> <span class=o>&lt;</span> <span class=nx>cols</span><span class=p>;</span> <span class=nx>col</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=nx>board</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>].</span><span class=nx>value</span> <span class=o>!==</span> <span class=s1>&#39;M&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kd>let</span> <span class=nx>minesCount</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>x</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span> <span class=nx>x</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>x</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>y</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span> <span class=nx>y</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>y</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>board</span><span class=p>[</span><span class=nx>row</span> <span class=o>+</span> <span class=nx>x</span><span class=p>]</span> <span class=o>&amp;&amp;</span> <span class=nx>board</span><span class=p>[</span><span class=nx>row</span> <span class=o>+</span> <span class=nx>x</span><span class=p>][</span><span class=nx>col</span> <span class=o>+</span> <span class=nx>y</span><span class=p>]</span> <span class=o>&amp;&amp;</span> <span class=nx>board</span><span class=p>[</span><span class=nx>row</span> <span class=o>+</span> <span class=nx>x</span><span class=p>][</span><span class=nx>col</span> <span class=o>+</span> <span class=nx>y</span><span class=p>].</span><span class=nx>value</span> <span class=o>===</span> <span class=s1>&#39;M&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>              <span class=nx>minesCount</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>minesCount</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=nx>board</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span> <span class=p>...</span><span class=nx>board</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>],</span> <span class=nx>value</span><span class=o>:</span> <span class=nx>minesCount</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>board</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Game</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=p>[</span><span class=nx>board</span><span class=p>,</span> <span class=nx>setBoard</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>([]);</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=p>[</span><span class=nx>gameOver</span><span class=p>,</span> <span class=nx>setGameOver</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=kc>false</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setBoard</span><span class=p>(</span><span class=nx>createBoard</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>10</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=p>[]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>handleCellClick</span> <span class=o>=</span> <span class=p>(</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>gameOver</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>newBoard</span> <span class=o>=</span> <span class=p>[...</span><span class=nx>board</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>newBoard</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>].</span><span class=nx>value</span> <span class=o>===</span> <span class=s1>&#39;M&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>setGameOver</span><span class=p>(</span><span class=kc>true</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=nx>alert</span><span class=p>(</span><span class=s1>&#39;Game Over&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>revealCells</span><span class=p>(</span><span class=nx>newBoard</span><span class=p>,</span> <span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setBoard</span><span class=p>(</span><span class=nx>newBoard</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>revealCells</span> <span class=o>=</span> <span class=p>(</span><span class=nx>board</span><span class=p>,</span> <span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>board</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>].</span><span class=nx>revealed</span> <span class=o>||</span> <span class=nx>board</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>].</span><span class=nx>flagged</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>board</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>].</span><span class=nx>revealed</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>board</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>].</span><span class=nx>value</span> <span class=o>===</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>x</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span> <span class=nx>x</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>x</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>y</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span> <span class=nx>y</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>y</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>if</span> <span class=p>(</span><span class=nx>board</span><span class=p>[</span><span class=nx>row</span> <span class=o>+</span> <span class=nx>x</span><span class=p>]</span> <span class=o>&amp;&amp;</span> <span class=nx>board</span><span class=p>[</span><span class=nx>row</span> <span class=o>+</span> <span class=nx>x</span><span class=p>][</span><span class=nx>col</span> <span class=o>+</span> <span class=nx>y</span><span class=p>])</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>revealCells</span><span class=p>(</span><span class=nx>board</span><span class=p>,</span> <span class=nx>row</span> <span class=o>+</span> <span class=nx>x</span><span class=p>,</span> <span class=nx>col</span> <span class=o>+</span> <span class=nx>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>handleContextMenu</span> <span class=o>=</span> <span class=p>(</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>gameOver</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>newBoard</span> <span class=o>=</span> <span class=p>[...</span><span class=nx>board</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=nx>newBoard</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>].</span><span class=nx>flagged</span> <span class=o>=</span> <span class=o>!</span><span class=nx>newBoard</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>].</span><span class=nx>flagged</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setBoard</span><span class=p>(</span><span class=nx>newBoard</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;flex justify-center items-center h-screen&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>&lt;</span><span class=nt>Board</span> <span class=na>board</span><span class=o>=</span><span class=p>{</span><span class=nx>board</span><span class=p>}</span> <span class=na>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>handleCellClick</span><span class=p>}</span> <span class=na>onContextMenu</span><span class=o>=</span><span class=p>{</span><span class=nx>handleContextMenu</span><span class=p>}</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Game</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p>最後更新到 <code>&lt;App></code> component 當中</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/App.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Game</span> <span class=nx>from</span> <span class=s1>&#39;./components/Game&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>App</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;App&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>&lt;</span><span class=nt>Game</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>App</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=usestate>useState</h3><p>在 <code>&lt;Game></code> 裡頭，使用<code>gameOver</code> 儲存遊戲是否結束了，這邊使用 useState 來監控特定變數，當這些變數有更動的時候，頁面才會部分重新 render。</p><p>useState 會以 array 的形式回傳兩個變數，這樣方便我們重新命名，通常第二個變數會等於第一個變數名稱加上 set，如這邊 <code>[gameOver, setGameOver]</code> 。其中 <code>setGameOver</code> 的參數可以帶入一個變數或是一個方法。</p><p>useState 也可以記錄 array 或是 class，像是<code>board</code>是一個 2D array，也可以透過 useState 監控。</p><h3 id=useeffect>useEffect</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl> <span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setBoard</span><span class=p>(</span><span class=nx>createBoard</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>10</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=p>[]);</span>
+</span></span></code></pre></td></tr></table></div></div><p>在這邊使用 useEffect，使得第一次的 render 會 call <code>createBoard()</code> 這個方法。</p><p>在 React 中，副作用邏輯（side effects logic）是指任何不直接影響 UI render，但與外部環境或系統交互的操作。例如，call API、訂閱或事件監聽、計時器操作（如設置 <code>setTimeout</code> 或 <code>setInterval）</code> 、local storage 或 session 的操作。這些操作通常需要與應用外部的資源或狀態進行交互，因此稱為「副作用」。使用 <code>useEffect</code> 來執行 side effects logic，可以讓 React 在 component 的生命週期中正確處理這些邏輯，如在 mount、update、或 unmount。</p><p>useEffect 的第二個參數是一個 array，列舉了依賴哪些項目，也就是說當這個 array 裡的東西有了變動，useEffect 內的邏輯就會被呼叫。總共有三種情況:</p><ol><li>array 為空 <code>[]</code> - 只有在第一次 render 的時候會呼叫</li><li>array 有塞值進去 - 內容改變時會呼叫</li><li>不傳 array 進去 - 每次 render 的時候都會呼叫（這個情形的話形同虛設、沒有提升效率）</li></ol><h2 id=功能產生不同的棋盤大小>功能——產生不同的棋盤大小</h2><p>架構寫好了之後，來增加實際玩的機制
+首先，我們想根據不同的<strong>難度</strong>，來產生不同大小的棋盤</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/components/Board.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span><span class=p>,</span> <span class=p>{</span> <span class=nx>useMemo</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Cell</span> <span class=nx>from</span> <span class=s1>&#39;./Cell&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>generateTable</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>rows</span> <span class=p>}).</span><span class=nx>map</span><span class=p>(()</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>cols</span> <span class=p>}).</span><span class=nx>map</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=mi>10</span><span class=p>))</span> <span class=c1>// Random number between 0 and 9
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Board</span> <span class=o>=</span> <span class=p>({</span> <span class=nx>difficulty</span> <span class=p>})</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>{</span> <span class=nx>rows</span><span class=p>,</span> <span class=nx>cols</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>useMemo</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>switch</span> <span class=p>(</span><span class=nx>difficulty</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;easy&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>5</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>5</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;medium&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>10</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;hard&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>15</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>15</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>            <span class=k>default</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>10</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>difficulty</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>table</span> <span class=o>=</span> <span class=nx>useMemo</span><span class=p>(</span><span class=nx>generateTable</span><span class=p>,</span> <span class=p>[</span><span class=nx>rows</span><span class=p>,</span> <span class=nx>cols</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>table</span><span class=p>.</span><span class=nx>map</span><span class=p>((</span><span class=nx>row</span><span class=p>,</span> <span class=nx>rowIndex</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>div</span> <span class=na>key</span><span class=o>=</span><span class=p>{</span><span class=nx>rowIndex</span><span class=p>}</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;flex flex-row justify-center&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>{</span><span class=nx>row</span><span class=p>.</span><span class=nx>map</span><span class=p>((</span><span class=nx>cell</span><span class=p>,</span> <span class=nx>colIndex</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>Cell</span> <span class=na>key</span><span class=o>=</span><span class=p>{</span><span class=nx>colIndex</span><span class=p>}</span> <span class=na>neighborMine</span><span class=o>=</span><span class=p>{</span><span class=nx>cell</span><span class=p>}</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>))}</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>))}</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Board</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=usememo>useMemo</h3><p>當遇到複雜的計算時，為了避免重複計算，useMemo 將計算的結果記起來。像是這邊把<code>rows</code>跟 <code>cols</code> 記起來，然後當每次 <code>difficulty</code> 有更動的時候，則會重新運算、並將結果存起來。接著 <code>table</code> 也是一樣使用 useMemo 每次 <code>[rows, cols]</code> 有產生變化時，就會把新生成的棋盤存起來。</p><p>因為這樣， <code>&lt;Game></code> 和 <code>&lt;Cell></code> 都可以簡化了！</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/components/Game.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span><span class=p>,</span> <span class=p>{</span> <span class=nx>useState</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Board</span> <span class=nx>from</span> <span class=s1>&#39;./Board&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kr>const</span> <span class=nx>Game</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>difficulty</span><span class=p>,</span> <span class=nx>setDifficulty</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=s1>&#39;medium&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;container my-10 mx-auto py-8 max-w-4xl border border-pink-400&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>label</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;flex flex-row justify-center&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=nx>Difficulty</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>select</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;difficulty&#34;</span> <span class=na>value</span><span class=o>=</span><span class=p>{</span><span class=nx>difficulty</span><span class=p>}</span> <span class=na>onChange</span><span class=o>=</span><span class=p>{</span><span class=nx>e</span> <span class=p>=&gt;</span> <span class=nx>setDifficulty</span><span class=p>(</span><span class=nx>e</span><span class=p>.</span><span class=nx>target</span><span class=p>.</span><span class=nx>value</span><span class=p>)}&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>option</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;easy&#34;</span><span class=p>&gt;</span><span class=nx>Easy</span><span class=p>&lt;/</span><span class=nt>option</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>option</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;medium&#34;</span><span class=p>&gt;</span><span class=nx>Medium</span><span class=p>&lt;/</span><span class=nt>option</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>option</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;hard&#34;</span><span class=p>&gt;</span><span class=nx>Hard</span><span class=p>&lt;/</span><span class=nt>option</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>select</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>br</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>Board</span> <span class=na>difficulty</span><span class=o>=</span><span class=p>{</span><span class=nx>difficulty</span><span class=p>}</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/components/Cell.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kr>const</span> <span class=nx>Cell</span> <span class=o>=</span> <span class=p>({</span> <span class=nx>neighborMine</span> <span class=p>})</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>button</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;cell bg-transparent hover:bg-blue-500 text-blue-700 font-semibold 
+</span></span></span><span class=line><span class=cl><span class=s>            hover:text-white py-0 px-1 border border-blue-200 hover:border-transparent&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>neighborMine</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Cell</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=功能連帶打開沒有珠寶的格子的鄰居>功能——連帶打開沒有珠寶的格子的鄰居</h2><p>當我點某個格子，其中的值是 0 的時候，代表這一個不是炸… 貓咪、鄰居也都不是貓咪，所以理當應該把鄰居們也都遞迴打開。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span><span class=lnt>90
+</span><span class=lnt>91
+</span><span class=lnt>92
+</span><span class=lnt>93
+</span><span class=lnt>94
+</span><span class=lnt>95
+</span><span class=lnt>96
+</span><span class=lnt>97
+</span><span class=lnt>98
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/component/Board.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span><span class=p>,</span> <span class=p>{</span> <span class=nx>useState</span><span class=p>,</span> <span class=nx>useMemo</span><span class=p>,</span> <span class=nx>useCallback</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Cell</span> <span class=nx>from</span> <span class=s1>&#39;./Cell&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Board</span> <span class=o>=</span> <span class=p>({</span> <span class=nx>difficulty</span> <span class=p>})</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>{</span> <span class=nx>rows</span><span class=p>,</span> <span class=nx>cols</span><span class=p>,</span> <span class=nx>mines</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>useMemo</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>switch</span> <span class=p>(</span><span class=nx>difficulty</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;easy&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>5</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>5</span><span class=p>,</span> <span class=nx>mines</span><span class=o>:</span> <span class=mi>5</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;medium&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nx>mines</span><span class=o>:</span> <span class=mi>20</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;hard&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>15</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>15</span><span class=p>,</span> <span class=nx>mines</span><span class=o>:</span> <span class=mi>45</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>            <span class=k>default</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nx>mines</span><span class=o>:</span> <span class=mi>20</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>difficulty</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>generateTable</span> <span class=o>=</span> <span class=p>(</span><span class=nx>mines</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>table</span> <span class=o>=</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>rows</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>cols</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=kd>let</span> <span class=nx>placedMines</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=p>(</span><span class=nx>placedMines</span> <span class=o>&lt;</span> <span class=nx>mines</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>row</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=nx>rows</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>col</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=nx>cols</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>table</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>!==</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>table</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=nx>placedMines</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>table</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>table</span> <span class=o>=</span> <span class=nx>useMemo</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=nx>generateTable</span><span class=p>(</span><span class=nx>mines</span><span class=p>),</span> <span class=p>[</span><span class=nx>rows</span><span class=p>,</span> <span class=nx>cols</span><span class=p>,</span> <span class=nx>mines</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>statuses</span><span class=p>,</span> <span class=nx>setStatuses</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>rows</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>cols</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=s1>&#39;unknown&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>revealCells</span> <span class=o>=</span> <span class=nx>useCallback</span><span class=p>((</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>row</span> <span class=o>&lt;</span> <span class=mi>0</span> <span class=o>||</span> <span class=nx>row</span> <span class=o>&gt;=</span> <span class=nx>rows</span> <span class=o>||</span> <span class=nx>col</span> <span class=o>&lt;</span> <span class=mi>0</span> <span class=o>||</span> <span class=nx>col</span> <span class=o>&gt;=</span> <span class=nx>cols</span> <span class=o>||</span> <span class=nx>newStatuses</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>===</span> <span class=s1>&#39;revealed&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nx>newStatuses</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;revealed&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>table</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>revealCells</span><span class=p>(</span><span class=nx>row</span> <span class=o>-</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>col</span> <span class=o>-</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=nx>revealCells</span><span class=p>(</span><span class=nx>row</span> <span class=o>-</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>col</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=nx>revealCells</span><span class=p>(</span><span class=nx>row</span> <span class=o>-</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>col</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=nx>revealCells</span><span class=p>(</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span> <span class=o>-</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=nx>revealCells</span><span class=p>(</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=nx>revealCells</span><span class=p>(</span><span class=nx>row</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>col</span> <span class=o>-</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=nx>revealCells</span><span class=p>(</span><span class=nx>row</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>col</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=nx>revealCells</span><span class=p>(</span><span class=nx>row</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>col</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>rows</span><span class=p>,</span> <span class=nx>cols</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>handleCellClick</span> <span class=o>=</span> <span class=nx>useCallback</span><span class=p>((</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>,</span> <span class=nx>clickType</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>setStatuses</span><span class=p>(</span><span class=nx>prevStatuses</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>newStatuses</span> <span class=o>=</span> <span class=nx>prevStatuses</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>rowStatus</span> <span class=p>=&gt;</span> <span class=p>[...</span><span class=nx>rowStatus</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>clickType</span> <span class=o>===</span> <span class=s1>&#39;left&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=p>(</span><span class=nx>table</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>revealCells</span><span class=p>(</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>newStatuses</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;revealed&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>clickType</span> <span class=o>===</span> <span class=s1>&#39;right&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>newStatuses</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>=</span> <span class=nx>newStatuses</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>===</span> <span class=s1>&#39;flagged&#39;</span> <span class=o>?</span> <span class=s1>&#39;unknown&#39;</span> <span class=o>:</span> <span class=s1>&#39;flagged&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nx>newStatuses</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>});</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>revealCells</span><span class=p>,</span> <span class=nx>table</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>table</span><span class=p>.</span><span class=nx>map</span><span class=p>((</span><span class=nx>row</span><span class=p>,</span> <span class=nx>rowIndex</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>div</span> <span class=na>key</span><span class=o>=</span><span class=p>{</span><span class=nx>rowIndex</span><span class=p>}</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;flex flex-row justify-center&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>{</span><span class=nx>row</span><span class=p>.</span><span class=nx>map</span><span class=p>((</span><span class=nx>cell</span><span class=p>,</span> <span class=nx>colIndex</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>Cell</span>
+</span></span><span class=line><span class=cl>                            <span class=na>key</span><span class=o>=</span><span class=p>{</span><span class=nx>colIndex</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                            <span class=na>neighborMine</span><span class=o>=</span><span class=p>{</span><span class=nx>cell</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                            <span class=na>status</span><span class=o>=</span><span class=p>{</span><span class=nx>statuses</span><span class=p>[</span><span class=nx>rowIndex</span><span class=p>][</span><span class=nx>colIndex</span><span class=p>]}</span>
+</span></span><span class=line><span class=cl>                            <span class=na>onClick</span><span class=o>=</span><span class=p>{(</span><span class=nx>clickType</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>handleCellClick</span><span class=p>(</span><span class=nx>rowIndex</span><span class=p>,</span> <span class=nx>colIndex</span><span class=p>,</span> <span class=nx>clickType</span><span class=p>)}</span>
+</span></span><span class=line><span class=cl>                        <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>))}</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>))}</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Board</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=usecallback>useCallback</h3><p><em>useCallback 的主要目的是避免在 component 內部宣告的 function，因為隨著每次 render 不斷重新被宣告跟建立，每次拿到的都是不同的 instance。這樣的 function 如果被當成 prop 往下傳給其他 component，就可能導致下面的 component 無意義地被重新 render。</em></p><p><em>但是除非你的 component 有實作比對 prop 做選擇性 render 的檢查，不然就算傳了 useCallback 記下來的 function 進去也毫無意義——他的 render function 還不是會被跑一次。考慮到這一點的話：<strong>大部分情況下，我們都不需要用到</strong> useCallback。</em></p><p><em>如果你的 function 因為需要用到 props 或 state 而必須在 component scope 裡面宣告、但又同時會被超過一個 useEffect 使用時，就建議以 useCallback 包起來。</em>（<a class=link href=https://medium.com/ichef/%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E8%A9%B2%E4%BD%BF%E7%94%A8-usememo-%E8%B7%9F-usecallback-a3c1cd0eb520 target=_blank rel=noopener>解釋得非常清楚，原文在此</a>）</p><p>我觀察的情況是， <code>handleCellClick</code> 的確有符合使用一些 states，所以必須包在 component 裡頭，接著在棋盤上會不斷的被 call，因此看起來這是一個合理的 practice！不過 <code>handleCellClick</code> 裡頭又藏了一個 useCallback function <code>revealCells</code> ，看起來實在有點複雜。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/components/Cell.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kr>const</span> <span class=nx>Cell</span> <span class=o>=</span> <span class=p>({</span> <span class=nx>neighborMine</span><span class=p>,</span> <span class=nx>status</span><span class=p>,</span> <span class=nx>onClick</span> <span class=p>})</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>handleClick</span> <span class=o>=</span> <span class=p>(</span><span class=nx>e</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>e</span><span class=p>.</span><span class=nx>preventDefault</span><span class=p>();</span> <span class=c1>// Prevent context menu on right-click
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span> <span class=p>(</span><span class=nx>e</span><span class=p>.</span><span class=nx>nativeEvent</span><span class=p>.</span><span class=nx>button</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>onClick</span><span class=p>(</span><span class=s1>&#39;left&#39;</span><span class=p>);</span> <span class=c1>// Handle left click
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>e</span><span class=p>.</span><span class=nx>nativeEvent</span><span class=p>.</span><span class=nx>button</span> <span class=o>===</span> <span class=mi>2</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>onClick</span><span class=p>(</span><span class=s1>&#39;right&#39;</span><span class=p>);</span> <span class=c1>// Handle right click
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>status</span> <span class=o>===</span> <span class=s1>&#39;unknown&#39;</span> <span class=o>?</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>div</span>
+</span></span><span class=line><span class=cl>                    <span class=na>className</span><span class=o>=</span><span class=s>&#34;cell hover:bg-blue-500 hover:text-blue-500 bg-blue-100 
+</span></span></span><span class=line><span class=cl><span class=s>                    text-blue-100 py-0 px-2 border border-blue-400 font-mono cursor-pointer&#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=na>onContextMenu</span><span class=o>=</span><span class=p>{</span><span class=nx>handleClick</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                    <span class=na>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>handleClick</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=s1>&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>                &lt;/div&gt;
+</span></span></span><span class=line><span class=cl><span class=s1>            ) : status === &#39;</span><span class=nx>flagged</span><span class=err>&#39;</span> <span class=o>?</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>div</span>
+</span></span><span class=line><span class=cl>                    <span class=na>className</span><span class=o>=</span><span class=s>&#34;cell bg-yellow-500 text-white py-0 px-2 border border-yellow-400 font-mono cursor-pointer&#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=na>onContextMenu</span><span class=o>=</span><span class=p>{</span><span class=nx>handleClick</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                    <span class=na>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>handleClick</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>F</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>)</span> <span class=o>:</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>button</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;cell bg-transparent text-blue-700 font-semibold 
+</span></span></span><span class=line><span class=cl><span class=s>                    py-0 px-2 border border-blue-400 font-mono&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>{</span><span class=nx>neighborMine</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>)}</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Cell</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p>然後到了這邊，遊戲的狀態有 <code>unknown</code> 、 <code>flagged</code> 、 <code>unreveal</code> ，會呈現相對應的格子。</p><h2 id=ui新增剩餘的珠寶>UI——新增剩餘的珠寶</h2><p>套用一樣的概念，我們用變數 <code>remainingMines</code> 搭配 useState 來監控剩下的珠寶。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/components/Game.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span><span class=p>,</span> <span class=p>{</span> <span class=nx>useState</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Board</span> <span class=nx>from</span> <span class=s1>&#39;./Board&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kr>const</span> <span class=nx>Game</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>difficulty</span><span class=p>,</span> <span class=nx>setDifficulty</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=s1>&#39;medium&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>remainingMines</span><span class=p>,</span> <span class=nx>setRemainingMines</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=mi>20</span><span class=p>);</span> <span class=c1>// Initial value for medium difficulty
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>handleDifficultyChange</span> <span class=o>=</span> <span class=p>(</span><span class=nx>e</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>newDifficulty</span> <span class=o>=</span> <span class=nx>e</span><span class=p>.</span><span class=nx>target</span><span class=p>.</span><span class=nx>value</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>setDifficulty</span><span class=p>(</span><span class=nx>newDifficulty</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>switch</span> <span class=p>(</span><span class=nx>newDifficulty</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;easy&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>setRemainingMines</span><span class=p>(</span><span class=mi>5</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;medium&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>setRemainingMines</span><span class=p>(</span><span class=mi>20</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;hard&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>setRemainingMines</span><span class=p>(</span><span class=mi>45</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>default</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>setRemainingMines</span><span class=p>(</span><span class=mi>20</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;container my-10 mx-auto py-8 max-w-4xl border border-pink-400&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>label</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;flex flex-row justify-center&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>Difficulty</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>select</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;difficulty&#34;</span> <span class=na>value</span><span class=o>=</span><span class=p>{</span><span class=nx>difficulty</span><span class=p>}</span> <span class=na>onChange</span><span class=o>=</span><span class=p>{</span><span class=nx>handleDifficultyChange</span><span class=p>}&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>option</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;easy&#34;</span><span class=p>&gt;</span><span class=nx>Easy</span><span class=p>&lt;/</span><span class=nt>option</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>option</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;medium&#34;</span><span class=p>&gt;</span><span class=nx>Medium</span><span class=p>&lt;/</span><span class=nt>option</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>option</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;hard&#34;</span><span class=p>&gt;</span><span class=nx>Hard</span><span class=p>&lt;/</span><span class=nt>option</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;/</span><span class=nt>select</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>br</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;flex flex-row justify-center&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>span</span><span class=p>&gt;</span><span class=nx>Mines</span> <span class=nx>left</span><span class=o>:</span> <span class=p>{</span><span class=nx>remainingMines</span><span class=p>}&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>Board</span> <span class=na>difficulty</span><span class=o>=</span><span class=p>{</span><span class=nx>difficulty</span><span class=p>}</span> <span class=na>setRemainingMines</span><span class=o>=</span><span class=p>{</span><span class=nx>setRemainingMines</span><span class=p>}</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/component/Board.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span><span class=p>,</span> <span class=p>{</span> <span class=nx>useState</span><span class=p>,</span> <span class=nx>useMemo</span><span class=p>,</span> <span class=nx>useCallback</span><span class=p>,</span> <span class=nx>useEffect</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Cell</span> <span class=nx>from</span> <span class=s1>&#39;./Cell&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Board</span> <span class=o>=</span> <span class=p>({</span> <span class=nx>difficulty</span><span class=p>,</span> <span class=nx>setRemainingMines</span> <span class=p>})</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>{</span> <span class=nx>rows</span><span class=p>,</span> <span class=nx>cols</span><span class=p>,</span> <span class=nx>mines</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>useMemo</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>switch</span> <span class=p>(</span><span class=nx>difficulty</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;easy&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>5</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>5</span><span class=p>,</span> <span class=nx>mines</span><span class=o>:</span> <span class=mi>5</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;medium&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nx>mines</span><span class=o>:</span> <span class=mi>20</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;hard&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>15</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>15</span><span class=p>,</span> <span class=nx>mines</span><span class=o>:</span> <span class=mi>45</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>            <span class=k>default</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=p>{</span> <span class=nx>rows</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nx>cols</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> <span class=nx>mines</span><span class=o>:</span> <span class=mi>20</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>difficulty</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>generateTable</span> <span class=o>=</span> <span class=p>(</span><span class=nx>mines</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>table</span> <span class=o>=</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>rows</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>cols</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>statuses</span> <span class=o>=</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>rows</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>cols</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=s1>&#39;unknown&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=kd>let</span> <span class=nx>placedMines</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=p>(</span><span class=nx>placedMines</span> <span class=o>&lt;</span> <span class=nx>mines</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>row</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=nx>rows</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>col</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=nx>cols</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>table</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>!==</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>table</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=nx>placedMines</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>{</span> <span class=nx>table</span><span class=p>,</span> <span class=nx>statuses</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>{</span> <span class=nx>table</span><span class=p>,</span> <span class=nx>initialStatuses</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>useMemo</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=nx>generateTable</span><span class=p>(</span><span class=nx>mines</span><span class=p>),</span> <span class=p>[</span><span class=nx>rows</span><span class=p>,</span> <span class=nx>cols</span><span class=p>,</span> <span class=nx>mines</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>statuses</span><span class=p>,</span> <span class=nx>setStatuses</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=nx>initialStatuses</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>setStatuses</span><span class=p>(</span><span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>rows</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>cols</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=s1>&#39;unknown&#39;</span><span class=p>)));</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>difficulty</span><span class=p>,</span> <span class=nx>rows</span><span class=p>,</span> <span class=nx>cols</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>revealCells</span> <span class=o>=</span> <span class=nx>useCallback</span><span class=p>((</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>stack</span> <span class=o>=</span> <span class=p>[[</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>]];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=p>(</span><span class=nx>stack</span><span class=p>.</span><span class=nx>length</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=p>[</span><span class=nx>r</span><span class=p>,</span> <span class=nx>c</span><span class=p>]</span> <span class=o>=</span> <span class=nx>stack</span><span class=p>.</span><span class=nx>pop</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>r</span> <span class=o>&lt;</span> <span class=mi>0</span> <span class=o>||</span> <span class=nx>r</span> <span class=o>&gt;=</span> <span class=nx>rows</span> <span class=o>||</span> <span class=nx>c</span> <span class=o>&lt;</span> <span class=mi>0</span> <span class=o>||</span> <span class=nx>c</span> <span class=o>&gt;=</span> <span class=nx>cols</span> <span class=o>||</span> <span class=nx>newStatuses</span><span class=p>[</span><span class=nx>r</span><span class=p>][</span><span class=nx>c</span><span class=p>]</span> <span class=o>===</span> <span class=s1>&#39;revealed&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=k>continue</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nx>newStatuses</span><span class=p>[</span><span class=nx>r</span><span class=p>][</span><span class=nx>c</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;revealed&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>table</span><span class=p>[</span><span class=nx>r</span><span class=p>][</span><span class=nx>c</span><span class=p>]</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>stack</span><span class=p>.</span><span class=nx>push</span><span class=p>([</span><span class=nx>r</span> <span class=o>-</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>c</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>                <span class=nx>stack</span><span class=p>.</span><span class=nx>push</span><span class=p>([</span><span class=nx>r</span> <span class=o>-</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>c</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>                <span class=nx>stack</span><span class=p>.</span><span class=nx>push</span><span class=p>([</span><span class=nx>r</span> <span class=o>-</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>c</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>                <span class=nx>stack</span><span class=p>.</span><span class=nx>push</span><span class=p>([</span><span class=nx>r</span><span class=p>,</span> <span class=nx>c</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>                <span class=nx>stack</span><span class=p>.</span><span class=nx>push</span><span class=p>([</span><span class=nx>r</span><span class=p>,</span> <span class=nx>c</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>                <span class=nx>stack</span><span class=p>.</span><span class=nx>push</span><span class=p>([</span><span class=nx>r</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>c</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>                <span class=nx>stack</span><span class=p>.</span><span class=nx>push</span><span class=p>([</span><span class=nx>r</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>c</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>                <span class=nx>stack</span><span class=p>.</span><span class=nx>push</span><span class=p>([</span><span class=nx>r</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>c</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>rows</span><span class=p>,</span> <span class=nx>cols</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>handleCellClick</span> <span class=o>=</span> <span class=nx>useCallback</span><span class=p>((</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>,</span> <span class=nx>clickType</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>setStatuses</span><span class=p>(</span><span class=nx>prevStatuses</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>newStatuses</span> <span class=o>=</span> <span class=nx>prevStatuses</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>rowStatus</span> <span class=p>=&gt;</span> <span class=p>[...</span><span class=nx>rowStatus</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>clickType</span> <span class=o>===</span> <span class=s1>&#39;left&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=p>(</span><span class=nx>table</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>revealCells</span><span class=p>(</span><span class=nx>row</span><span class=p>,</span> <span class=nx>col</span><span class=p>,</span> <span class=nx>newStatuses</span><span class=p>,</span> <span class=nx>table</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>newStatuses</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;revealed&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>clickType</span> <span class=o>===</span> <span class=s1>&#39;right&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=p>(</span><span class=nx>newStatuses</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>===</span> <span class=s1>&#39;flagged&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>newStatuses</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;unknown&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>setRemainingMines</span><span class=p>(</span><span class=nx>prev</span> <span class=p>=&gt;</span> <span class=nx>prev</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>newStatuses</span><span class=p>[</span><span class=nx>row</span><span class=p>][</span><span class=nx>col</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;flagged&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>setRemainingMines</span><span class=p>(</span><span class=nx>prev</span> <span class=p>=&gt;</span> <span class=nx>prev</span> <span class=o>-</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nx>newStatuses</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>});</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>revealCells</span><span class=p>,</span> <span class=nx>table</span><span class=p>,</span> <span class=nx>setRemainingMines</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>table</span><span class=p>.</span><span class=nx>map</span><span class=p>((</span><span class=nx>row</span><span class=p>,</span> <span class=nx>rowIndex</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>div</span> <span class=na>key</span><span class=o>=</span><span class=p>{</span><span class=nx>rowIndex</span><span class=p>}</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;flex flex-row justify-center&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>{</span><span class=nx>row</span><span class=p>.</span><span class=nx>map</span><span class=p>((</span><span class=nx>cell</span><span class=p>,</span> <span class=nx>colIndex</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>Cell</span>
+</span></span><span class=line><span class=cl>                            <span class=na>key</span><span class=o>=</span><span class=p>{</span><span class=nx>colIndex</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                            <span class=na>neighborMine</span><span class=o>=</span><span class=p>{</span><span class=nx>cell</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                            <span class=na>status</span><span class=o>=</span><span class=p>{</span><span class=nx>statuses</span><span class=p>[</span><span class=nx>rowIndex</span><span class=p>][</span><span class=nx>colIndex</span><span class=p>]}</span>
+</span></span><span class=line><span class=cl>                            <span class=na>onClick</span><span class=o>=</span><span class=p>{(</span><span class=nx>clickType</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>handleCellClick</span><span class=p>(</span><span class=nx>rowIndex</span><span class=p>,</span> <span class=nx>colIndex</span><span class=p>,</span> <span class=nx>clickType</span><span class=p>)}</span>
+</span></span><span class=line><span class=cl>                        <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>))}</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>))}</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Board</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/component.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Cell</span> <span class=o>=</span> <span class=p>({</span> <span class=nx>neighborMine</span><span class=p>,</span> <span class=nx>status</span><span class=p>,</span> <span class=nx>onClick</span> <span class=p>})</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>handleClick</span> <span class=o>=</span> <span class=p>(</span><span class=nx>e</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>e</span><span class=p>.</span><span class=nx>preventDefault</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>e</span><span class=p>.</span><span class=nx>type</span> <span class=o>===</span> <span class=s1>&#39;click&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>e</span><span class=p>.</span><span class=nx>button</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>onClick</span><span class=p>(</span><span class=s1>&#39;left&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>e</span><span class=p>.</span><span class=nx>type</span> <span class=o>===</span> <span class=s1>&#39;contextmenu&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>e</span><span class=p>.</span><span class=nx>button</span> <span class=o>===</span> <span class=mi>2</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>onClick</span><span class=p>(</span><span class=s1>&#39;right&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>status</span> <span class=o>===</span> <span class=s1>&#39;revealed&#39;</span> <span class=o>?</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>button</span> 
+</span></span><span class=line><span class=cl>                    <span class=na>className</span><span class=o>=</span><span class=s>&#34;cell bg-transparent text-blue-700 font-semibold py-0 px-2 border border-blue-400 font-mono&#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=na>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>handleClick</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                    <span class=na>onContextMenu</span><span class=o>=</span><span class=p>{</span><span class=nx>handleClick</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>{</span><span class=nx>neighborMine</span> <span class=o>===</span> <span class=mi>0</span> <span class=o>?</span> <span class=p>&lt;&gt;</span><span class=o>&amp;</span><span class=nx>nbsp</span><span class=p>;&lt;/&gt;</span> <span class=o>:</span> <span class=nx>neighborMine</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>)</span> <span class=o>:</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>div</span> 
+</span></span><span class=line><span class=cl>                    <span class=na>className</span><span class=o>=</span><span class=s>&#34;cell hover:bg-blue-500 hover:text-blue-500 bg-blue-100 text-blue-100 py-0 px-2 border border-blue-400 font-mono&#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=na>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>handleClick</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                    <span class=na>onContextMenu</span><span class=o>=</span><span class=p>{</span><span class=nx>handleClick</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=o>&amp;</span><span class=nx>nbsp</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>)}</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Cell</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=debug>Debug</h2><p>在來回修改程式的過程中，我常常得到一個 warning</p><blockquote><p>fix warning: Warning: Cannot update a component (<code>Game</code>) while rendering a different component (<code>Board</code>).</p></blockquote><p>我研究了一下，發現這是因為在嘗試 render child component 的時候試著更新 parent component，所以可以透過</p><ol><li>將 state update logic 移動到 parent component</li><li>更新 child component ，並確保 child component 只透過 callback 來跟 parent component 溝通，而不是直接更新</li></ol><p>來解決，也就是 useEffect、useCallback 等 hook 發揮用處的時候到了！</p><h2 id=ui新增遊戲結局>UI——新增遊戲結局</h2><p>玩到結束，終究是要顯示輸贏！這邊我想使用一個彈跳視窗，所以需要新增一個 <code>Modal</code> component</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/components/Modal.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Modal</span> <span class=o>=</span> <span class=p>({</span> <span class=nx>message</span><span class=p>,</span> <span class=nx>onClose</span> <span class=p>})</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;fixed inset-0 flex items-center justify-center z-50&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;bg-white p-4 rounded shadow-lg&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;mb-4&#34;</span><span class=p>&gt;{</span><span class=nx>message</span><span class=p>}&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>button</span>
+</span></span><span class=line><span class=cl>                    <span class=na>className</span><span class=o>=</span><span class=s>&#34;bg-blue-500 text-white px-4 py-2 rounded&#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=na>onClick</span><span class=o>=</span><span class=p>{</span><span class=nx>onClose</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>Close</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;fixed inset-0 bg-gray-500 opacity-50&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>Modal</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p>同時，我也新增顯示時間正計時、狀態的顯示 (playing、won、lost) 。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-jsx data-lang=jsx><span class=line><span class=cl><span class=c1>// src/components/Game.jsx
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>React</span><span class=p>,</span> <span class=p>{</span> <span class=nx>useState</span><span class=p>,</span> <span class=nx>useEffect</span><span class=p>,</span> <span class=nx>useCallback</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Board</span> <span class=nx>from</span> <span class=s1>&#39;./Board&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>Modal</span> <span class=nx>from</span> <span class=s1>&#39;./Modal&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kr>const</span> <span class=nx>Game</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>difficulty</span><span class=p>,</span> <span class=nx>setDifficulty</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=s1>&#39;medium&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>remainingMines</span><span class=p>,</span> <span class=nx>setRemainingMines</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=mi>20</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>gameStatus</span><span class=p>,</span> <span class=nx>setGameStatus</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=s1>&#39;prepare&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>startTime</span><span class=p>,</span> <span class=nx>setStartTime</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=kc>null</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>elapsedTime</span><span class=p>,</span> <span class=nx>setElapsedTime</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=p>[</span><span class=nx>modalMessage</span><span class=p>,</span> <span class=nx>setModalMessage</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>handleDifficultyChange</span> <span class=o>=</span> <span class=p>(</span><span class=nx>e</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>newDifficulty</span> <span class=o>=</span> <span class=nx>e</span><span class=p>.</span><span class=nx>target</span><span class=p>.</span><span class=nx>value</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>setDifficulty</span><span class=p>(</span><span class=nx>newDifficulty</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>updateGameStatus</span> <span class=o>=</span> <span class=nx>useCallback</span><span class=p>((</span><span class=nx>unrevealedCount</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>unrevealedCount</span> <span class=o>===</span> <span class=nx>remainingMines</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>setGameStatus</span><span class=p>(</span><span class=s1>&#39;won&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>remainingMines</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>switch</span> <span class=p>(</span><span class=nx>difficulty</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;easy&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>setRemainingMines</span><span class=p>(</span><span class=mi>5</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;medium&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>setRemainingMines</span><span class=p>(</span><span class=mi>20</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>case</span> <span class=s1>&#39;hard&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>setRemainingMines</span><span class=p>(</span><span class=mi>45</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>default</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>setRemainingMines</span><span class=p>(</span><span class=mi>20</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=nx>setGameStatus</span><span class=p>(</span><span class=s1>&#39;prepare&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nx>setStartTime</span><span class=p>(</span><span class=kc>null</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nx>setElapsedTime</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>difficulty</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kd>let</span> <span class=nx>timer</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>gameStatus</span> <span class=o>===</span> <span class=s1>&#39;playing&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>timer</span> <span class=o>=</span> <span class=nx>setInterval</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>setElapsedTime</span><span class=p>(</span><span class=nx>prevTime</span> <span class=p>=&gt;</span> <span class=nx>prevTime</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span> <span class=mi>1000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>clearInterval</span><span class=p>(</span><span class=nx>timer</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>clearInterval</span><span class=p>(</span><span class=nx>timer</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>gameStatus</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>handleCellClick</span> <span class=o>=</span> <span class=nx>useCallback</span><span class=p>((</span><span class=nx>clickType</span><span class=p>,</span> <span class=nx>neighborMine</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>clickType</span> <span class=o>===</span> <span class=s1>&#39;left&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>gameStatus</span> <span class=o>===</span> <span class=s1>&#39;prepare&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>setGameStatus</span><span class=p>(</span><span class=s1>&#39;playing&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=nx>setStartTime</span><span class=p>(</span><span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>clickType</span> <span class=o>===</span> <span class=s1>&#39;left&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>neighborMine</span> <span class=o>===</span> <span class=s1>&#39;*&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>setGameStatus</span><span class=p>(</span><span class=s1>&#39;lost&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>gameStatus</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>gameStatus</span> <span class=o>===</span> <span class=s1>&#39;won&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>setModalMessage</span><span class=p>(</span><span class=s1>&#39;You won :)&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>gameStatus</span> <span class=o>===</span> <span class=s1>&#39;lost&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>setModalMessage</span><span class=p>(</span><span class=s1>&#39;You lost :(&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>[</span><span class=nx>gameStatus</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>closeModal</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>setModalMessage</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;container my-10 mx-auto py-8 max-w-4xl border border-pink-400&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>label</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;flex flex-row justify-center&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=nx>Difficulty</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>select</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;difficulty&#34;</span> <span class=na>value</span><span class=o>=</span><span class=p>{</span><span class=nx>difficulty</span><span class=p>}</span> <span class=na>onChange</span><span class=o>=</span><span class=p>{</span><span class=nx>handleDifficultyChange</span><span class=p>}&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>option</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;easy&#34;</span><span class=p>&gt;</span><span class=nx>Easy</span><span class=p>&lt;/</span><span class=nt>option</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>option</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;medium&#34;</span><span class=p>&gt;</span><span class=nx>Medium</span><span class=p>&lt;/</span><span class=nt>option</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>option</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;hard&#34;</span><span class=p>&gt;</span><span class=nx>Hard</span><span class=p>&lt;/</span><span class=nt>option</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>select</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>br</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>div</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;flex flex-row justify-center&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>span</span><span class=p>&gt;</span><span class=nx>Mines</span> <span class=nx>left</span><span class=o>:</span> <span class=p>{</span><span class=nx>remainingMines</span><span class=p>}&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>span</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;ml-4&#34;</span><span class=p>&gt;</span><span class=nx>Status</span><span class=o>:</span> <span class=p>{</span><span class=nx>gameStatus</span><span class=p>}&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>span</span> <span class=na>className</span><span class=o>=</span><span class=s>&#34;ml-4&#34;</span><span class=p>&gt;</span><span class=nx>Time</span><span class=o>:</span> <span class=p>{</span><span class=nx>elapsedTime</span><span class=p>}</span><span class=nx>s</span><span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>Board</span>
+</span></span><span class=line><span class=cl>                <span class=na>difficulty</span><span class=o>=</span><span class=p>{</span><span class=nx>difficulty</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=na>setRemainingMines</span><span class=o>=</span><span class=p>{</span><span class=nx>setRemainingMines</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=na>updateGameStatus</span><span class=o>=</span><span class=p>{</span><span class=nx>updateGameStatus</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=na>setGameStatus</span><span class=o>=</span><span class=p>{</span><span class=nx>setGameStatus</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=na>handleCellClick</span><span class=o>=</span><span class=p>{</span><span class=nx>handleCellClick</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span><span class=nx>modalMessage</span> <span class=o>&amp;&amp;</span> <span class=p>&lt;</span><span class=nt>Modal</span> <span class=na>message</span><span class=o>=</span><span class=p>{</span><span class=nx>modalMessage</span><span class=p>}</span> <span class=na>onClose</span><span class=o>=</span><span class=p>{</span><span class=nx>closeModal</span><span class=p>}</span> <span class=p>/&gt;}</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>新增了 <code>modalMessage</code> 來儲存要在 Modal 中顯示的訊息。</li><li>更新監視 <code>gameStatus</code> 的 useEffect hook，以在遊戲獲勝或失敗時設定 <code>modalMessage</code></li></ul><h2 id=部署>部署</h2><p>最後還修修改改了許多東西，不過主要與 React 有關的內容已經大致涵蓋了！因此如果想看完整程式碼的話，可以直接參考 <a class=link href=https://github.com/Miyaya/where-is-bijou target=_blank rel=noopener>source code</a>。</p><p>我用的是 <a class=link href=https://vercel.com/miyayas-projects target=_blank rel=noopener>Vercel</a>，一個免費部署、CI/CD 的 server 服務，使用起來非常簡單，因為可以直接從 GitHub 導入專案，以及許多 framework 的編譯模板，像是 vite 就有包含在內，因此只要一開始設定的時候勾選是 vite 就好了。</p><h2 id=結論>結論</h2><p>最後，如果我的理解有誤、或是想要提供更好的作法，歡迎留言！也可以寫信給我 miya850604[at]gmail.com，謝謝^^</p></section><footer class=article-footer><section class=article-tags><a href=/tags/react/>React</a>
+<a href=/tags/hook/>Hook</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相關文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/leetcode250-%E9%80%B2%E5%BA%A610-heap/><div class=article-details><h2 class=article-title>LeetCode250 進度10% - Heap</h2></div></a></article><article><a href=/p/docker-101/><div class=article-details><h2 class=article-title>Docker 101</h2></div></a></article><article><a href=/p/%E5%B1%85%E7%84%B6%E5%8F%88%E9%96%8B%E5%A7%8B%E5%88%B7-leetcode-binary-search/><div class=article-details><h2 class=article-title>居然又開始刷 LeetCode - Binary search</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//yhlyher.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2022 -
+2025 Miya's Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 建立<br>主題 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 設計</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

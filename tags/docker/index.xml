@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Miya's Blog</title><link>https://miyaya.github.io/tags/docker/</link><description>Recent content in Docker on Miya's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 29 Sep 2025 15:36:15 +0200</lastBuildDate><atom:link href="https://miyaya.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 101</title><link>https://miyaya.github.io/p/docker-101/</link><pubDate>Mon, 29 Sep 2025 15:36:15 +0200</pubDate><guid>https://miyaya.github.io/p/docker-101/</guid><description>&lt;p&gt;之前的工作有碰過 Kubernetes (k8s)，不過對底層技術與實作並不熟悉，當時有主管帶著我飛因此天不怕地不怕。如今換了工作，目前的公司有超多 legacy code，很多軟硬體都偏老舊，算是我們還在數位轉型的階段，因此 dockerize 技術某種程度上變成了必要條件。在我前一份工作，我就對這個很感興趣，雖然目前不再是 devops，不知道目前的工作會不會有直接派上用場的機會，但總覺得學了準沒錯。&lt;/p&gt;
+&lt;p&gt;因此在最愛的天瓏書店購入了&lt;a class="link" href="https://www.tenlong.com.tw/products/9789863126799" target="_blank" rel="noopener"
+&gt;《跟著 Docker 隊長，修練 22天就精通》&lt;/a&gt;，結果第二章就覺得有點硬 XD 不做筆記的話會忘記。另外一提，作者是 Docker 技術的推廣者之一，還製作了與章節同步的&lt;a class="link" href="https://www.youtube.com/playlist?list=PLXl_isu8qxvmDOAnUkG5x16LzBzGzY_Ww" target="_blank" rel="noopener"
+&gt;教學影片&lt;/a&gt;，真的是佛心來著。（不過天知道我哪天為有閒有情致來看）&lt;/p&gt;
+&lt;h2 id="基本語法"&gt;基本語法
+&lt;/h2&gt;&lt;h3 id="docker-run"&gt;&lt;code&gt;docker run&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;書裡的第一個語法是 &lt;code&gt;docker run diamol/ch02-hello-diamol&lt;/code&gt;，但因為地端沒有這個映像檔，因此會去 &lt;strong&gt;Docker hub&lt;/strong&gt; 下載。這是一個雲端倉庫服務，有點像 git clone 的感覺。&lt;/p&gt;
+&lt;p&gt;而一開始安裝的 Docker desktop 是用來提供本地 docker 環境、執行容器與管理地端映像檔的工具。當第一次執行 &lt;code&gt;docker run&lt;/code&gt; 時，Docker desktop 會自動從 Docker hub 下載 image 檔案到本地，然後再執行容器。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;如果想提供參數，&lt;code&gt;--tty&lt;/code&gt; 或是簡寫 &lt;code&gt;-t&lt;/code&gt;，用來分配一個偽終端機 (pseudo-TTY)，讓容器內的程式認爲他正在跟真實的終端機互動，提供像是彩色字體跟格式化的顯示，也支援互動性。通常會跟 &lt;code&gt;--interactive&lt;/code&gt; 或 &lt;code&gt;-i&lt;/code&gt; 共用，也可以再簡寫為 &lt;code&gt;-it&lt;/code&gt;。想要跳出容器的終端機對話視窗時，只需要按 ctl+D 或是直接輸入指令 &lt;code&gt;exit&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;docker container exec {CONTAINER ID} ...&lt;/code&gt; 也可以進入容器 shell 執行指令&lt;/p&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;最後，可以透過更多參數在容器中執行一個網站&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker contaier run --detach --publish 8088:80 diamol/ch02-hello-diamol-web
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--detach&lt;/code&gt; 代表在背景啟動容器並顯示容器 ID，所以執行後會看到一串很長的 ID&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--publish 8088:80&lt;/code&gt; 配發值記得網路連接 port 給容器使用，也就是對外的公開 port 是 8088 但容器內部的 port 是 80&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而容器跟實際電腦的 IP 也不一樣，每個容器都有自己專屬的 IP，也就是 docker 裡頭建立的虛擬 IP。電腦的 IP 是在連接 router 時分配到的，而容器的虛擬網路 IP 是 docker 分配的。所以電腦並不能直接連接到容器，而是要透過這個虛擬的 port 把流量轉到容器中。雖然瀏覽器連到的網址 &lt;code&gt;localhost:8088&lt;/code&gt; 是地端電腦提供的，但網站內容是容器提供的，驗證了打包在容器裡的應用程式可以很容易被移植！｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡&lt;/p&gt;
+&lt;h3 id="docker-container-ls"&gt;&lt;code&gt;docker container ls&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;使用這個指令可以看目前哪些容器正在執行，在 docker 指令操作時就是透過這邊的 &lt;code&gt;CONTAINER ID&lt;/code&gt; 來進行辨識。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不過 &lt;code&gt;CONTAINER ID&lt;/code&gt; 不需要全打，只要打部分就可以 (如前面兩個字)。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;如果想要看完整的容器，包含已經 exited 的，可以加上參數 &lt;code&gt;--all&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="docker-container-top-container-id"&gt;&lt;code&gt;docker container top {CONTAINER ID}&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;印出某個指定容器的 process&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="docker-container-logs-container-id"&gt;&lt;code&gt;docker container logs {CONTAINER ID}&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;docker 會把應用程式的輸出存在 log 檔，這個指令可以把 log 叫出來&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="docker-container-inspect-container-id"&gt;&lt;code&gt;docker container inspect {CONTAINER ID}&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;完整的輸出容器的設定，如系統路徑、執行命令、網路設定等等&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="docker-container-stats-container-id"&gt;&lt;code&gt;docker container stats {CONTAINER ID}&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;即時顯示容器正在使用多少資源，如 CPU、記憶體、網路流量等&lt;/p&gt;
+&lt;p&gt;我不確定怎麼退出，但狂按 ctl+C 就好像蠻有用的 (?)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="刪除容器"&gt;刪除容器
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker container rm --force ${docker container ls --all --quiet}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;這個指令會&lt;strong&gt;強制刪除所有容器，包含正在運行與已經停止的&lt;/strong&gt;。刪除 container 可以透過指令，也可以直接把 docker desktop 退出，就自動會把在 run 的 container 刪掉，但不會刪除映像檔，所以下次回來還是可以再執行，不需要再次下載。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--all&lt;/code&gt; 包含已經停止的&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--quiet&lt;/code&gt; 只顯示容器 ID&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;${}&lt;/code&gt; 將內層指令的輸出作為外層指令的參數，像是算數裡小括號的概念&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--force&lt;/code&gt; 強制刪除，不管容器有沒有在執行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以大括號裡會輸出一堆 ID，然後外部指令就會將這些容器一一刪除！！因為 rm 這個指令通常蠻危險的，因此有比較安全的版本 &lt;code&gt;docker container prune&lt;/code&gt; 只刪除已經停止的容器。&lt;/p&gt;
+&lt;h2 id="docker-engine"&gt;Docker Engine
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Docker engine&lt;/strong&gt; 是 Docker 的核心引擎 (daemon)，他負責實際的執行容器、管理映像檔、運行背景程式，並透過 API 進行互動。&lt;/p&gt;
+&lt;p&gt;最一開始下載的 &lt;strong&gt;Docker Desktop&lt;/strong&gt; 是桌機的應用程式，包含一些圖形化介面，當然他內建了 docker engine 還有 &lt;strong&gt;docker cli&lt;/strong&gt;。其他的 GUI 還有像是 &lt;strong&gt;docker UCP&lt;/strong&gt; 以及 &lt;strong&gt;Portainer&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;前面提到的 &lt;strong&gt;Docker hub&lt;/strong&gt; 則跟本地 docker 沒有直接的關係，但是可以透過 CLI → API 在這邊分享或下載映像檔。&lt;/p&gt;
+&lt;h2 id="lab"&gt;Lab
+&lt;/h2&gt;&lt;p&gt;蠻神奇的，docker 可以在 run 的時候在裡面換檔案，我猜應該還是有 build，但因為檔案很小，看不出來這個時間差是不是。&lt;/p&gt;
+&lt;p&gt;主要想考的是書上沒提到的指令，可以透過 &lt;code&gt;--help&lt;/code&gt; 去看細節，可以得知從本機複製檔案到容器的語法是 &lt;code&gt;docker container cp &amp;lt;本機路徑&amp;gt; &amp;lt;容器ID&amp;gt;:&amp;lt;容器內路徑&amp;gt;&lt;/code&gt;，反之亦然。舉例來說，把資料複製到地端目前位置&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker container cp fe8:/usr/local/apache2/htdocs/index.html .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;也可以複製整個資料夾，如&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker container cp fe8:/usr/local/apache2/htdocs/ ./htdocs/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>
