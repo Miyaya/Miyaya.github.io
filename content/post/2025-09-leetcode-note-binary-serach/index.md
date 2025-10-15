@@ -37,7 +37,9 @@ categories:
 
 ## 邊界定義遞迴範圍
 
-二分搜尋不外乎最重要的是 boundary 設定，到底是 `[left, right]` 還是 `[left, right)` 首先要先確認。接著影響到迴圈或是遞迴的參數更新，這邊我都以迴圈為例，因為遞迴還會需要 extra stack memory。
+二分搜尋不外乎最重要的是 boundary 設定，到底是 `[left, right]` 還是 `[left, right)` 首先要先確認。
+
+接著影響到迴圈或是遞迴的參數更新，這邊我都以迴圈為例，因為遞迴還會需要 extra stack memory。
 
 ```go
 // [left, right) 
@@ -56,6 +58,7 @@ for left <= right {
 ```
 
 > `[left, right]` 閉區間 → 使用 `left <= right`
+
 使用閉區間時 left 和 right 都是有效的搜尋位置，當 `left == right` 時，還有一個位置沒檢查，所以條件必須是 `left <= right`。
 
 ```text

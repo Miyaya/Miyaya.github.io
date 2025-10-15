@@ -5,8 +5,8 @@ date: 2025-10-01T18:19:32+02:00
 image:
 math: 
 license: 
-hidden: false
-comments: true
+hidden: true
+comments: false
 tags:
     - LeetCode
     - DSA
