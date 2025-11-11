@@ -39,7 +39,7 @@ categories:
 最後，可以透過更多參數在容器中執行一個網站
 
 ```
-docker contaier run --detach --publish 8088:80 diamol/ch02-hello-diamol-web
+docker container run --detach --publish 8088:80 diamol/ch02-hello-diamol-web
 ```
 
 - `--detach` 代表在背景啟動容器並顯示容器 ID，所以執行後會看到一串很長的 ID
