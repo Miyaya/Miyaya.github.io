@@ -1,5 +1,5 @@
 ---
-title: "Ip Paris"
+title: "IP Paris"
 image: 
 style:
     background: "#333"
