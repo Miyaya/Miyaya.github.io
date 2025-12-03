@@ -14,3 +14,7 @@ hasCJKLanguage = false
 
 # Change it to your Disqus shortname before using
 disqusShortname = "yhlyher"
+
+# Google Analytics
+# Add your Google Analytics 4 measurement ID (e.g., G-XXXXXXXXXX)
+googleAnalytics = "G-RE4FVE8S2J"
