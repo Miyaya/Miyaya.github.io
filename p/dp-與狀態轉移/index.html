@@ -1,0 +1,267 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="因為 DP 是面試常遇到的問題，此文會從 DP 演算法的演化開始解釋，並說明如何優化時間與空間複雜度，最後以如何識別題型、尋找 DP 關注點、程式模板結尾。\n當 backtracking TLE DP 應用的場景很多。一開始的概念是由 backtrack 方法而生，由於 backtrack 會將所有可能性遍歷，其中的很多 path 會被重複計算，為了節省效率、不重複計算，我們可以將部分計算結果記起來，當需要參照時，只需要直接查表即可。\n讓我們首先回顧 backtrack 的概念\n1 2 3 4 5 6 7 8 backtrack(參數) { if 終止條件 { 保存結果; return } for 選擇 in 選擇列表 { 做選擇 backtrack(新參數) 撤銷選擇 } } 746. Min Cost Climbing Stairs You are given an integer array cost where cost[i] is the cost of ith step on a staircase. Once you pay the cost, you can either climb one or two steps.\n"><title>DP 與狀態轉移</title><link rel=canonical href=https://miyaya.github.io/p/dp-%E8%88%87%E7%8B%80%E6%85%8B%E8%BD%89%E7%A7%BB/><link rel=stylesheet href=/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css><meta property='og:title' content="DP 與狀態轉移"><meta property='og:description' content="因為 DP 是面試常遇到的問題，此文會從 DP 演算法的演化開始解釋，並說明如何優化時間與空間複雜度，最後以如何識別題型、尋找 DP 關注點、程式模板結尾。\n當 backtracking TLE DP 應用的場景很多。一開始的概念是由 backtrack 方法而生，由於 backtrack 會將所有可能性遍歷，其中的很多 path 會被重複計算，為了節省效率、不重複計算，我們可以將部分計算結果記起來，當需要參照時，只需要直接查表即可。\n讓我們首先回顧 backtrack 的概念\n1 2 3 4 5 6 7 8 backtrack(參數) { if 終止條件 { 保存結果; return } for 選擇 in 選擇列表 { 做選擇 backtrack(新參數) 撤銷選擇 } } 746. Min Cost Climbing Stairs You are given an integer array cost where cost[i] is the cost of ith step on a staircase. Once you pay the cost, you can either climb one or two steps.\n"><meta property='og:url' content='https://miyaya.github.io/p/dp-%E8%88%87%E7%8B%80%E6%85%8B%E8%BD%89%E7%A7%BB/'><meta property='og:site_name' content="Miya's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='LeetCode'><meta property='article:tag' content='DSA'><meta property='article:tag' content='Golang'><meta property='article:tag' content='Dynamic Programming'><meta property='article:published_time' content='2025-11-12T17:28:42+01:00'><meta property='article:modified_time' content='2025-11-12T17:28:42+01:00'><meta name=twitter:title content="DP 與狀態轉移"><meta name=twitter:description content="因為 DP 是面試常遇到的問題，此文會從 DP 演算法的演化開始解釋，並說明如何優化時間與空間複雜度，最後以如何識別題型、尋找 DP 關注點、程式模板結尾。\n當 backtracking TLE DP 應用的場景很多。一開始的概念是由 backtrack 方法而生，由於 backtrack 會將所有可能性遍歷，其中的很多 path 會被重複計算，為了節省效率、不重複計算，我們可以將部分計算結果記起來，當需要參照時，只需要直接查表即可。\n讓我們首先回顧 backtrack 的概念\n1 2 3 4 5 6 7 8 backtrack(參數) { if 終止條件 { 保存結果; return } for 選擇 in 選擇列表 { 做選擇 backtrack(新參數) 撤銷選擇 } } 746. Min Cost Climbing Stairs You are given an integer array cost where cost[i] is the cost of ith step on a staircase. Once you pay the cost, you can either climb one or two steps.\n"><link rel="shortcut icon" href=/favicon.ico><script async src="https://www.googletagmanager.com/gtag/js?id=G-RE4FVE8S2J"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-RE4FVE8S2J")}</script></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切換選單>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_f02a1ccfbec869ae.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🌯</span></figure><div class=site-meta><h1 class=site-name><a href=/>Miya's Blog</a></h1><h2 class=site-description></h2></div></header><ol class=menu-social><li><a href=https://github.com/Miyaya target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://www.instagram.com/miyaya.journal/ target=_blank title=Instagram rel=me><svg class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3"/><line x1="16.5" y1="7.5" x2="16.5" y2="7.501"/></svg></a></li><li><a href=https://www.linkedin.com/in/yi-hsuan-lee-9bb570132/ target=_blank title=LinkedIn rel=me><svg class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M16 16v-3a2 2 0 00-4 0"/></svg></a></li><li><a href=https://miya850604.medium.com/ target=_blank title=Medium rel=me><svg class="icon icon-tabler icon-tabler-brand-medium" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h1l3 3 3-3h1"/><line x1="8" y1="15" x2="10" y2="15"/><line x1="14" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9" y2="15"/><line x1="15" y1="9" x2="15" y2="15"/></svg></a></li><li><a href=https://www.youtube.com/channel/UCjCgzu6YRe8LJiPBkbRkVAg target=_blank title=YouTube rel=me><svg class="icon icon-tabler icon-tabler-brand-youtube" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>夜晚模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目錄</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#當-backtracking-tle>當 backtracking TLE</a><ol><li><a href=#746-min-cost-climbing-stairs>746. Min Cost Climbing Stairs</a></li></ol></li><li><a href=#memoization-top-down>Memoization (top-down)</a><ol><li><a href=#複雜度分析>複雜度分析</a></li></ol></li><li><a href=#bottom-up-dp>Bottom-Up DP</a><ol><li><a href=#狀態轉移方程>狀態轉移方程</a><ol><li><a href=#什麼是狀態>什麼是「狀態」</a></li><li><a href=#什麼是狀態轉移>什麼是「狀態轉移」</a></li></ol></li><li><a href=#決策流程圖>決策流程圖</a></li></ol></li><li><a href=#空間優化>空間優化</a><ol><li><a href=#複雜度分析-1>複雜度分析</a></li></ol></li><li><a href=#結論--dp-通用解題框架>結論 —— DP 通用解題框架</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/dev/ style=background-color:#2a9d8f;color:#fff>程式技術</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/dp-%E8%88%87%E7%8B%80%E6%85%8B%E8%BD%89%E7%A7%BB/>DP 與狀態轉移</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Nov 12, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>閱讀時間: 4 分鐘</time></div></footer></div></header><section class=article-content><p>因為 DP 是面試常遇到的問題，此文會從 DP 演算法的演化開始解釋，並說明如何優化時間與空間複雜度，最後以如何識別題型、尋找 DP 關注點、程式模板結尾。</p><h2 id=當-backtracking-tle>當 backtracking TLE</h2><p>DP 應用的場景很多。一開始的概念是由 backtrack 方法而生，由於 backtrack 會將所有可能性遍歷，其中的很多 path 會被重複計算，為了節省效率、不重複計算，我們可以將部分計算結果記起來，當需要參照時，只需要直接查表即可。</p><p>讓我們首先回顧 backtrack 的概念</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=nf>backtrack</span><span class=p>(</span><span class=nx>參數</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nx>終止條件</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=nx>保存結果</span><span class=p>;</span><span class=w> </span><span class=k>return</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>選擇</span><span class=w> </span><span class=nx>in</span><span class=w> </span><span class=nx>選擇列表</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>做選擇</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nf>backtrack</span><span class=p>(</span><span class=nx>新參數</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>撤銷選擇</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=746-min-cost-climbing-stairs><a class=link href=https://leetcode.com/problems/min-cost-climbing-stairs/ target=_blank rel=noopener>746. Min Cost Climbing Stairs</a></h3><blockquote><p>You are given an integer array cost where cost[i] is the cost of ith step on a staircase. Once you pay the cost, you can either climb one or two steps.</p><p>You can either start from the step with index 0, or the step with index 1.</p><p>Return the minimum cost to reach the top of the floor.</p><p>Example 1:</p><p>Input: cost = [10,15,20]
+Output: 15</p><p>Explanation: You will start at index 1.
+Pay 15 and climb two steps to reach the top.
+The total cost is 15.</p></blockquote><p>以這題為例，若使用 backtracking 的話就是每一次都去回溯前一步與前兩步，然後取其小值。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>minCostClimbingStairs</span><span class=p>(</span><span class=nx>cost</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>n</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>cost</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>var</span><span class=w> </span><span class=nx>backtrack</span><span class=w> </span><span class=kd>func</span><span class=p>(</span><span class=nx>i</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>backtrack</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=kd>func</span><span class=p>(</span><span class=nx>i</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=nx>n</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=c1>// base condition</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>return</span><span class=w> </span><span class=mi>0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>oneStep</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>cost</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=nf>backtrack</span><span class=p>(</span><span class=nx>i</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>twoSteps</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>cost</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=nf>backtrack</span><span class=p>(</span><span class=nx>i</span><span class=o>+</span><span class=mi>2</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w> </span><span class=nb>min</span><span class=p>(</span><span class=nx>oneStep</span><span class=p>,</span><span class=w> </span><span class=nx>twoSteps</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nb>min</span><span class=p>(</span><span class=nf>backtrack</span><span class=p>(</span><span class=mi>0</span><span class=p>),</span><span class=w> </span><span class=nf>backtrack</span><span class=p>(</span><span class=mi>1</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p><strong>空間複雜度:</strong> O(n)</p><p><strong>時間複雜度:</strong> O(2<sup>n</sup>)
+因為每個位置都有兩個選擇：爬一階或兩階，因此會長成一棵高度為 n 的二元決策樹，總共的 path 在每一個節點都是兩者擇一，因此來到了 2<sup>n</sup> 的時間複雜度。</p><p>視覺化的話可以看到中間的階梯「到2」、「到3」、「到4」都被重複計算了很多次!</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>cost = [10, 15, 20, 25]
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                    起點
+</span></span><span class=line><span class=cl>                  /      \
+</span></span><span class=line><span class=cl>            從0開始(10)   從1開始(15)
+</span></span><span class=line><span class=cl>              /    \        /    \
+</span></span><span class=line><span class=cl>          到1(15)  到2(20)  到2(20)  到3(25)
+</span></span><span class=line><span class=cl>           /  \     /  \     /  \     /  \
+</span></span><span class=line><span class=cl>        到2  到3  到3  到4  到3  到4  到4  到5
+</span></span><span class=line><span class=cl>       (20) (25) (25)     (25)
+</span></span></code></pre></td></tr></table></div></div><h2 id=memoization-top-down>Memoization (top-down)</h2><p>承上所說，我們想把重複的部分紀錄起來，因此宣告一個 array 名為 memo，<code>memo[i]</code> 紀錄到達第 i 階的最小步數。如果 <code>memo[i]</code> 沒有資料才需要計算，並且在計算完後把 data 存起來！</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>minCostClimbingStairs</span><span class=p>(</span><span class=nx>cost</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>n</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>cost</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>memo</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>([]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nx>n</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nx>memo</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>memo</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=o>-</span><span class=mi>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>var</span><span class=w> </span><span class=nx>dp</span><span class=w> </span><span class=kd>func</span><span class=p>(</span><span class=nx>i</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>dp</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=kd>func</span><span class=p>(</span><span class=nx>i</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=nx>n</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>return</span><span class=w> </span><span class=mi>0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>// 如果已經計算過,直接返回記錄的結果</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=nx>memo</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=o>-</span><span class=mi>1</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>return</span><span class=w> </span><span class=nx>memo</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>// 計算並記錄結果</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>oneStep</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>cost</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=nf>dp</span><span class=p>(</span><span class=nx>i</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>twoSteps</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>cost</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=nf>dp</span><span class=p>(</span><span class=nx>i</span><span class=o>+</span><span class=mi>2</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>memo</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>min</span><span class=p>(</span><span class=nx>oneStep</span><span class=p>,</span><span class=w> </span><span class=nx>twoSteps</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w> </span><span class=nx>memo</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nb>min</span><span class=p>(</span><span class=nf>dp</span><span class=p>(</span><span class=mi>0</span><span class=p>),</span><span class=w> </span><span class=nf>dp</span><span class=p>(</span><span class=mi>1</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=複雜度分析>複雜度分析</h3><p><strong>時間複雜度:</strong> O(n)
+共會計算 n 次，因為重複的部分透過 O(1) 的時間複雜度直接查。</p><p><strong>空間複雜度:</strong> O(n)
+使用到額外的 memo array O(n) 與 stack 大小 O(n)，O(2n)=O(n)</p><p>在此可以注意到，如果我們想要降低空間複雜度，首當其要是把遞迴改成迴圈，誠如 backtracking 遇到的情況。</p><h2 id=bottom-up-dp>Bottom-Up DP</h2><p>核心思路為<strong>從最簡單的子問題開始，逐步構建到完整問題的解</strong>。以同樣的一題，定義 dp[i] 為到達<em>第 i 階的最小成本</em>。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>minCostClimbingStairs</span><span class=p>(</span><span class=nx>cost</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>n</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>cost</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>dp</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>([]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nx>n</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// base condition</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>dp</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=mi>0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>dp</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=mi>0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>2</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=nx>n</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>dp</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>min</span><span class=p>(</span><span class=nx>dp</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=o>+</span><span class=nx>cost</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>],</span><span class=w> </span><span class=nx>dp</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>2</span><span class=p>]</span><span class=o>+</span><span class=nx>cost</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>2</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>dp</span><span class=p>[</span><span class=nx>n</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=狀態轉移方程>狀態轉移方程</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>dp</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>min</span><span class=p>(</span><span class=nx>dp</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=nx>cost</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>],</span><span class=w> </span><span class=nx>dp</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>2</span><span class=p>]</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=nx>cost</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>2</span><span class=p>])</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>在這邊有一句很重要的程式，決定了 dp 表格是如何一步步建構起來。我們命名為<strong>狀態轉移方程</strong>。</p><h4 id=什麼是狀態>什麼是「狀態」</h4><p>狀態就是在解決問題的某個時刻，我們需要知道的所有關鍵資訊。想像你在玩一個遊戲，狀態就像是遊戲的「存檔點」：</p><ul><li>你在哪裡？（位置）</li><li>你有什麼？（資源）</li><li>你做過什麼？（歷史）</li></ul><p>以 Min Cost Climbing Stairs 這題為例：
+問題：<em>要爬到樓梯頂部</em></p><p>可能的狀態定義方式：</p><p><strong>方式 1</strong> -> 上面的程式採用</p><blockquote><p>狀態 = &ldquo;我現在站在第 i 階&rdquo;</p><p>記錄 = &ldquo;到達第 i 階的最小成本&rdquo;</p></blockquote><p><strong>方式 2</strong> -> 也可以</p><blockquote><p>狀態 = &ldquo;我要從第 i 階出發&rdquo;</p><p>記錄 = &ldquo;從第 i 階到頂部的最小成本&rdquo;</p></blockquote><p><strong>方式 3</strong> -> 太複雜！不需要記錄這麼多</p><blockquote><p>狀態 = &ldquo;我在第 i 階，而且我是從第 j 階來的&rdquo;</p><p>記錄 = &ldquo;到達第 i 階並且上一步在第 j 階的最小成本&rdquo;</p></blockquote><h4 id=什麼是狀態轉移>什麼是「狀態轉移」</h4><p>狀態轉移就是從一個狀態到另一個狀態的變化規則。就像遊戲中的「行動規則」：</p><p>我在 A 點，可以做什麼動作到達 B 點？
+這個動作的代價是什麼？</p><p>通用形式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>dp</span><span class=p>[</span><span class=nx>當前狀態</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nf>function</span><span class=p>(</span><span class=nx>dp</span><span class=p>[</span><span class=nx>之前的狀態們</span><span class=p>],</span><span class=w> </span><span class=nx>當前決策</span><span class=p>)</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>逐項解釋的話，這裡的狀態是這樣轉移的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>dp[i] = min(dp[i-1] + cost[i-1], dp[i-2] + cost[i-2])
+</span></span><span class=line><span class=cl>        ↑   ↑                    ↑
+</span></span><span class=line><span class=cl>        |   |                    |
+</span></span><span class=line><span class=cl>     函數  從i-1來的路徑        從i-2來的路徑
+</span></span></code></pre></td></tr></table></div></div><h3 id=決策流程圖>決策流程圖</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>開始
+</span></span><span class=line><span class=cl>  ↓
+</span></span><span class=line><span class=cl>問題：我要求什麼？
+</span></span><span class=line><span class=cl>（最大值、最小值、方案數、是否可行...）
+</span></span><span class=line><span class=cl>  ↓
+</span></span><span class=line><span class=cl>確定目標狀態
+</span></span><span class=line><span class=cl>（通常是最後一步、終點、目標數值）
+</span></span><span class=line><span class=cl>  ↓
+</span></span><span class=line><span class=cl>反推：達到目標需要什麼資訊？
+</span></span><span class=line><span class=cl>  ↓
+</span></span><span class=line><span class=cl>這些資訊會隨著什麼改變？
+</span></span><span class=line><span class=cl>（位置、時間、剩餘資源...）
+</span></span><span class=line><span class=cl>  ↓
+</span></span><span class=line><span class=cl>能否用簡單的變數表達這些變化？
+</span></span><span class=line><span class=cl>  ├─ 是 → 這就是你的狀態定義
+</span></span><span class=line><span class=cl>  └─ 否 → 需要更多維度或重新思考
+</span></span></code></pre></td></tr></table></div></div><p>再次使用這題為例：</p><ol><li>我要求什麼？</li></ol><p>答：到達樓梯頂部的最小成本</p><ol start=2><li>目標狀態－樓梯頂部是什麼？</li></ol><p>答：第 n 階（cost 陣列長度之後）</p><ol start=3><li>到達第 n 階需要什麼資訊？</li></ol><p>答：我需要知道到達前面各階的成本</p><ol start=4><li>這些資訊隨什麼改變？</li></ol><p>答：隨著樓梯的階數 i 改變</p><ol start=5><li>如何表達？</li></ol><p>答：dp[i] = 到達第 i 階的最小成本</p><hr><p>如此一來，就可以找到正確的狀態轉移程式！</p><h2 id=空間優化>空間優化</h2><p>終於來到最後一步！觀察狀態轉移方程，發現 dp[i] 只依賴於 dp[i-1] 和 dp[i-2]，所以不需要保存整個陣列，只需要保存最近的兩個值。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>minCostClimbingStairs</span><span class=p>(</span><span class=nx>cost</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>n</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>cost</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// 只需要保存兩個狀態</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// prev2: 代表 dp[i-2]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// prev1: 代表 dp[i-1]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>prev2</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=w>  </span><span class=c1>// dp[0]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>prev1</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=w>  </span><span class=c1>// dp[1]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>2</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=nx>n</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>current</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>min</span><span class=p>(</span><span class=nx>prev1</span><span class=o>+</span><span class=nx>cost</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>],</span><span class=w> </span><span class=nx>prev2</span><span class=o>+</span><span class=nx>cost</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>2</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>// 滑動窗口:更新兩個變數</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>prev2</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>prev1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>prev1</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>current</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// prev1 現在儲存的是 dp[n]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>prev1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=複雜度分析-1>複雜度分析</h3><p><strong>時間複雜度:</strong> O(n)</p><p><strong>空間複雜度:</strong> O(1)</p><p>只使用了固定數量的變數(prev2, prev1, current)，不隨輸入大小增長</p><h2 id=結論--dp-通用解題框架>結論 —— DP 通用解題框架</h2><blockquote><p>遞迴 → 遞迴+記憶化 → DP → 空間優化 DP</p></blockquote><p><strong>步驟 1: 識別 DP 問題特徵</strong></p><ul><li>✓ 有<strong>最優子結構</strong>(大問題的最優解包含子問題的最優解)</li><li>✓ 有<strong>重疊子問題</strong>(相同的子問題被多次求解)</li><li>✓ 需要求<strong>最優解</strong>(最大值、最小值、最長、最短等)</li></ul><p><strong>步驟 2: 定義狀態</strong>: &ldquo;我需要記錄什麼資訊來解決問題?&rdquo;</p><p><strong>步驟 3: 找出狀態轉移方程</strong>: &ldquo;當前狀態如何從之前的狀態推導?&rdquo;</p><p><strong>步驟 4: 確定基礎情況</strong>: &ldquo;最簡單的情況是什麼?&rdquo;</p><p><strong>步驟 5: 決定計算順序</strong></p><ul><li>Top-Down: 從目標開始,遞迴到基礎情況 (需要 memoization)</li><li>Bottom-Up: 從基礎情況開始,迭代到目標 (通常更高效)</li></ul><p><strong>步驟 6: 空間優化 (如果可能)</strong></p></section><footer class=article-footer><section class=article-tags><a href=/tags/leetcode/>LeetCode</a>
+<a href=/tags/dsa/>DSA</a>
+<a href=/tags/golang/>Golang</a>
+<a href=/tags/dynamic-programming/>Dynamic Programming</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相關文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/neetcode250-%E9%80%B2%E5%BA%A620-backtracking-%E8%88%87%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88/><div class=article-details><h2 class=article-title>NeetCode250 進度20% - Backtracking 與排列組合</h2></div></a></article><article><a href=/p/%E5%B1%85%E7%84%B6%E5%8F%88%E9%96%8B%E5%A7%8B%E5%88%B7-leetcode-binary-search/><div class=article-details><h2 class=article-title>居然又開始刷 LeetCode - Binary search</h2></div></a></article><article><a href=/p/docker-%E6%98%A0%E5%83%8F%E6%AA%94/><div class=article-details><h2 class=article-title>Docker 映像檔</h2></div></a></article><article><a href=/p/docker-101/><div class=article-details><h2 class=article-title>Docker 101</h2></div></a></article><article class=has-image><a href=/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/><div class=article-image><img src=/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/1.47dbd48dde8566197e3aabfa31bb3373_hu_53889b2dc5b7218.jpg width=250 height=150 loading=lazy alt="Featured image of post React Hook 介紹——透過踩地雷專案學 React" data-hash="md5-R9vUjd6FZhl+Oqv6Mbszcw=="></div><div class=article-details><h2 class=article-title>React Hook 介紹——透過踩地雷專案學 React</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//yhlyher.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2022 -
+2025 Miya's Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 建立<br>主題 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 設計</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

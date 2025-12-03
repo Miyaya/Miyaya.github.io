@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IP Paris on Miya's Blog</title><link>https://miyaya.github.io/categories/ip-paris/</link><description>Recent content in IP Paris on Miya's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 09 May 2024 21:30:36 +0200</lastBuildDate><atom:link href="https://miyaya.github.io/categories/ip-paris/index.xml" rel="self" type="application/rss+xml"/><item><title>我是如何拿到 Ubisoft 的實習</title><link>https://miyaya.github.io/p/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E6%8B%BF%E5%88%B0-ubisoft-%E7%9A%84%E5%AF%A6%E7%BF%92/</link><pubDate>Thu, 09 May 2024 21:30:36 +0200</pubDate><guid>https://miyaya.github.io/p/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E6%8B%BF%E5%88%B0-ubisoft-%E7%9A%84%E5%AF%A6%E7%BF%92/</guid><description>&lt;p&gt;在 IP Paris 的研究所生活，有很重要的一環是實習，學分數佔了碩二的整整一半 (30ETC)。當初申請的時候，我看準了不需要寫論文加上會有六個月的實習，算是對學術研究不在行的我非常友善，也希望可以因此讓未來找正職工作時可以更順利。&lt;/p&gt;
+&lt;p&gt;我最後拿到的職位叫作 Rendering Programmer Assistant (算圖助理工程師?)，就是跟我本科完全符合，所以真的是非常開心能夠申請上！！因為過程跟準備的時候經歷了很多煎熬的 moment，因此希望寫下這篇文章可以幫助到需要的人 🥹🥹 未來可能也會寫一些申請 IPP 的過程以及在 IPP 的生活。&lt;/p&gt;
+&lt;h2 id="如何申請"&gt;如何申請
+&lt;/h2&gt;&lt;p&gt;回歸正題，第一步是怎麼開始呢?
+我們其中一所學校 (Télécom Paris) 剛好 Ubisoft 有派 HR 跟校友來進行宣傳、介紹，說明在遊戲公司的生活、生涯，以及今年有開招的職缺是什麼。
+跟台灣的公司蠻類似的，雖然說會特別去一些不錯的學校招生，但工程師畢竟還是個講求公平實力的工作，投遞的連結是公開的，所以有興趣的話直接搜尋 #programmingday 加幾個關鍵字，應該都會有結果。&lt;/p&gt;
+&lt;h3 id="開放職缺"&gt;開放職缺
+&lt;/h3&gt;&lt;p&gt;我猜他們是固定介紹五個職位，分別是&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;寫 all generic functionalities 的 (core) programmer&lt;/li&gt;
+&lt;li&gt;寫 facilities 的 tools programmer&lt;/li&gt;
+&lt;li&gt;寫 graphics 的 3D programmer&lt;/li&gt;
+&lt;li&gt;寫遊戲邏輯的 gameplayer programmer&lt;/li&gt;
+&lt;li&gt;還有寫網路 features 的 online programmer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ubisoft 來學校的時間是 9 月 13，programming day 定在 11 月底，當時的連結我記得已經可以投遞履歷了，最後申請時間好像是 10 月底，因此準備的時間也還算充足。在填寫申請表單的時候，會需要排序三個希望的順位。&lt;/p&gt;
+&lt;p&gt;為什麼我說是固定介紹呢？因為後來公司聯繫上我的時候，說我申請的 3D programmer 今年沒有開缺，他們也沒有因此跟我說我可以選我的第二順位 XD 不知道是已經招滿，還是我的程式跟履歷沒有很吸引他們。總之，我當時閃過好多個想法，其中一個是——該不會填順位也有心機吧！！只能說找工作真的有時候也是需要點運氣。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;註: 我後來跟來自同校的實習生聊天，發現他是有進 programming day，然後錄取之後才被告知沒有 3D 的缺。所以我的情況應該就是比較幸運，原本被丟掉的履歷被撿了回來 XD&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="programming-day"&gt;Programming Day
+&lt;/h3&gt;&lt;p&gt;在投遞履歷之後，會有一個考技術的線上測驗連結，依據申請的職缺會有不同的語言測試，如 C++, C# 等，我這兩個都做了。
+C++ 的內容蠻經典的，我自己準備的方向是把 &lt;a class="link" href="https://leetcode.com/studyplan/leetcode-75/" target="_blank" rel="noopener"
+&gt;LeetCode 75&lt;/a&gt; 做完，我覺得他有幾個優點:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不會太多題，花一個多月就可以練完&lt;/li&gt;
+&lt;li&gt;覆蓋的內容比經典 DSA 更廣，包含一些冷門的類別&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;但如果想加強難度中～高的題目，比如說複雜的 DP、一些圖論的演算法，可能就要自己再去加強。我當初還有同時在面試其他公司，75 我覺得是一邊讀書、一邊準備、一邊慢慢開始面試的高 CP 選擇。接下來我有繼續練習 &lt;a class="link" href="https://leetcode.com/studyplan/top-interview-150/" target="_blank" rel="noopener"
+&gt;Top Interview 150&lt;/a&gt;，不過沒練幾題就拿到 offer 了。&lt;/p&gt;
+&lt;p&gt;根據我個人的經驗來說，DP、貪婪、基本的 graph (traversal 之類的) 演算法依然是經典，所以想找工作的人也可以往這個方向努力。&lt;/p&gt;
+&lt;h2 id="面試流程"&gt;面試流程
+&lt;/h2&gt;&lt;h3 id="hr"&gt;HR
+&lt;/h3&gt;&lt;p&gt;這一關蠻普通的 XD 全部都是很基本的問題，除了人資聽到我是台灣人之後說自己去過九份、很漂亮之外，其他都是照流程走的感覺: 一些行政問題、為什麼選這家公司、有沒有在玩遊戲、最喜歡什麼遊戲等。&lt;/p&gt;
+&lt;p&gt;我在網路上也是查到類似的問題，看來確實一般準備就夠了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;註: 進了公司之後，發現全部的同事真的都超級、非常、無敵熱愛遊戲，無論是開發遊戲或是玩遊戲、甚至關心遊戲界的各種大小新聞。我在這方面常常跟不上大家的話題，因為我連一台 PC 都沒有，我頂多就是偶爾朋友來家裡玩的時候會打馬力歐派對 (當然我面試的時候不是這樣回答的囉，哈)
+總之，因此午餐時間的 chitchat 常常有點壓力 T_T&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="tech-interview"&gt;Tech Interview
+&lt;/h3&gt;&lt;p&gt;這關其實是我最抖的一關，面完的當下甚至我已經覺得生無可戀、未來黯淡無光，後來接到人資的電話，她問我面試的過程怎麼樣，我還得勉強塞起一個笑容然後說，「我覺得主管們人都很好，因為我知道我回答的很差，但他們都沒有失去耐心，還給我很多引導」，然後我不禁乾笑了幾聲，因為我回憶起那天的慘況，真的是欲哭無淚，我甚至面試完當天就都已經跟先生、我媽、我朋友說沒救了，然後放寬心的接受失敗，準備要去其他公司。
+然後人資居然就說「我們覺得妳的面試很不錯、很有潛力」(?????)，「希望妳可以加入我們」，我聽到的時候在房間裡無聲的跳來跳去，實在是做夢也想不到。&lt;/p&gt;
+&lt;p&gt;回到正題，當時面試的有兩個資深算圖工程師，其中一個是把我履歷撿回來的 aka 我開工後的直屬主管。他根據我的履歷問了很多相關的問題:&lt;/p&gt;
+&lt;p&gt;第一個問題是我&lt;strong&gt;有什麼 rendering 相關的專案&lt;/strong&gt;、&lt;strong&gt;使用的語言&lt;/strong&gt;是什麼、清不清楚 &lt;strong&gt;rendering pipeline 是什麼&lt;/strong&gt;。
+學校主要用 c++ 與 opengl，但我修的課沒有很深，因此都是一些很基本的作業型專案，有一個是要畫影子的，就問了一些如何算影子的演算法，就此我已經回答的很含糊。&lt;/p&gt;
+&lt;p&gt;第二個問題是假設現在要畫一面鏡子/湖的倒影，&lt;strong&gt;如何畫出反射的效果&lt;/strong&gt;。如果不使用光追 (ray-tracing)，可以怎麼做？這邊我腦袋一片空白，內心已經在哭泣。&lt;/p&gt;
+&lt;p&gt;第三個問題回到我的履歷，其中一個專案是用 marching cube 做 SPH 的模擬，就叫我&lt;strong&gt;解釋 marching cube&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;最後到了提問的環節。我看著自己準備的草稿，寫了一些針對團隊人數的分配、每天工作內容之類的問題，但我內心知道問這些都沒有用，因為我太好高騖遠了，我根本就不會上。灰心喪志到了極點的 me，畏畏縮縮的問了一句「我覺得我剛剛回答的很糟，請問你們有什麼建議我繼續進修的資源呢」，這句話可能有打動主管，他回了一句 good question，然後真的開始翻找有什麼好的學習資源。&lt;/p&gt;
+&lt;h2 id="結論-心態"&gt;結論: 心態
+&lt;/h2&gt;&lt;p&gt;其實很難說到底是什麼部分讓我有辦法做這份實習，若真要分析，應該就是一些運氣、一些刷題、一些過去積累的經驗、還有不放棄跟不畏懼的心態。面試的過程大概可以感覺得出來順不順利、內容有沒有可能引起自己的興趣。就算沒有成功，也只是一時的，未來仍然有機會，如果繼續往前進，最終是會走到最適合的地方。&lt;/p&gt;
+&lt;p&gt;當時申請前很害怕法文不好、程式又不強的我會找不到心儀的實習，還問了很多同學說該怎麼做，但大家都是佛系的說跟著學校的資源找就好 XD 當時心想，學校哪有提供什麼資源！！沒想到參加了一場說明會就開啟了一扇門，因此想推薦給大家，手法依然可以積極：多修相關的課、架一個放作品集的網站、累積一些相關的專案經驗，但心態可以佛系一點。&lt;/p&gt;
+&lt;p&gt;如果這篇文章真的有些幫助的話，麻煩留個言讓我知道！謝謝 XD
+因為我偶爾才寫比較有用的文章，大部分都是自己的生活，真的有幫到人的話我會努力多寫一些 😂&lt;/p&gt;
+&lt;h3 id="一些資源"&gt;一些資源
+&lt;/h3&gt;&lt;p&gt;我在實習開始前，回台灣耍廢了一個月，開工之後滿是後悔，因為能力有點跟不上，因此把當初主管貼給我的資源分享給大家，若對 rendering 有興趣，可以看看。我也一併把我當時的履歷放上來給大家見笑一下。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://catlikecoding.com/unity/tutorials/custom-srp/" target="_blank" rel="noopener"
+&gt;Catlike coding: Unity Custom SRP&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://simonschreibt.de/gat/renderhell/" target="_blank" rel="noopener"
+&gt;Render Hell by Simon&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="CV-Miya-LEE-2023-EN.pdf" &gt;CV-2023&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

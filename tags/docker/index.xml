@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Miya's Blog</title><link>https://miyaya.github.io/tags/docker/</link><description>Recent content in Docker on Miya's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 11 Nov 2025 18:20:36 +0200</lastBuildDate><atom:link href="https://miyaya.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 映像檔</title><link>https://miyaya.github.io/p/docker-%E6%98%A0%E5%83%8F%E6%AA%94/</link><pubDate>Tue, 11 Nov 2025 18:20:36 +0200</pubDate><guid>https://miyaya.github.io/p/docker-%E6%98%A0%E5%83%8F%E6%AA%94/</guid><description>&lt;p&gt;同樣的，今天的文章也是&lt;a class="link" href="https://www.tenlong.com.tw/products/9789863126799" target="_blank" rel="noopener"
+&gt;《跟著 Docker 隊長，修練 22天就精通》&lt;/a&gt;的讀書筆記，內容包含了第 3、4 章。&lt;/p&gt;
+&lt;h2 id="建立容器映像檔"&gt;建立容器映像檔
+&lt;/h2&gt;&lt;p&gt;Docker 根據 Dockerfile 的設定，將程式打包成一個映像檔。打包的時候，需要提供映像檔的名字，以及存在哪裡，&lt;code&gt;--tag&lt;/code&gt; 用來設定映像檔的名稱。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker image build --tag web-ping . &lt;span class="c1"&gt;# . 代表存在當前的目錄&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;接著就會一行一行的根據 dockerfile 的設定將目前的目錄 (context) 送到 Docker daemon 然後建置起來！&lt;/p&gt;
+&lt;h3 id="環境變數"&gt;環境變數
+&lt;/h3&gt;&lt;p&gt;我們可以在執行容器的時候透過指令 &lt;code&gt;--env&lt;/code&gt; 或是 &lt;code&gt;-e&lt;/code&gt; 改變環境變數。以書裡的例子，這邊 ping 的對象被設定為 &lt;code&gt;google.com&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker container run --env &lt;span class="nv"&gt;TARGET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;google.com diamol/ch03-web-ping
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;本機端會有一組預設環境變數，但這並不影響我們想要在容器內設定自定義的環境變數，換句話說，當同時執行兩個不同的容器，環境變數也可以分別設定。這是容器帶來的其中一個好處，將環境乾淨分割。&lt;/p&gt;
+&lt;h3 id="dockerfile"&gt;Dockerfile
+&lt;/h3&gt;&lt;p&gt;透過 dockerfile，應用程式具備可移植性。不管在哪裡的容器都可以執行該應用程式，build server 只需要安裝 docker 就可以同步不同硬體條件中的開發環境。&lt;/p&gt;
+&lt;p&gt;Dockerfile 沒有副檔名，裡面常用的命令包含 FROM, ENV, WORKDIR, COPY, CMD:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;FROM&lt;/code&gt; 載入映像檔&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ENV&lt;/code&gt; 以 key-value 的形式設置環境變數&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;WORKDIR&lt;/code&gt; 在映像檔系統中根據作業系統建立一個目錄，並設定為工作目錄&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;COPY&lt;/code&gt; 把檔案從本機複製到映像檔裡頭&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CMD&lt;/code&gt; 在容器啟動時自動執行&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RUN&lt;/code&gt; 在容器裡執行命令，命令的結果會留在映像層&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;書裡的範例如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c"&gt;# 以 diamol/node 作為基底映像檔，因為 diamol/node 安裝了執行該專案所需的 node.js 環境&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;diamol/node&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; &lt;span class="nv"&gt;TARGET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;blog.sixeyed.com&amp;#34;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; &lt;span class="nv"&gt;METHOD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;HEAD&amp;#34;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; &lt;span class="nv"&gt;INTERVAL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/web-ping&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;COPY&lt;/span&gt; app.js .&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;CMD&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;node&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;/web-ping/app.js&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="多階段-dockerfile"&gt;多階段 Dockerfile
+&lt;/h3&gt;&lt;p&gt;有的程式經歷多個階段才可以完成建置映像檔，每個階段都會由 &lt;code&gt;FROM&lt;/code&gt; 開頭、並可以使用 &lt;code&gt;AS&lt;/code&gt; 來命名。&lt;/p&gt;
+&lt;p&gt;書裡的範例包含了三個階段，雖然每個階段都是獨立執行，但可以把前一個階段的結果（檔案與目錄）複製起來。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c"&gt;# build-stage&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;diamol/base&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;AS&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;build-stage&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Building...&amp;#39;&lt;/span&gt; &amp;gt; /build.txt&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="c"&gt;# test-stage&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;diamol/base&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;AS&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;test-stage&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;COPY&lt;/span&gt; --from&lt;span class="o"&gt;=&lt;/span&gt;build-stage /build.txt /build.txt&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Testing...&amp;#39;&lt;/span&gt; &amp;gt; /build.txt&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="c"&gt;# final&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;diamol/base&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;COPY&lt;/span&gt; --from&lt;span class="o"&gt;=&lt;/span&gt;test-stage /build.txt /build.txt&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;CMD&lt;/span&gt; cat /build.txt&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;我們可以從 docker hub 裡找到自己專案所需的映像檔當作基礎檔案，像是帶有建置工具的、或是帶有 runtime 環境的映像檔。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;多階段的建置也可以優化 CI/CD pipeline，如每個階段只需要複製該階段需要的文件、測試的內容與工具不會進入 production&amp;hellip;等。透過這樣的操作，不但可以減少最後映像檔的大小、縮短啟動時間，映像檔中使用到的軟體更少也可以有效減少漏洞攻擊的風險。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如 java 的建置過程中，最終會把編譯好的 JAR 檔拿出來寫入映像檔，但使用直譯語言 JS 的 node.js 專案就會將執行環境與程式碼放入映像檔中。&lt;/p&gt;
+&lt;h2 id="映像層-image-layers"&gt;映像層 Image Layers
+&lt;/h2&gt;&lt;p&gt;當我們從 docker hub 下載 (pull) 一個映像檔時，會看到有很多檔案被下載下來，這些檔案被存在 Docker engine 快取裡。每個檔案分別是一個映像層。&lt;/p&gt;
+&lt;p&gt;一個映像檔會分成一層層的映像層，組裝在一起才是完整的容器檔案。這麼做的目的是當有很多個 share 相同環境的容器時，可以共用底層的映像層。像是前面指令的 &lt;code&gt;FROM diamol/node&lt;/code&gt; 提供了一個 base OS 層與一個 node js 映像層。這樣的好處是當有很多檔案時，磁碟使用空間可以被節省起來。這些共用的映像層會被設為唯讀，以防修改後其他映像檔沒辦法使用。&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;history&lt;/code&gt; 指令，可以看到映像檔的 metadata&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker image &lt;span class="nb"&gt;history&lt;/span&gt; web-ping
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="優化-dockerfile"&gt;優化 Dockerfile
+&lt;/h3&gt;&lt;p&gt;每一個 Dockerfile 的指令，會各自對應到一層映像層。在建置的時候，當修改了一個命令，這個命令以前的都需要重新執行。&lt;/p&gt;
+&lt;p&gt;因此可以使用這個映像層快取的特性來優化，以節省時間。不常改的放前面，常常改的放後面。&lt;/p&gt;
+&lt;p&gt;以剛剛的範例來說，可以優化成如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;diamol/node&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;CMD&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;node&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;/web-ping/app.js&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; &lt;span class="nv"&gt;TARGET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;blog.sixeyed.com&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; &lt;span class="nv"&gt;METHOD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;HEAD&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; &lt;span class="nv"&gt;INTERVAL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;3000&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/web-ping&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;COPY&lt;/span&gt; app.js .&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;這樣一來，假設修改了 &lt;code&gt;app.js&lt;/code&gt; 再重新 build，除了最後一層，其他都會使用快取的方式執行。&lt;/p&gt;
+&lt;h2 id="分散式應用程式"&gt;分散式應用程式
+&lt;/h2&gt;&lt;p&gt;完整的應用程式通常會需要整合多個容器，如網頁服務，後端是一個應用程式、前端是一個、log 也可以是一個獨立的服務，那就會有好幾個容器彼此獨立運作並透過 docker 提供的虛擬網路互相溝通。&lt;/p&gt;
+&lt;h3 id="docker-虛擬網路"&gt;Docker 虛擬網路
+&lt;/h3&gt;&lt;p&gt;docker 在建立容器時會自動分配虛擬 IP 地址。我們可以使用 &lt;code&gt;docker network create nat&lt;/code&gt; 來創造一個虛擬網路，或是在執行容器時使用參數 &lt;code&gt;--network&lt;/code&gt; 將容器連接到虛擬網路，該網路上的任何容器就可以依據容器名稱互相溝通。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker container run --name iotd -d -p 800:80 --network nat image-of-the-day
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;這個指令啟動一個容器並命名為 &lt;code&gt;iotd&lt;/code&gt; 然後於後台持續 (&lt;code&gt;-d&lt;/code&gt;) 執行 &lt;code&gt;image-of-the-day&lt;/code&gt; 這個映像檔。接著把容器的連接埠 80 連接到本機 port 800，把服務連到 docker 提供的虛擬網路 &lt;code&gt;nat&lt;/code&gt; 上，也就是說從本機打開 localhost:800 可以訪問容器的服務。&lt;/p&gt;
+&lt;h2 id="總複習"&gt;總複習
+&lt;/h2&gt;&lt;p&gt;目前學到最基本最基本的指令包含跟容器相關的 &lt;code&gt;docker container&lt;/code&gt;、跟映像檔相關的 &lt;code&gt;docker image&lt;/code&gt;、建置映像檔需要的 &lt;code&gt;docker build&lt;/code&gt;、以及最終在容器執行映像檔的 &lt;code&gt;docker run&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id="lab-4"&gt;lab 4
+&lt;/h3&gt;&lt;p&gt;這個階段要把以下 dockerfile 優化&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;diamol/golang:2e&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/web&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;COPY&lt;/span&gt; index.html .&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;COPY&lt;/span&gt; go.mod main.go /web/&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; go build -o /web/server&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; chmod +x /web/server&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;CMD&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;/web/server&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; &lt;span class="nv"&gt;USER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;sixeyed
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;EXPOSE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;80&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;首先，我們可以先把單一階段分段成&lt;strong&gt;多階段 build&lt;/strong&gt;：此處可以分成 build 跟 run。接著，為了最佳化最終的 image size，我們可以觀察有哪些東西是只在建構階段需要，就可以從 run 階段移除，只保留所需最小環境。這邊有一個小細節，&lt;code&gt;diamol/golang:2e&lt;/code&gt; 就包含了完整 go 的工具庫，當在執行階段時可以改用 &lt;code&gt;diamol/base:2e&lt;/code&gt; 以縮小映像檔尺寸。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c"&gt;# build&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;diamol/golang:2e&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;AS&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;builder&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;COPY&lt;/span&gt; go.mod main.go /go/&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; go build -o /server&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; chmod +x /server&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="c"&gt;# production&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;diamol/base:2e&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;EXPOSE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;80&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;CMD&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;/web/server&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;ENV&lt;/span&gt; &lt;span class="nv"&gt;USER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;sixeyed&amp;#34;&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/web&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;COPY&lt;/span&gt; --from&lt;span class="o"&gt;=&lt;/span&gt;builder /server .&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt;&lt;span class="k"&gt;COPY&lt;/span&gt; index.html .&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;另外， go image 的預設工作目錄是 &lt;code&gt;/go&lt;/code&gt;，也就是說當執行 &lt;code&gt;RUN go build&lt;/code&gt; 時，預設的 WORKDIR=/go/。優化後的文件結構是把需要編譯的檔案複製到 &lt;code&gt;/go/&lt;/code&gt; 目錄下，Go 編譯器就可以找到 go.mod，不需要另外宣告 &lt;code&gt;WORKDIR&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;優化前的映像檔大小約 450 MB&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;miyalee@miyademac-mini lab % docker image ls -f &lt;span class="nv"&gt;reference&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;lab
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;REPOSITORY TAG IMAGE ID CREATED SIZE
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;lab latest a3ad6162d530 &lt;span class="m"&gt;2&lt;/span&gt; minutes ago 453MB
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;優化後縮減至僅剩 35MB !!!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;miyalee@miyademac-mini lab % docker image ls -f &lt;span class="nv"&gt;reference&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;lab
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;REPOSITORY TAG IMAGE ID CREATED SIZE
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;lab latest f50f30c100ec &lt;span class="m"&gt;7&lt;/span&gt; seconds ago 35.2MB
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;我們前面還有提到映像層會快取起來，當有文件修改時，對應到的那一層以及其之後的每一層會重新 build，因此我們會盡可能希望把常常改動的部分放到比較後面的階段。&lt;/p&gt;
+&lt;p&gt;假設對 index.html 有所修改，在初始版本的 dockerfile 中，從 &lt;code&gt;COPY index.html .&lt;/code&gt;開始算共有 7 個步驟被影響，無法使用快取。而後面的優化版本，我們把 &lt;code&gt;COPY index.html .&lt;/code&gt; 放到了最後，因此只有一個步驟需要重新執行。&lt;/p&gt;</description></item><item><title>Docker 101</title><link>https://miyaya.github.io/p/docker-101/</link><pubDate>Mon, 29 Sep 2025 15:36:15 +0200</pubDate><guid>https://miyaya.github.io/p/docker-101/</guid><description>&lt;p&gt;之前的工作有碰過 Kubernetes (k8s)，不過對底層技術與實作並不熟悉，當時有主管帶著我飛因此天不怕地不怕。如今換了工作，目前的公司有超多 legacy code，很多軟硬體都偏老舊，算是我們還在數位轉型的階段，因此 dockerize 技術某種程度上變成了必要條件。在我前一份工作，我就對這個很感興趣，雖然目前不再是 devops，不知道目前的工作會不會有直接派上用場的機會，但總覺得學了準沒錯。&lt;/p&gt;
+&lt;p&gt;因此在最愛的天瓏書店購入了&lt;a class="link" href="https://www.tenlong.com.tw/products/9789863126799" target="_blank" rel="noopener"
+&gt;《跟著 Docker 隊長，修練 22天就精通》&lt;/a&gt;，結果第二章就覺得有點硬 XD 不做筆記的話會忘記。另外一提，作者是 Docker 技術的推廣者之一，還製作了與章節同步的&lt;a class="link" href="https://www.youtube.com/playlist?list=PLXl_isu8qxvmDOAnUkG5x16LzBzGzY_Ww" target="_blank" rel="noopener"
+&gt;教學影片&lt;/a&gt;，真的是佛心來著。（不過天知道我哪天為有閒有情致來看）&lt;/p&gt;
+&lt;h2 id="基本語法"&gt;基本語法
+&lt;/h2&gt;&lt;h3 id="docker-run"&gt;&lt;code&gt;docker run&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;書裡的第一個語法是 &lt;code&gt;docker run diamol/ch02-hello-diamol&lt;/code&gt;，但因為地端沒有這個映像檔，因此會去 &lt;strong&gt;Docker hub&lt;/strong&gt; 下載。這是一個雲端倉庫服務，有點像 git clone 的感覺。&lt;/p&gt;
+&lt;p&gt;而一開始安裝的 Docker desktop 是用來提供本地 docker 環境、執行容器與管理地端映像檔的工具。當第一次執行 &lt;code&gt;docker run&lt;/code&gt; 時，Docker desktop 會自動從 Docker hub 下載 image 檔案到本地，然後再執行容器。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;如果想提供參數，&lt;code&gt;--tty&lt;/code&gt; 或是簡寫 &lt;code&gt;-t&lt;/code&gt;，用來分配一個偽終端機 (pseudo-TTY)，讓容器內的程式認爲他正在跟真實的終端機互動，提供像是彩色字體跟格式化的顯示，也支援互動性。通常會跟 &lt;code&gt;--interactive&lt;/code&gt; 或 &lt;code&gt;-i&lt;/code&gt; 共用，也可以再簡寫為 &lt;code&gt;-it&lt;/code&gt;。想要跳出容器的終端機對話視窗時，只需要按 ctl+D 或是直接輸入指令 &lt;code&gt;exit&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;docker container exec {CONTAINER ID} ...&lt;/code&gt; 也可以進入容器 shell 執行指令&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;最後，可以透過更多參數在容器中執行一個網站&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker container run --detach --publish 8088:80 diamol/ch02-hello-diamol-web
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--detach&lt;/code&gt; 代表在背景啟動容器並顯示容器 ID，所以執行後會看到一串很長的 ID&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--publish 8088:80&lt;/code&gt; 配發值記得網路連接 port 給容器使用，也就是對外的公開 port 是 8088 但容器內部的 port 是 80&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而容器跟實際電腦的 IP 也不一樣，每個容器都有自己專屬的 IP，也就是 docker 裡頭建立的虛擬 IP。電腦的 IP 是在連接 router 時分配到的，而容器的虛擬網路 IP 是 docker 分配的。所以電腦並不能直接連接到容器，而是要透過這個虛擬的 port 把流量轉到容器中。雖然瀏覽器連到的網址 &lt;code&gt;localhost:8088&lt;/code&gt; 是地端電腦提供的，但網站內容是容器提供的，驗證了打包在容器裡的應用程式可以很容易被移植！｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡&lt;/p&gt;
+&lt;h3 id="docker-container-ls"&gt;&lt;code&gt;docker container ls&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;使用這個指令可以看目前哪些容器正在執行，在 docker 指令操作時就是透過這邊的 &lt;code&gt;CONTAINER ID&lt;/code&gt; 來進行辨識。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不過 &lt;code&gt;CONTAINER ID&lt;/code&gt; 不需要全打，只要打部分就可以 (如前面兩個字)。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果想要看完整的容器，包含已經 exited 的，可以加上參數 &lt;code&gt;--all&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="docker-container-top-container-id"&gt;&lt;code&gt;docker container top {CONTAINER ID}&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;印出某個指定容器的 process&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="docker-container-logs-container-id"&gt;&lt;code&gt;docker container logs {CONTAINER ID}&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;docker 會把應用程式的輸出存在 log 檔，這個指令可以把 log 叫出來&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="docker-container-inspect-container-id"&gt;&lt;code&gt;docker container inspect {CONTAINER ID}&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;完整的輸出容器的設定，如系統路徑、執行命令、網路設定等等&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="docker-container-stats-container-id"&gt;&lt;code&gt;docker container stats {CONTAINER ID}&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;即時顯示容器正在使用多少資源，如 CPU、記憶體、網路流量等&lt;/p&gt;
+&lt;p&gt;我不確定怎麼退出，但狂按 ctl+C 就好像蠻有用的 (?)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="刪除容器"&gt;刪除容器
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker container rm --force ${docker container ls --all --quiet}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;這個指令會&lt;strong&gt;強制刪除所有容器，包含正在運行與已經停止的&lt;/strong&gt;。刪除 container 可以透過指令，也可以直接把 docker desktop 退出，就自動會把在 run 的 container 刪掉，但不會刪除映像檔，所以下次回來還是可以再執行，不需要再次下載。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--all&lt;/code&gt; 包含已經停止的&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--quiet&lt;/code&gt; 只顯示容器 ID&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;${}&lt;/code&gt; 將內層指令的輸出作為外層指令的參數，像是算數裡小括號的概念&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--force&lt;/code&gt; 強制刪除，不管容器有沒有在執行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以大括號裡會輸出一堆 ID，然後外部指令就會將這些容器一一刪除！！因為 rm 這個指令通常蠻危險的，因此有比較安全的版本 &lt;code&gt;docker container prune&lt;/code&gt; 只刪除已經停止的容器。&lt;/p&gt;
+&lt;h2 id="docker-engine"&gt;Docker Engine
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Docker engine&lt;/strong&gt; 是 Docker 的核心引擎 (daemon)，他負責實際的執行容器、管理映像檔、運行背景程式，並透過 API 進行互動。&lt;/p&gt;
+&lt;p&gt;最一開始下載的 &lt;strong&gt;Docker Desktop&lt;/strong&gt; 是桌機的應用程式，包含一些圖形化介面，當然他內建了 docker engine 還有 &lt;strong&gt;docker cli&lt;/strong&gt;。其他的 GUI 還有像是 &lt;strong&gt;docker UCP&lt;/strong&gt; 以及 &lt;strong&gt;Portainer&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;前面提到的 &lt;strong&gt;Docker hub&lt;/strong&gt; 則跟本地 docker 沒有直接的關係，但是可以透過 CLI → API 在這邊分享或下載映像檔。&lt;/p&gt;
+&lt;h2 id="lab"&gt;Lab
+&lt;/h2&gt;&lt;p&gt;蠻神奇的，docker 可以在 run 的時候在裡面換檔案，我猜應該還是有 build，但因為檔案很小，看不出來這個時間差是不是。&lt;/p&gt;
+&lt;p&gt;主要想考的是書上沒提到的指令，可以透過 &lt;code&gt;--help&lt;/code&gt; 去看細節，可以得知從本機複製檔案到容器的語法是 &lt;code&gt;docker container cp &amp;lt;本機路徑&amp;gt; &amp;lt;容器ID&amp;gt;:&amp;lt;容器內路徑&amp;gt;&lt;/code&gt;，反之亦然。舉例來說，把資料複製到地端目前位置&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker container cp fe8:/usr/local/apache2/htdocs/index.html .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;也可以複製整個資料夾，如&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker container cp fe8:/usr/local/apache2/htdocs/ ./htdocs/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>

@@ -1,0 +1,354 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="NeetCode 250 上次找實習的時候因為覺得時間沒有很夠，所以刷了 Blind 75 就上戰場了 XD 不過事實證明只要有運氣，刷題可能不是那麼重要(並不是)\n這次因為不想經歷刷題的時候很痛苦的過程，想要尋找一種輕鬆刷題的途徑，覺得 NeetCode 250 好像是一個很不錯的組合！由 NeetCode 150 + 100 題 easy / medium 組成，我覺得更能幫助在練習的過程中訓練信心 XDD\n沿著 roadmap 慢慢寫，今天來到了 backtracking，算是為 graph 與 dp 做第一步的準備。\nBacktracking 終極模版 backtracking 因為是某種程度的暴力解法（就真的需要遍歷），所以相對來說寫法跟演算法都蠻單純的，只需要注意終端條件與一些小細節，如排序後可以提早跳出迴圈等優化。\n1 2 3 4 5 6 7 8 backtrack(參數) { if 終止條件 { 保存結果; return } for 選擇 in 選擇列表 { 做選擇 backtrack(新參數) 撤銷選擇 } } 組合 Combination 模板 以 1863. Sum of All Subset XOR Totals 來看，每個元素有 2 種選擇（拿或不拿），當我 index 指標走到最後一個的時候代表比完了，可以把數字加總起來。\n"><title>NeetCode250 進度20% - Backtracking 與排列組合</title><link rel=canonical href=https://miyaya.github.io/p/neetcode250-%E9%80%B2%E5%BA%A620-backtracking-%E8%88%87%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88/><link rel=stylesheet href=/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css><meta property='og:title' content="NeetCode250 進度20% - Backtracking 與排列組合"><meta property='og:description' content="NeetCode 250 上次找實習的時候因為覺得時間沒有很夠，所以刷了 Blind 75 就上戰場了 XD 不過事實證明只要有運氣，刷題可能不是那麼重要(並不是)\n這次因為不想經歷刷題的時候很痛苦的過程，想要尋找一種輕鬆刷題的途徑，覺得 NeetCode 250 好像是一個很不錯的組合！由 NeetCode 150 + 100 題 easy / medium 組成，我覺得更能幫助在練習的過程中訓練信心 XDD\n沿著 roadmap 慢慢寫，今天來到了 backtracking，算是為 graph 與 dp 做第一步的準備。\nBacktracking 終極模版 backtracking 因為是某種程度的暴力解法（就真的需要遍歷），所以相對來說寫法跟演算法都蠻單純的，只需要注意終端條件與一些小細節，如排序後可以提早跳出迴圈等優化。\n1 2 3 4 5 6 7 8 backtrack(參數) { if 終止條件 { 保存結果; return } for 選擇 in 選擇列表 { 做選擇 backtrack(新參數) 撤銷選擇 } } 組合 Combination 模板 以 1863. Sum of All Subset XOR Totals 來看，每個元素有 2 種選擇（拿或不拿），當我 index 指標走到最後一個的時候代表比完了，可以把數字加總起來。\n"><meta property='og:url' content='https://miyaya.github.io/p/neetcode250-%E9%80%B2%E5%BA%A620-backtracking-%E8%88%87%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88/'><meta property='og:site_name' content="Miya's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='LeetCode'><meta property='article:tag' content='DSA'><meta property='article:tag' content='Golang'><meta property='article:tag' content='Backtracking'><meta property='article:tag' content='Combination'><meta property='article:tag' content='Permutation'><meta property='article:tag' content='NeetCode'><meta property='article:published_time' content='2025-10-15T01:37:55+02:00'><meta property='article:modified_time' content='2025-10-15T01:37:55+02:00'><meta name=twitter:title content="NeetCode250 進度20% - Backtracking 與排列組合"><meta name=twitter:description content="NeetCode 250 上次找實習的時候因為覺得時間沒有很夠，所以刷了 Blind 75 就上戰場了 XD 不過事實證明只要有運氣，刷題可能不是那麼重要(並不是)\n這次因為不想經歷刷題的時候很痛苦的過程，想要尋找一種輕鬆刷題的途徑，覺得 NeetCode 250 好像是一個很不錯的組合！由 NeetCode 150 + 100 題 easy / medium 組成，我覺得更能幫助在練習的過程中訓練信心 XDD\n沿著 roadmap 慢慢寫，今天來到了 backtracking，算是為 graph 與 dp 做第一步的準備。\nBacktracking 終極模版 backtracking 因為是某種程度的暴力解法（就真的需要遍歷），所以相對來說寫法跟演算法都蠻單純的，只需要注意終端條件與一些小細節，如排序後可以提早跳出迴圈等優化。\n1 2 3 4 5 6 7 8 backtrack(參數) { if 終止條件 { 保存結果; return } for 選擇 in 選擇列表 { 做選擇 backtrack(新參數) 撤銷選擇 } } 組合 Combination 模板 以 1863. Sum of All Subset XOR Totals 來看，每個元素有 2 種選擇（拿或不拿），當我 index 指標走到最後一個的時候代表比完了，可以把數字加總起來。\n"><link rel="shortcut icon" href=/favicon.ico><script async src="https://www.googletagmanager.com/gtag/js?id=G-RE4FVE8S2J"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-RE4FVE8S2J")}</script></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切換選單>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_f02a1ccfbec869ae.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🌯</span></figure><div class=site-meta><h1 class=site-name><a href=/>Miya's Blog</a></h1><h2 class=site-description></h2></div></header><ol class=menu-social><li><a href=https://github.com/Miyaya target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://www.instagram.com/miyaya.journal/ target=_blank title=Instagram rel=me><svg class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3"/><line x1="16.5" y1="7.5" x2="16.5" y2="7.501"/></svg></a></li><li><a href=https://www.linkedin.com/in/yi-hsuan-lee-9bb570132/ target=_blank title=LinkedIn rel=me><svg class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M16 16v-3a2 2 0 00-4 0"/></svg></a></li><li><a href=https://miya850604.medium.com/ target=_blank title=Medium rel=me><svg class="icon icon-tabler icon-tabler-brand-medium" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h1l3 3 3-3h1"/><line x1="8" y1="15" x2="10" y2="15"/><line x1="14" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9" y2="15"/><line x1="15" y1="9" x2="15" y2="15"/></svg></a></li><li><a href=https://www.youtube.com/channel/UCjCgzu6YRe8LJiPBkbRkVAg target=_blank title=YouTube rel=me><svg class="icon icon-tabler icon-tabler-brand-youtube" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>夜晚模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目錄</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#neetcode-250>NeetCode 250</a></li><li><a href=#backtracking-終極模版>Backtracking 終極模版</a></li><li><a href=#組合-combination>組合 Combination</a><ol><li><a href=#模板>模板</a></li><li><a href=#複雜度分析>複雜度分析</a></li><li><a href=#去重>去重</a></li></ol></li><li><a href=#排列-permutation>排列 Permutation</a><ol><li><a href=#模板-1>模板</a></li><li><a href=#複雜度分析-1>複雜度分析</a></li><li><a href=#進階版-含重複元素的排列>進階版: 含重複元素的排列</a></li></ol></li><li><a href=#結語---排列-vs-組合>結語 - 排列 vs 組合</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/dev/ style=background-color:#2a9d8f;color:#fff>程式技術</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/neetcode250-%E9%80%B2%E5%BA%A620-backtracking-%E8%88%87%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88/>NeetCode250 進度20% - Backtracking 與排列組合</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Oct 15, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>閱讀時間: 4 分鐘</time></div></footer></div></header><section class=article-content><h2 id=neetcode-250>NeetCode 250</h2><p>上次找實習的時候因為覺得時間沒有很夠，所以刷了 <code>Blind 75</code> 就上戰場了 XD <del>不過事實證明只要有運氣，刷題可能不是那麼重要</del>(並不是)</p><p>這次因為不想經歷刷題的時候很痛苦的過程，想要尋找一種<strong>輕鬆刷題的途徑</strong>，覺得 NeetCode 250 好像是一個很不錯的組合！由 NeetCode 150 + 100 題 easy / medium 組成，我覺得更能幫助在練習的過程中訓練信心 XDD</p><p><img src=/p/neetcode250-%E9%80%B2%E5%BA%A620-backtracking-%E8%88%87%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88/img/image.png width=2024 height=1704 srcset="/p/neetcode250-%E9%80%B2%E5%BA%A620-backtracking-%E8%88%87%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88/img/image_hu_7b9e3b3defb433a0.png 480w, /p/neetcode250-%E9%80%B2%E5%BA%A620-backtracking-%E8%88%87%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88/img/image_hu_cd6a0c11f38bf71c.png 1024w" loading=lazy alt=neetcode.io/roadmap class=gallery-image data-flex-grow=118 data-flex-basis=285px>
+沿著 roadmap 慢慢寫，今天來到了 backtracking，算是為 graph 與 dp 做第一步的準備。</p><h2 id=backtracking-終極模版>Backtracking 終極模版</h2><p>backtracking 因為是某種程度的暴力解法（就真的需要遍歷），所以相對來說寫法跟演算法都蠻單純的，只需要注意終端條件與一些小細節，如排序後可以提早跳出迴圈等優化。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nf>backtrack</span><span class=p>(</span><span class=nx>參數</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nx>終止條件</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=nx>保存結果</span><span class=p>;</span><span class=w> </span><span class=k>return</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>選擇</span><span class=w> </span><span class=nx>in</span><span class=w> </span><span class=nx>選擇列表</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>做選擇</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nf>backtrack</span><span class=p>(</span><span class=nx>新參數</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>撤銷選擇</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=組合-combination>組合 Combination</h2><h3 id=模板>模板</h3><p>以 <a class=link href=https://leetcode.com/problems/sum-of-all-subset-xor-totals target=_blank rel=noopener>1863. Sum of All Subset XOR Totals</a> 來看，每個元素有 2 種選擇（拿或不拿），當我 <code>index</code> 指標走到最後一個的時候代表比完了，可以把數字加總起來。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>var</span><span class=w> </span><span class=nx>backtrack</span><span class=w> </span><span class=kd>func</span><span class=p>(</span><span class=nx>index</span><span class=w> </span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nx>currentXOR</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nx>backtrack</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=kd>func</span><span class=p>(</span><span class=nx>index</span><span class=w> </span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nx>currentXOR</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// 遞迴結束條件</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nx>index</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>nums</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>totalSum</span><span class=w> </span><span class=o>+=</span><span class=w> </span><span class=nx>currentXOR</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// 不選當前元素</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nf>backtrack</span><span class=p>(</span><span class=nx>index</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=nx>currentXOR</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// 選擇當前元素</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nf>backtrack</span><span class=p>(</span><span class=nx>index</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=nx>currentXOR</span><span class=w> </span><span class=p>^</span><span class=w> </span><span class=nx>nums</span><span class=p>[</span><span class=nx>index</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=複雜度分析>複雜度分析</h3><p><strong>時間複雜度: O(2^n)</strong> 因為前面提到每個元素有拿或不拿，且進行 XOR 計算的複雜度為 O(1)。
+<strong>空間複雜度: O(n)</strong> 因為遞迴迭代的 stack 深度為 N。</p><h3 id=去重>去重</h3><p>如 <a class=link href=https://leetcode.com/problems/combination-sum-ii/ target=_blank rel=noopener>40. Combination Sum II</a> 中的測資 <code>candidates = [2,5,2,1,2], target = 5</code>。</p><p>首先我們先排序，那 <code>candidates = [1,2,2,2,5]</code>，如果沒有去重的話，最後的結果會變成</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>result = [
+</span></span><span class=line><span class=cl>    [5],      // ✓ 正確
+</span></span><span class=line><span class=cl>    [1,2,2],  // ✓ 正確
+</span></span><span class=line><span class=cl>    [1,2,2],  // ❌ 重複! (來自索引 0,1,2)
+</span></span><span class=line><span class=cl>    [1,2,2],  // ❌ 重複! (來自索引 0,1,3)
+</span></span><span class=line><span class=cl>    [2,2,2],  // ❌ 錯誤! sum=6 &gt; 5
+</span></span><span class=line><span class=cl>]
+</span></span></code></pre></td></tr></table></div></div><p>當我們在元素有重複的情況下，會需要加上這一段程式碼去重：避免如果把當前的 2 拿來用，且前一個元素也是 2 而發生重複的情況</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=k>if</span><span class=w> </span><span class=nx>j</span><span class=w> </span><span class=p>&gt;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>&amp;&amp;</span><span class=w> </span><span class=nx>candidates</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=nx>candidates</span><span class=p>[</span><span class=nx>j</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>continue</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><blockquote><p>注意這邊的<strong>跳過</strong>，是指「只跳過同一層的重複」！</p><p>「不同層」使用相同數字，依然是合法的！</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>                          [] (start=0, sum=0)
+</span></span><span class=line><span class=cl>                          |
+</span></span><span class=line><span class=cl>        ┌─────────────────┼─────────────────┬─────────┐
+</span></span><span class=line><span class=cl>        ↓                 ↓                 ↓         ↓
+</span></span><span class=line><span class=cl>      [1]               [2]              [2]跳過    [2]跳過   [5]
+</span></span><span class=line><span class=cl>   (start=1)         (start=2)          (j=2)      (j=3)   (start=5)
+</span></span><span class=line><span class=cl>    sum=1             sum=2              ↑          ↑       sum=5 ✓
+</span></span><span class=line><span class=cl>        |                 |              |          |
+</span></span><span class=line><span class=cl>        |                 |          因為 j &gt; start(0)
+</span></span><span class=line><span class=cl>        |                 |          且 [2]==[1]? No
+</span></span><span class=line><span class=cl>        |                 |          且 [2]==[2]? Yes! 跳過
+</span></span><span class=line><span class=cl>    ┌───┼───┬───┐     ┌───┼───┬───┐
+</span></span><span class=line><span class=cl>    ↓   ↓   ↓   ↓     ↓   ↓   ↓   ↓
+</span></span><span class=line><span class=cl>  [1,2][1,2][1,2][1,5][2,2][2,2][2,5]
+</span></span><span class=line><span class=cl>       跳過  跳過          跳過
+</span></span><span class=line><span class=cl>   s=3  (j&gt;2)(j&gt;2) s=6  s=4  (j&gt;3) s=7
+</span></span><span class=line><span class=cl>   i=2  且==[2] 且==[2]   i=3   且==[2]
+</span></span><span class=line><span class=cl>    |                      |
+</span></span><span class=line><span class=cl>    ↓                      ↓
+</span></span><span class=line><span class=cl> [1,2,2]                [2,2,2]
+</span></span><span class=line><span class=cl>  s=4                    s=6
+</span></span><span class=line><span class=cl>  i=3                   (超過target)
+</span></span><span class=line><span class=cl>   |
+</span></span><span class=line><span class=cl>   ↓
+</span></span><span class=line><span class=cl>[1,2,2,2] 跳過 [1,2,2,5]
+</span></span><span class=line><span class=cl>  s=6              s=9
+</span></span><span class=line><span class=cl> (超過)           (超過)
+</span></span></code></pre></td></tr></table></div></div><h2 id=排列-permutation>排列 Permutation</h2><p>在排列問題中，通常會需要遍歷所有的可能性，透過 backtracking implement 以下的流程，可以系統性地探索所有可能性：</p><ol><li>選擇 (Choose): 做出一個選擇</li><li>探索 (Explore): 遞歸探索該選擇的後果</li><li>撤銷 (Unchoose): 撤銷選擇,嘗試其他可能性</li></ol><p>以 <code>[1,2,3]</code> 這個簡單的例子來說，就會是這樣的流程</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>選擇 1 → path = [1]
+</span></span><span class=line><span class=cl>選擇 2 → path = [1, 2]
+</span></span><span class=line><span class=cl>選擇 3 → path = [1, 2, 3] ✓ 找到一個排列!
+</span></span><span class=line><span class=cl>回溯: 撤銷 3 → path = [1, 2]
+</span></span><span class=line><span class=cl>沒有更多選擇,回溯: 撤銷 2 → path = [1]
+</span></span><span class=line><span class=cl>選擇 3 → path = [1, 3]
+</span></span><span class=line><span class=cl>選擇 2 → path = [1, 3, 2] ✓ 找到一個排列!
+</span></span><span class=line><span class=cl>... 繼續直到所有分支探索完畢
+</span></span></code></pre></td></tr></table></div></div><h3 id=模板-1>模板</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>backtrack</span><span class=p>(</span><span class=nx>nums</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nx>path</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nx>used</span><span class=w> </span><span class=p>[]</span><span class=kt>bool</span><span class=p>,</span><span class=w> </span><span class=nx>result</span><span class=w> </span><span class=o>*</span><span class=p>[][]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Base Case: 當路徑長度等於原數組長度時,找到一個完整排列</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>path</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>nums</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>// 重要!必須創建新切片,否則後續修改會影響已保存的結果</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>temp</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>([]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>path</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nb>copy</span><span class=p>(</span><span class=nx>temp</span><span class=p>,</span><span class=w> </span><span class=nx>path</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=o>*</span><span class=nx>result</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=o>*</span><span class=nx>result</span><span class=p>,</span><span class=w> </span><span class=nx>temp</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// 遞迴情況: 嘗試每一個未使用的數字</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>nums</span><span class=p>);</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=nx>used</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>continue</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>// 1. 做選擇 (Choose)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>path</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=nx>path</span><span class=p>,</span><span class=w> </span><span class=nx>nums</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>used</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>// 2. 遞歸探索 (Explore)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nf>backtrack</span><span class=p>(</span><span class=nx>nums</span><span class=p>,</span><span class=w> </span><span class=nx>path</span><span class=p>,</span><span class=w> </span><span class=nx>used</span><span class=p>,</span><span class=w> </span><span class=nx>result</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=c1>// 3. 撤銷選擇 (Unchoose) - 回溯的關鍵步驟!</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>path</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>path</span><span class=p>[:</span><span class=nb>len</span><span class=p>(</span><span class=nx>path</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>used</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=複雜度分析-1>複雜度分析</h3><p><strong>時間複雜度: O(n! × n)</strong></p><ul><li><code>n!</code> 種排列組合 (n 個元素的全排列數)</li><li>每個排列需要 <code>O(n)</code> 時間複製到結果中</li></ul><p><strong>空間複雜度: O(n)</strong></p><ul><li>遞迴調用棧深度: O(n)</li><li><code>path</code> 數組: O(n)</li><li><code>used</code> 數組: O(n)</li></ul><h3 id=進階版-含重複元素的排列>進階版: 含重複元素的排列</h3><p>這個版本中，最重要的邏輯是要避免重複排列，而去重邏輯依賴於相鄰重複元素，所以首先要先排序，之後遞迴的時候才能正確識別和跳過重複元素。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>                 []
+</span></span><span class=line><span class=cl>        ┌────────┼────────┐
+</span></span><span class=line><span class=cl>       1₁       1₂(跳過)   2
+</span></span><span class=line><span class=cl>     ┌──┴──┐               │
+</span></span><span class=line><span class=cl>    1₂    2              1₁,1₂
+</span></span><span class=line><span class=cl>    │     │              ┌─┴─┐
+</span></span><span class=line><span class=cl>  1₂,2  1₁,1₂          1,1,2  1,2,1
+</span></span><span class=line><span class=cl>    │     │                    (跳過)
+</span></span><span class=line><span class=cl> [1,1,2] [1,2,1]              [2,1,1]
+</span></span></code></pre></td></tr></table></div></div><p>以上面的例子來看的話，1₂ 在同層出現時，1₁ 還沒被使用(used[0]=false)的話則跳過 1₂，就可以避免有重複的 <code>[1,1,2]</code>, <code>[1,2,1]</code> 結果。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// 如果當前元素與前一個元素相同,且前一個元素未被使用,則跳過</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// 這確保相同元素按順序使用,避免重複排列</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>if</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&gt;</span><span class=w> </span><span class=mi>0</span><span class=w> </span><span class=o>&amp;&amp;</span><span class=w> </span><span class=nx>nums</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=nx>nums</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=w> </span><span class=o>&amp;&amp;</span><span class=w> </span><span class=p>!</span><span class=nx>used</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>continue</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=結語---排列-vs-組合>結語 - 排列 vs 組合</h2><p>跟 combination 相比，因為 permutation 不是線性的遍歷，因此需要去記得是否該元素有被使用過 <code>used</code>。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// 排列問題需要遍歷所有的順序，因此不能限定單一的線性方向</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>permuteCorrect</span><span class=p>(</span><span class=nx>nums</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>[][]</span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>result</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[][]</span><span class=kt>int</span><span class=p>{}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>path</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>{}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>used</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>([]</span><span class=kt>bool</span><span class=p>,</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>nums</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>var</span><span class=w> </span><span class=nx>backtrack</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>backtrack</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>path</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>nums</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>temp</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>([]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>path</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nb>copy</span><span class=p>(</span><span class=nx>temp</span><span class=p>,</span><span class=w> </span><span class=nx>path</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>result</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=nx>result</span><span class=p>,</span><span class=w> </span><span class=nx>temp</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>return</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>nums</span><span class=p>);</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>  </span><span class=c1>// ✅ 從 0 開始!</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>if</span><span class=w> </span><span class=nx>used</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=k>continue</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>path</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=nx>path</span><span class=p>,</span><span class=w> </span><span class=nx>nums</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>used</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nf>backtrack</span><span class=p>()</span><span class=w>  </span><span class=c1>// ✅ 不傳 start!</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>path</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>path</span><span class=p>[:</span><span class=nb>len</span><span class=p>(</span><span class=nx>path</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>used</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nf>backtrack</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>result</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// 組合問題就可以用 start 把搜尋範圍限定在當前元素之後，去避免會有重複的可能性</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>combine</span><span class=p>(</span><span class=nx>nums</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nx>k</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>[][]</span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>result</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[][]</span><span class=kt>int</span><span class=p>{}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>path</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>{}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>var</span><span class=w> </span><span class=nx>backtrack</span><span class=w> </span><span class=kd>func</span><span class=p>(</span><span class=nx>start</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>backtrack</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=kd>func</span><span class=p>(</span><span class=nx>start</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>path</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=nx>k</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>temp</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>([]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>path</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nb>copy</span><span class=p>(</span><span class=nx>temp</span><span class=p>,</span><span class=w> </span><span class=nx>path</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>result</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=nx>result</span><span class=p>,</span><span class=w> </span><span class=nx>temp</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>return</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>start</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>nums</span><span class=p>);</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>  </span><span class=c1>// ✅ 組合可以用 start!</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>path</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=nx>path</span><span class=p>,</span><span class=w> </span><span class=nx>nums</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nf>backtrack</span><span class=p>(</span><span class=nx>i</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=mi>1</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>path</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>path</span><span class=p>[:</span><span class=nb>len</span><span class=p>(</span><span class=nx>path</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nf>backtrack</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>result</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/leetcode/>LeetCode</a>
+<a href=/tags/dsa/>DSA</a>
+<a href=/tags/golang/>Golang</a>
+<a href=/tags/backtracking/>Backtracking</a>
+<a href=/tags/combination/>Combination</a>
+<a href=/tags/permutation/>Permutation</a>
+<a href=/tags/neetcode/>NeetCode</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相關文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/dp-%E8%88%87%E7%8B%80%E6%85%8B%E8%BD%89%E7%A7%BB/><div class=article-details><h2 class=article-title>DP 與狀態轉移</h2></div></a></article><article><a href=/p/%E5%B1%85%E7%84%B6%E5%8F%88%E9%96%8B%E5%A7%8B%E5%88%B7-leetcode-binary-search/><div class=article-details><h2 class=article-title>居然又開始刷 LeetCode - Binary search</h2></div></a></article><article><a href=/p/docker-%E6%98%A0%E5%83%8F%E6%AA%94/><div class=article-details><h2 class=article-title>Docker 映像檔</h2></div></a></article><article><a href=/p/docker-101/><div class=article-details><h2 class=article-title>Docker 101</h2></div></a></article><article class=has-image><a href=/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/><div class=article-image><img src=/p/react-hook-%E4%BB%8B%E7%B4%B9%E9%80%8F%E9%81%8E%E8%B8%A9%E5%9C%B0%E9%9B%B7%E5%B0%88%E6%A1%88%E5%AD%B8-react/1.47dbd48dde8566197e3aabfa31bb3373_hu_53889b2dc5b7218.jpg width=250 height=150 loading=lazy alt="Featured image of post React Hook 介紹——透過踩地雷專案學 React" data-hash="md5-R9vUjd6FZhl+Oqv6Mbszcw=="></div><div class=article-details><h2 class=article-title>React Hook 介紹——透過踩地雷專案學 React</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//yhlyher.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2022 -
+2025 Miya's Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 建立<br>主題 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 設計</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
