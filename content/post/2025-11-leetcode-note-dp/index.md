@@ -13,8 +13,9 @@ tags:
     - DSA
     - Golang
     - Dynamic Programming
+    - NeetCode
 categories:
-    - dev
+    - leetcode
 ---
 
 因為 DP 是面試常遇到的問題，此文會從 DP 演算法的演化開始解釋，並說明如何優化時間與空間複雜度，最後以如何識別題型、尋找 DP 關注點、程式模板結尾。

@@ -1,6 +1,6 @@
 ---
 title: 程式技術
-description: 刷 Leet Code
+description:
 image: 
 style:
     background: "#2a9d8f"

@@ -16,7 +16,7 @@ tags:
     - Permutation
     - NeetCode
 categories:
-    - dev
+    - leetcode
 ---
 
 ## NeetCode 250

@@ -14,7 +14,7 @@ tags:
     - Anthropic Claude
     - Binary Search
 categories:
-    - dev
+    - leetcode
 ---
 
 身為一個工程師，總覺得必須得時時更新自己的硬實力，沒寫點程式就覺得好像腦袋要長蜘蛛網了。 ~~也不排除是工作上的程式偏不好玩。~~ 總之，最近又開始刷題了。
