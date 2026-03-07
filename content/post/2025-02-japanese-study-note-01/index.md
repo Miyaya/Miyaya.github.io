@@ -11,7 +11,7 @@ draft: false
 tags:
     - 日本語
 categories:
-    - 日文筆記
+    - japanese-learning
 ---
 
 ## 契機

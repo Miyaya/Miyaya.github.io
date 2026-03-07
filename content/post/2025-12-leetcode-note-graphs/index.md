@@ -1,6 +1,6 @@
 ---
 title: "圖論 101"
-description: 
+description: 圖的定義、環的檢驗、相鄰點的表示法
 date: 2025-12-03T21:51:43+01:00
 image:
 math: true
